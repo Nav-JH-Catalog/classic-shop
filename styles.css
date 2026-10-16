@@ -80,8 +80,11 @@ h1 { font-size: clamp(48px, 6.2vw, 96px); line-height: .98; letter-spacing: -.03
 .product-info p { margin: 0; color: var(--muted); font-size: 13px; }
 .product-action { flex: 0 0 auto; align-self: start; padding-bottom: 3px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 600; }
 
-.story { display: grid; grid-template-columns: .4fr 1fr; gap: 50px; padding: 130px 10vw; color: #eeeae2; background: var(--accent); }
-.story p:last-child { max-width: 680px; margin: 30px 0 0; color: #cbd5cf; font-size: 18px; line-height: 1.8; }
+.story { position: relative; display: grid; grid-template-columns: .4fr 1fr; gap: 50px; padding: 130px 10vw; color: #eeeae2; background: var(--accent); overflow: hidden; }
+.story::after { content: "CS"; position: absolute; right: -24px; bottom: -70px; color: rgba(255,255,255,.045); font-family: "Playfair Display", serif; font-size: clamp(180px, 28vw, 430px); line-height: .8; }
+.story-copy { position: relative; z-index: 1; }
+.story-copy > p { max-width: 700px; margin: 30px 0 36px; color: #cbd5cf; font-size: 18px; line-height: 1.8; }
+.story-note { display: inline-block; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.35); color: #eeeae2; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
 .contact { padding: 140px 20px; text-align: center; }
 .contact > p:not(.eyebrow) { max-width: 580px; margin: 28px auto 34px; color: var(--muted); line-height: 1.7; }
 .primary-button { display: inline-block; padding: 16px 24px; color: white; background: var(--ink); }
