@@ -18,7 +18,7 @@ function renderProducts(filter = "Todos") {
     <article class="product-card">
       <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}">
         ${product.image ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` : `<span class="demo-tag">Sin fotografía</span>`}
-        ${product.status === "Agotado" ? `<span class="status-tag">Agotado</span>` : ""}
+        <span class="status-tag ${product.status === "Agotado" ? "is-sold-out" : "is-available"}"><span aria-hidden="true"></span>${product.status || "Disponible"}</span>
       </div>
       <div class="product-info">
         <div>
