@@ -12,13 +12,13 @@ function whatsappUrl(message) {
 function renderProducts(filter = "Todos") {
   const items = (filter === "Todos"
     ? products
-    : products.filter(product => product.category === filter))
-    .filter(product => product.available !== false);
+    : products.filter(product => product.category === filter));
 
   grid.innerHTML = items.map(product => `
     <article class="product-card">
       <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}">
         ${product.image ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` : `<span class="demo-tag">Sin fotografía</span>`}
+        ${product.status === "Agotado" ? `<span class="status-tag">Agotado</span>` : ""}
       </div>
       <div class="product-info">
         <div>
@@ -26,7 +26,9 @@ function renderProducts(filter = "Todos") {
           <p>${product.category} · ${product.price}</p>
           ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         </div>
-        <a class="product-action" href="${whatsappUrl(`Hola, me interesa ${product.name}. ¿Podrías darme más información?`)}" target="_blank" rel="noopener">Consultar</a>
+        ${product.status === "Agotado"
+          ? `<span class="product-action sold-out" aria-label="Producto agotado">Agotado</span>`
+          : `<a class="product-action" href="${whatsappUrl(`Hola, me interesa ${product.name}. ¿Podrías darme más información?`)}" target="_blank" rel="noopener">Consultar</a>`}
       </div>
     </article>
   `).join("");

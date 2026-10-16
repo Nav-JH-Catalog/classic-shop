@@ -6,7 +6,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#ddd5c6"
   },
   {
@@ -16,7 +16,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#c8c1b6"
   },
   {
@@ -26,7 +26,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#d8c1ad"
   },
   {
@@ -36,7 +36,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#bfc8bf"
   },
   {
@@ -46,7 +46,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#dedbd2"
   },
   {
@@ -56,7 +56,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#c9b8ac"
   },
   {
@@ -66,7 +66,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#d4c7bf"
   },
   {
@@ -76,7 +76,7 @@
     "price": "₡ —",
     "description": "Producto de demostración. Sustituye este texto desde el administrador.",
     "image": "",
-    "available": true,
+    "status": "Disponible",
     "color": "#c5cbc3"
   }
 ]

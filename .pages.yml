@@ -53,10 +53,12 @@ content:
         options:
           extensions: [jpg, jpeg, png, webp]
           rename: safe
-      - name: available
-        label: Disponible
-        type: boolean
+      - name: status
+        label: Estado del producto
+        type: select
         required: true
+        options:
+          values: [Disponible, Agotado]
       - name: color
         label: Color de respaldo
         type: string
