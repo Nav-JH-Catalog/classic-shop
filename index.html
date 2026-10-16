@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo en línea con consultas directas por WhatsApp.">
+  <title>Classic Shop — Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">CLASSIC SHOP</a>
+    <nav aria-label="Navegación principal">
+      <a href="#coleccion">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="menu-button" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">Nueva colección</p>
+        <h1>Objetos simples,<br>elegidos con intención.</h1>
+        <p class="intro">Una selección cuidada de piezas esenciales para todos los días. Consulta disponibilidad y detalles directamente por WhatsApp.</p>
+        <a class="text-link" href="#coleccion">Ver colección <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="Composición abstracta de la colección">
+        <span class="shape shape-one"></span>
+        <span class="shape shape-two"></span>
+        <span class="shape shape-three"></span>
+        <p>Edición<br>01—26</p>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="coleccion">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Catálogo</p>
+          <h2>La colección</h2>
+        </div>
+        <div class="filters" aria-label="Filtrar productos">
+          <button class="filter active" data-filter="Todos">Todos</button>
+          <button class="filter" data-filter="Hogar">Hogar</button>
+          <button class="filter" data-filter="Accesorios">Accesorios</button>
+        </div>
+      </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="story" id="nosotros">
+      <p class="eyebrow">Nuestra mirada</p>
+      <div>
+        <h2>Menos, pero mejor.</h2>
+        <p>Creemos en los objetos que se integran a la vida con naturalidad: líneas limpias, materiales honestos y una estética que permanece.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <p class="eyebrow">Atención personal</p>
+      <h2>¿Te interesa una pieza?</h2>
+      <p>Escríbenos para confirmar disponibilidad, formas de entrega y resolver cualquier consulta.</p>
+      <a class="primary-button whatsapp-general" href="#" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#inicio">CLASSIC SHOP</a>
+    <p>Catálogo independiente · Costa Rica</p>
+    <p id="copyright"></p>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
