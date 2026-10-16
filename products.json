@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lentes-clasicos",
+    "name": "Lentes Clásicos",
+    "category": "Lentes",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#ddd5c6"
+  },
+  {
+    "id": "lentes-urbanos",
+    "name": "Lentes Urbanos",
+    "category": "Lentes",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#c8c1b6"
+  },
+  {
+    "id": "conjunto-infantil",
+    "name": "Conjunto Infantil",
+    "category": "Niños",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#d8c1ad"
+  },
+  {
+    "id": "camisa-infantil",
+    "name": "Camisa Infantil",
+    "category": "Niños",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#bfc8bf"
+  },
+  {
+    "id": "camisa-esencial",
+    "name": "Camisa Esencial",
+    "category": "Hombre",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#dedbd2"
+  },
+  {
+    "id": "pantalon-clasico",
+    "name": "Pantalón Clásico",
+    "category": "Hombre",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#c9b8ac"
+  },
+  {
+    "id": "blusa-atemporal",
+    "name": "Blusa Atemporal",
+    "category": "Mujer",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#d4c7bf"
+  },
+  {
+    "id": "vestido-esencial",
+    "name": "Vestido Esencial",
+    "category": "Mujer",
+    "price": "₡ —",
+    "description": "Producto de demostración. Sustituye este texto desde el administrador.",
+    "image": "",
+    "available": true,
+    "color": "#c5cbc3"
+  }
+]

@@ -1,0 +1,69 @@
+media:
+  input: images/products
+  output: /classic-shop/images/products
+  categories: [image]
+  rename: safe
+
+content:
+  - name: products
+    label: Productos de Classic Shop
+    type: file
+    path: products.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Identificador
+        type: string
+        required: true
+        description: Usa letras minúsculas y guiones, por ejemplo vestido-negro.
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: Usa únicamente letras minúsculas, números y guiones.
+      - name: name
+        label: Nombre del producto
+        type: string
+        required: true
+      - name: category
+        label: Categoría
+        type: select
+        required: true
+        options:
+          values:
+            - Lentes
+            - name: Niños
+              label: Ropa de niño
+            - Hombre
+            - Mujer
+      - name: price
+        label: Precio
+        type: string
+        required: true
+        description: Incluye la moneda, por ejemplo ₡18 500.
+      - name: description
+        label: Descripción
+        type: text
+        required: true
+        options:
+          minlength: 10
+          maxlength: 300
+      - name: image
+        label: Fotografía
+        type: image
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+      - name: available
+        label: Disponible
+        type: boolean
+        required: true
+      - name: color
+        label: Color de respaldo
+        type: string
+        description: Se muestra mientras el producto no tenga fotografía, por ejemplo #ddd5c6.
+
+settings:
+  content:
+    merge: direct
+  commit:
+    message: "Actualizar productos desde el administrador"
