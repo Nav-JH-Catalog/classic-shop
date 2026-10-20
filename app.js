@@ -24,6 +24,7 @@ function renderProducts(filter = "Todos") {
         <div>
           <h3>${product.name}</h3>
           <p>${product.category} · ${product.price}</p>
+          <p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>
           ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         </div>
         ${product.status === "Agotado"

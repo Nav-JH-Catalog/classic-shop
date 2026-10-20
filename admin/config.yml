@@ -16,7 +16,7 @@ collections:
   - name: products
     label: Productos
     label_singular: Producto
-    description: Administra las prendas, lentes, fotografías y disponibilidad de Finds.
+    description: Administra las prendas, tallas, fotografías y disponibilidad de Finds.
     icon: apparel
     file: products.json
     identifier_field: id
@@ -42,8 +42,8 @@ collections:
         label: Categoría
         widget: select
         options:
-          - Lentes
-          - { label: Ropa de niño, value: Niños }
+          - { label: Ropa Niño, value: Niño }
+          - { label: Ropa Niña, value: Niña }
           - Hombre
           - Mujer
       - name: price
@@ -53,6 +53,11 @@ collections:
       - name: description
         label: Descripción
         widget: text
+      - name: sizes
+        label: Tallas
+        widget: string
+        default: Consultar
+        hint: Ejemplo: 2, 4, 6 o S, M, L.
       - name: image
         label: Fotografía
         widget: image

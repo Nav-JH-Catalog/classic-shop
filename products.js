@@ -4,13 +4,13 @@ const CATALOG_CONFIG = {
   whatsapp: "50688989259",
   businessName: "Finds",
   products: [
-    { id: 1, name: "Lentes Clásicos", category: "Lentes", price: "₡ —", color: "#ddd5c6" },
-    { id: 2, name: "Lentes Urbanos", category: "Lentes", price: "₡ —", color: "#c8c1b6" },
-    { id: 3, name: "Conjunto Infantil", category: "Niños", price: "₡ —", color: "#d8c1ad" },
-    { id: 4, name: "Camisa Infantil", category: "Niños", price: "₡ —", color: "#bfc8bf" },
-    { id: 5, name: "Camisa Esencial", category: "Hombre", price: "₡ —", color: "#dedbd2" },
-    { id: 6, name: "Pantalón Clásico", category: "Hombre", price: "₡ —", color: "#c9b8ac" },
-    { id: 7, name: "Blusa Atemporal", category: "Mujer", price: "₡ —", color: "#d4c7bf" },
-    { id: 8, name: "Vestido Esencial", category: "Mujer", price: "₡ —", color: "#c5cbc3" }
+    { id: 1, name: "Conjunto Infantil", category: "Niño", price: "₡ —", sizes: "Consultar", color: "#d8c1ad" },
+    { id: 2, name: "Camisa Infantil", category: "Niño", price: "₡ —", sizes: "Consultar", color: "#bfc8bf" },
+    { id: 3, name: "Vestido Infantil", category: "Niña", price: "₡ —", sizes: "Consultar", color: "#d4c7bf" },
+    { id: 4, name: "Conjunto Infantil", category: "Niña", price: "₡ —", sizes: "Consultar", color: "#c5cbc3" },
+    { id: 5, name: "Camisa Esencial", category: "Hombre", price: "₡ —", sizes: "Consultar", color: "#dedbd2" },
+    { id: 6, name: "Pantalón Clásico", category: "Hombre", price: "₡ —", sizes: "Consultar", color: "#c9b8ac" },
+    { id: 7, name: "Blusa Atemporal", category: "Mujer", price: "₡ —", sizes: "Consultar", color: "#d4c7bf" },
+    { id: 8, name: "Vestido Esencial", category: "Mujer", price: "₡ —", sizes: "Consultar", color: "#c5cbc3" }
   ]
 };

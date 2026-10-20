@@ -30,9 +30,10 @@ content:
         required: true
         options:
           values:
-            - Lentes
-            - name: Niños
-              label: Ropa de niño
+            - name: Niño
+              label: Ropa Niño
+            - name: Niña
+              label: Ropa Niña
             - Hombre
             - Mujer
       - name: price
@@ -47,6 +48,11 @@ content:
         options:
           minlength: 10
           maxlength: 300
+      - name: sizes
+        label: Tallas
+        type: string
+        required: true
+        description: Ejemplo: 2, 4, 6 o S, M, L. Usa "Consultar" si todavía no están definidas.
       - name: image
         label: Fotografía
         type: image
