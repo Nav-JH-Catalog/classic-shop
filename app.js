@@ -39,6 +39,7 @@ function renderProducts(filter = "Todos") {
 const imageViewer = document.querySelector("#image-viewer");
 const imageViewerPhoto = document.querySelector("#image-viewer-photo");
 const imageViewerCaption = document.querySelector("#image-viewer-caption");
+const imageViewerContact = document.querySelector("#image-viewer-contact");
 const imageViewerClose = imageViewer.querySelector("[data-close-viewer]");
 let viewerPreviousFocus = null;
 
@@ -47,6 +48,7 @@ function openImageViewer(image, name) {
   imageViewerPhoto.src = image;
   imageViewerPhoto.alt = name;
   imageViewerCaption.textContent = name;
+  imageViewerContact.href = whatsappUrl(`Hola, me gusta ${name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
   imageViewer.hidden = false;
   document.body.classList.add("viewer-open");
   imageViewerClose.focus();

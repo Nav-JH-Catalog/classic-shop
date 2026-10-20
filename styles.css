@@ -130,9 +130,21 @@ footer .brand img { width: 110px; height: 68px; }
 body.viewer-open { overflow: hidden; }
 .image-viewer[hidden] { display: none; }
 .image-viewer { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: clamp(18px, 4vw, 48px); background: rgba(5,20,35,.88); backdrop-filter: blur(10px); }
-.image-viewer-content { display: flex; flex-direction: column; align-items: center; gap: 14px; width: min(100%, 1100px); height: min(100%, 900px); margin: 0; }
-.image-viewer-content img { min-width: 0; min-height: 0; max-width: 100%; max-height: calc(100% - 42px); object-fit: contain; border-radius: 4px; box-shadow: 0 22px 70px rgba(0,0,0,.35); }
+.image-viewer-content { display: flex; flex-direction: column; align-items: center; gap: 12px; width: min(100%, 1100px); height: min(100%, 900px); margin: 0; }
+.image-viewer-content img { min-width: 0; min-height: 0; max-width: 100%; max-height: calc(100% - 125px); object-fit: contain; border-radius: 4px; box-shadow: 0 22px 70px rgba(0,0,0,.35); }
 .image-viewer-content figcaption { color: #f8f1e5; font-family: "Playfair Display", serif; font-size: clamp(16px, 2vw, 22px); text-align: center; }
+.image-viewer-contact { display: inline-flex; align-items: center; gap: 11px; max-width: 430px; padding: 7px 16px 7px 7px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: white; background: rgba(255,255,255,.1); backdrop-filter: blur(10px); transition: background .2s ease, transform .2s ease; }
+.image-viewer-contact:hover, .image-viewer-contact:focus-visible { background: rgba(255,255,255,.18); transform: translateY(-1px); outline: 2px solid rgba(255,255,255,.8); outline-offset: 3px; }
+.image-viewer-contact-icon { position: relative; flex: 0 0 auto; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; color: white; background: #218b4f; animation: viewer-whatsapp-pulse 2.2s ease-in-out infinite; }
+.image-viewer-contact-icon svg { width: 23px; height: 23px; fill: currentColor; }
+.image-viewer-contact strong, .image-viewer-contact small { display: block; }
+.image-viewer-contact strong { margin-bottom: 2px; font-size: 13px; }
+.image-viewer-contact small { color: rgba(255,255,255,.78); font-size: 10px; line-height: 1.35; }
+@keyframes viewer-whatsapp-pulse {
+  0%, 62%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); transform: scale(1); }
+  73% { box-shadow: 0 0 0 6px rgba(37,211,102,.22); transform: scale(1.04); }
+  84% { box-shadow: 0 0 0 11px rgba(37,211,102,0); transform: scale(1); }
+}
 .image-viewer-close { position: absolute; top: clamp(14px, 3vw, 28px); right: clamp(14px, 3vw, 28px); z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; padding: 0 0 4px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; color: white; background: rgba(5,20,35,.55); font-family: Arial, sans-serif; font-size: 32px; line-height: 1; cursor: pointer; transition: color .2s ease, background .2s ease, transform .2s ease; }
 .image-viewer-close:hover, .image-viewer-close:focus-visible { color: var(--ink); background: white; transform: scale(1.05); outline: none; }
 
@@ -157,7 +169,7 @@ body.viewer-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header-whatsapp { animation: none; }
+  .header-whatsapp, .image-viewer-contact-icon { animation: none; }
 }
 
 @media (max-width: 480px) {
