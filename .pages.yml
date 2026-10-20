@@ -52,7 +52,7 @@ content:
         label: Tallas
         type: string
         required: true
-        description: Ejemplo: 2, 4, 6 o S, M, L. Usa "Consultar" si todavía no están definidas.
+        description: 'Ejemplo: 2, 4, 6 o S, M, L. Usa "Consultar" si todavía no están definidas.'
       - name: image
         label: Fotografía
         type: image

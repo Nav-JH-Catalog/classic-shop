@@ -57,7 +57,7 @@ collections:
         label: Tallas
         widget: string
         default: Consultar
-        hint: Ejemplo: 2, 4, 6 o S, M, L.
+        hint: "Ejemplo: 2, 4, 6 o S, M, L."
       - name: image
         label: Fotografía
         widget: image
