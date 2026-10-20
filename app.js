@@ -17,7 +17,7 @@ function renderProducts(filter = "Todos") {
 
   grid.innerHTML = items.map(product => `
     <article class="product-card">
-      <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}">
+      <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}" ${product.image ? `role="button" tabindex="0" aria-label="Ver imagen completa de ${product.name}"` : ""}>
         ${product.image ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` : `<span class="demo-tag">Sin fotografía</span>`}
         <span class="status-tag ${product.status === "Agotado" ? "is-sold-out" : "is-available"}"><span aria-hidden="true"></span>${product.status || "Disponible"}</span>
       </div>
@@ -35,6 +35,54 @@ function renderProducts(filter = "Todos") {
     </article>
   `).join("");
 }
+
+const imageViewer = document.querySelector("#image-viewer");
+const imageViewerPhoto = document.querySelector("#image-viewer-photo");
+const imageViewerCaption = document.querySelector("#image-viewer-caption");
+const imageViewerClose = imageViewer.querySelector("[data-close-viewer]");
+let viewerPreviousFocus = null;
+
+function openImageViewer(image, name) {
+  viewerPreviousFocus = document.activeElement;
+  imageViewerPhoto.src = image;
+  imageViewerPhoto.alt = name;
+  imageViewerCaption.textContent = name;
+  imageViewer.hidden = false;
+  document.body.classList.add("viewer-open");
+  imageViewerClose.focus();
+}
+
+function closeImageViewer() {
+  if (imageViewer.hidden) return;
+  imageViewer.hidden = true;
+  imageViewerPhoto.src = "";
+  document.body.classList.remove("viewer-open");
+  viewerPreviousFocus?.focus();
+}
+
+grid.addEventListener("click", event => {
+  const target = event.target.closest(".product-image.has-photo");
+  if (!target) return;
+  const photo = target.querySelector("img");
+  openImageViewer(photo.src, photo.alt);
+});
+
+grid.addEventListener("keydown", event => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const target = event.target.closest(".product-image.has-photo");
+  if (!target) return;
+  event.preventDefault();
+  const photo = target.querySelector("img");
+  openImageViewer(photo.src, photo.alt);
+});
+
+imageViewer.addEventListener("click", event => {
+  if (event.target === imageViewer || event.target.closest("[data-close-viewer]")) closeImageViewer();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeImageViewer();
+});
 
 document.querySelectorAll(".filter").forEach(button => {
   button.addEventListener("click", () => {

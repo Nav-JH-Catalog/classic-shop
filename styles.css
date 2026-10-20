@@ -96,6 +96,8 @@ h1 { font-size: clamp(48px, 6.2vw, 96px); line-height: .98; letter-spacing: -.03
 .product-image::after { content: ""; position: absolute; width: 26%; height: 48%; background: rgba(255,255,255,.52); transform: rotate(12deg); }
 .product-image.has-photo::before, .product-image.has-photo::after { display: none; }
 .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.product-image.has-photo { cursor: zoom-in; }
+.product-image.has-photo:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .product-card:hover .product-image img { transform: scale(1.025); }
 .demo-tag { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 6px 8px; background: var(--paper); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
 .status-tag { position: absolute; top: 14px; right: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 7px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; box-shadow: 0 4px 14px rgba(0,0,0,.08); cursor: default; user-select: none; }
@@ -124,6 +126,15 @@ h1 { font-size: clamp(48px, 6.2vw, 96px); line-height: .98; letter-spacing: -.03
 footer { display: flex; justify-content: space-between; align-items: center; padding: 38px 4vw; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 footer .brand { color: var(--ink); }
 footer .brand img { width: 110px; height: 68px; }
+
+body.viewer-open { overflow: hidden; }
+.image-viewer[hidden] { display: none; }
+.image-viewer { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: clamp(18px, 4vw, 48px); background: rgba(5,20,35,.88); backdrop-filter: blur(10px); }
+.image-viewer-content { display: flex; flex-direction: column; align-items: center; gap: 14px; width: min(100%, 1100px); height: min(100%, 900px); margin: 0; }
+.image-viewer-content img { min-width: 0; min-height: 0; max-width: 100%; max-height: calc(100% - 42px); object-fit: contain; border-radius: 4px; box-shadow: 0 22px 70px rgba(0,0,0,.35); }
+.image-viewer-content figcaption { color: #f8f1e5; font-family: "Playfair Display", serif; font-size: clamp(16px, 2vw, 22px); text-align: center; }
+.image-viewer-close { position: absolute; top: clamp(14px, 3vw, 28px); right: clamp(14px, 3vw, 28px); z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; padding: 0 0 4px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; color: white; background: rgba(5,20,35,.55); font-family: Arial, sans-serif; font-size: 32px; line-height: 1; cursor: pointer; transition: color .2s ease, background .2s ease, transform .2s ease; }
+.image-viewer-close:hover, .image-viewer-close:focus-visible { color: var(--ink); background: white; transform: scale(1.05); outline: none; }
 
 @media (max-width: 780px) {
   .site-header { height: 64px; }
