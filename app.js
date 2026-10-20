@@ -17,7 +17,7 @@ function renderProducts(filter = "Todos") {
 
   grid.innerHTML = items.map(product => `
     <article class="product-card">
-      <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}" ${product.image ? `role="button" tabindex="0" aria-label="Ver imagen completa de ${product.name}"` : ""}>
+      <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}" ${product.image ? `role="button" tabindex="0" data-product-id="${product.id}" aria-label="Ver imagen completa de ${product.name}"` : ""}>
         ${product.image ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` : `<span class="demo-tag">Sin fotografía</span>`}
         <span class="status-tag ${product.status === "Agotado" ? "is-sold-out" : "is-available"}"><span aria-hidden="true"></span>${product.status || "Disponible"}</span>
       </div>
@@ -39,16 +39,20 @@ function renderProducts(filter = "Todos") {
 const imageViewer = document.querySelector("#image-viewer");
 const imageViewerPhoto = document.querySelector("#image-viewer-photo");
 const imageViewerCaption = document.querySelector("#image-viewer-caption");
+const imageViewerMeta = document.querySelector("#image-viewer-meta");
+const imageViewerDescription = document.querySelector("#image-viewer-description");
 const imageViewerContact = document.querySelector("#image-viewer-contact");
 const imageViewerClose = imageViewer.querySelector("[data-close-viewer]");
 let viewerPreviousFocus = null;
 
-function openImageViewer(image, name) {
+function openImageViewer(product) {
   viewerPreviousFocus = document.activeElement;
-  imageViewerPhoto.src = image;
-  imageViewerPhoto.alt = name;
-  imageViewerCaption.textContent = name;
-  imageViewerContact.href = whatsappUrl(`Hola, me gusta ${name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
+  imageViewerPhoto.src = product.image;
+  imageViewerPhoto.alt = product.name;
+  imageViewerCaption.textContent = product.name;
+  imageViewerMeta.textContent = `${categoryLabels[product.category] || product.category} · ${product.price} · Tallas: ${product.sizes || "Consultar"} · ${product.status || "Disponible"}`;
+  imageViewerDescription.textContent = product.description || "Consulta por más detalles y disponibilidad.";
+  imageViewerContact.href = whatsappUrl(`Hola, me gusta ${product.name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
   imageViewer.hidden = false;
   document.body.classList.add("viewer-open");
   imageViewerClose.focus();
@@ -65,8 +69,8 @@ function closeImageViewer() {
 grid.addEventListener("click", event => {
   const target = event.target.closest(".product-image.has-photo");
   if (!target) return;
-  const photo = target.querySelector("img");
-  openImageViewer(photo.src, photo.alt);
+  const product = products.find(item => item.id === target.dataset.productId);
+  if (product) openImageViewer(product);
 });
 
 grid.addEventListener("keydown", event => {
@@ -74,8 +78,8 @@ grid.addEventListener("keydown", event => {
   const target = event.target.closest(".product-image.has-photo");
   if (!target) return;
   event.preventDefault();
-  const photo = target.querySelector("img");
-  openImageViewer(photo.src, photo.alt);
+  const product = products.find(item => item.id === target.dataset.productId);
+  if (product) openImageViewer(product);
 });
 
 imageViewer.addEventListener("click", event => {

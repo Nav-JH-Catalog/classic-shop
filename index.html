@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <header class="site-header">
@@ -92,7 +92,11 @@
     <button class="image-viewer-close" type="button" aria-label="Cerrar imagen" data-close-viewer>×</button>
     <figure class="image-viewer-content">
       <img id="image-viewer-photo" src="" alt="">
-      <figcaption id="image-viewer-caption"></figcaption>
+      <figcaption class="image-viewer-details">
+        <strong id="image-viewer-caption"></strong>
+        <span id="image-viewer-meta"></span>
+        <span id="image-viewer-description"></span>
+      </figcaption>
       <a class="image-viewer-contact" id="image-viewer-contact" href="#" target="_blank" rel="noopener">
         <span class="image-viewer-contact-icon" aria-hidden="true">
           <svg viewBox="0 0 32 32">
@@ -104,6 +108,6 @@
     </figure>
   </div>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
