@@ -42,10 +42,14 @@ collections:
         label: Categoría
         widget: select
         options:
-          - { label: Ropa Niño, value: Niño }
-          - { label: Ropa Niña, value: Niña }
-          - Hombre
-          - Mujer
+          - label: Ropa Niño
+            value: nino
+          - label: Ropa Niña
+            value: nina
+          - label: Hombre
+            value: hombre
+          - label: Mujer
+            value: mujer
       - name: price
         label: Precio
         widget: string

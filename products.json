@@ -2,7 +2,7 @@
   {
     "id": "vestido-infantil-estampado",
     "name": "Vestido Infantil Estampado",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Vestido infantil de corte clásico con estampado delicado y lazo al frente.",
     "sizes": "Consultar",
@@ -13,7 +13,7 @@
   {
     "id": "vestido-denim-infantil",
     "name": "Vestido Denim Infantil",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Vestido infantil en denim claro, con manga corta abullonada y botones frontales.",
     "sizes": "Consultar",
@@ -24,7 +24,7 @@
   {
     "id": "conjunto-floral-denim",
     "name": "Conjunto Floral Denim",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Conjunto infantil de blusa blanca bordada y pantalón denim con detalles florales.",
     "sizes": "Consultar",
@@ -35,7 +35,7 @@
   {
     "id": "conjunto-deportivo-floral",
     "name": "Conjunto Deportivo Floral",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Conjunto infantil de sudadera y pantalón amplio con bordados florales.",
     "sizes": "Consultar",
@@ -46,7 +46,7 @@
   {
     "id": "conjunto-polo-celeste",
     "name": "Conjunto Polo Celeste",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Conjunto infantil de polo celeste texturizado y short azul marino.",
     "sizes": "Consultar",
@@ -57,7 +57,7 @@
   {
     "id": "conjunto-verano-rayas",
     "name": "Conjunto de Verano a Rayas",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Conjunto infantil fresco de camisa de manga corta y short con textura a rayas.",
     "sizes": "Consultar",
@@ -68,7 +68,7 @@
   {
     "id": "chaqueta-pana-bicolor",
     "name": "Chaqueta de Pana Bicolor",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Chaqueta infantil de pana en tonos azul grisáceo, con bolsillos frontales.",
     "sizes": "Consultar",
@@ -79,7 +79,7 @@
   {
     "id": "conjunto-tejido-rayas",
     "name": "Conjunto Tejido a Rayas",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Conjunto infantil de tres piezas en tejido suave, con overol a rayas y gorro.",
     "sizes": "Consultar",
@@ -90,7 +90,7 @@
   {
     "id": "overol-osito-beige",
     "name": "Overol Osito Beige",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Conjunto para bebé con camiseta de manga larga y overol acanalado con detalle de osito.",
     "sizes": "Consultar",
@@ -101,7 +101,7 @@
   {
     "id": "conjunto-acanalado-crema",
     "name": "Conjunto Acanalado Crema",
-    "category": "Niño",
+    "category": "nino",
     "price": "Consultar",
     "description": "Conjunto infantil de prendas acanaladas en tonos crema y caramelo, suave y combinable.",
     "sizes": "Consultar",
@@ -112,7 +112,7 @@
   {
     "id": "vestido-body-rosa",
     "name": "Vestido Body Rosa",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Vestido body para bebé en rosa suave con encaje, volantes y acabado delicado.",
     "sizes": "Consultar",
@@ -123,7 +123,7 @@
   {
     "id": "conjunto-melocoton-bebe",
     "name": "Conjunto Melocotón para Bebé",
-    "category": "Niña",
+    "category": "nina",
     "price": "Consultar",
     "description": "Conjunto para bebé con body bordado, cárdigan tejido y tonos cálidos de melocotón.",
     "sizes": "Consultar",

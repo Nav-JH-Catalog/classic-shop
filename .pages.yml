@@ -30,12 +30,14 @@ content:
         required: true
         options:
           values:
-            - name: Niño
+            - name: nino
               label: Ropa Niño
-            - name: Niña
+            - name: nina
               label: Ropa Niña
-            - Hombre
-            - Mujer
+            - name: hombre
+              label: Hombre
+            - name: mujer
+              label: Mujer
       - name: price
         label: Precio
         type: string

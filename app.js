@@ -4,6 +4,7 @@ const STORE_CONFIG = {
   businessName: "Finds"
 };
 let products = [];
+const categoryLabels = { nino: "Ropa Niño", nina: "Ropa Niña", hombre: "Hombre", mujer: "Mujer" };
 
 function whatsappUrl(message) {
   return `https://wa.me/${STORE_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -23,7 +24,7 @@ function renderProducts(filter = "Todos") {
       <div class="product-info">
         <div>
           <h3>${product.name}</h3>
-          <p>${product.category} · ${product.price}</p>
+          <p>${categoryLabels[product.category] || product.category} · ${product.price}</p>
           <p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>
           ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         </div>
