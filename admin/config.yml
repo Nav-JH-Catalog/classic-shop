@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: Nav-JH-Catalog/classic-shop
+  branch: main
+
+site_url: https://nav-jh-catalog.github.io/classic-shop/
+display_url: https://nav-jh-catalog.github.io/classic-shop/
+locale: es
+
+media_folder: images/products
+public_folder: /classic-shop/images/products
+
+collections:
+  - name: products
+    label: Productos
+    label_singular: Producto
+    description: Administra las prendas, lentes, fotografías y disponibilidad de Finds.
+    icon: apparel
+    file: products.json
+    identifier_field: id
+    summary: "{{name}} · {{category}} · {{status}}"
+    sortable_fields: [name, category, status]
+    view_filters:
+      - label: Disponibles
+        field: status
+        pattern: Disponible
+      - label: Agotados
+        field: status
+        pattern: Agotado
+    fields:
+      - name: id
+        label: Identificador
+        widget: string
+        hint: Usa letras minúsculas y guiones, por ejemplo vestido-negro.
+        pattern: ['^[a-z0-9-]+$', 'Usa únicamente letras minúsculas, números y guiones.']
+      - name: name
+        label: Nombre del producto
+        widget: string
+      - name: category
+        label: Categoría
+        widget: select
+        options:
+          - Lentes
+          - { label: Ropa de niño, value: Niños }
+          - Hombre
+          - Mujer
+      - name: price
+        label: Precio
+        widget: string
+        hint: Incluye la moneda, por ejemplo ₡18 500.
+      - name: description
+        label: Descripción
+        widget: text
+      - name: image
+        label: Fotografía
+        widget: image
+        required: false
+        choose_url: false
+      - name: status
+        label: Disponibilidad
+        widget: select
+        default: Disponible
+        options: [Disponible, Agotado]
+      - name: color
+        label: Color de respaldo
+        widget: hidden
+        default: '#ded9ce'

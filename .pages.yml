@@ -6,7 +6,7 @@ media:
 
 content:
   - name: products
-    label: Productos de Classic Shop
+    label: Productos de Finds
     type: file
     path: products.json
     format: json

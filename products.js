@@ -2,7 +2,7 @@
 // Sustituye los productos de demostración por tus productos reales.
 const CATALOG_CONFIG = {
   whatsapp: "50688989259",
-  businessName: "Classic Shop",
+  businessName: "Finds",
   products: [
     { id: 1, name: "Lentes Clásicos", category: "Lentes", price: "₡ —", color: "#ddd5c6" },
     { id: 2, name: "Lentes Urbanos", category: "Lentes", price: "₡ —", color: "#c8c1b6" },

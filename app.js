@@ -1,7 +1,7 @@
 const grid = document.querySelector("#product-grid");
 const STORE_CONFIG = {
   whatsapp: "50688989259",
-  businessName: "Classic Shop"
+  businessName: "Finds"
 };
 let products = [];
 
