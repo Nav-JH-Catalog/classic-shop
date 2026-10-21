@@ -1,0 +1,12 @@
+{
+  "id": "salud-04-advil-migranas",
+  "name": "Advil Migrañas",
+  "category": "salud",
+  "price": "₡10.000",
+  "description": "Producto de salud y cuidado personal disponible. Consulta detalles y disponibilidad.",
+  "sizes": "No aplica",
+  "image": "/classic-shop/images/products/salud-04.webp",
+  "status": "Disponible",
+  "color": "#eee9df",
+  "_order": 69
+}

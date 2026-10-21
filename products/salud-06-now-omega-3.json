@@ -1,0 +1,12 @@
+{
+  "id": "salud-06-now-omega-3",
+  "name": "NOW Omega-3",
+  "category": "salud",
+  "price": "₡21.000",
+  "description": "Producto de salud y cuidado personal disponible. Consulta detalles y disponibilidad.",
+  "sizes": "No aplica",
+  "image": "/classic-shop/images/products/salud-06.webp",
+  "status": "Disponible",
+  "color": "#eee9df",
+  "_order": 71
+}

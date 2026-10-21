@@ -6,29 +6,40 @@ media:
 
 content:
   - name: products
-    label: Productos de Finds
-    type: file
-    path: products.json
+    label: Catálogo de productos
+    type: collection
+    path: products
     format: json
-    list: true
+    filename:
+      template: "{name}.json"
+      field: false
+    view:
+      fields: [image, name, category, price, status]
+      primary: name
+      search: [name, description, category, status]
+      sort: [name, category, price, status]
+      default:
+        sort: name
+        order: asc
     fields:
-      - name: id
-        label: Identificador
-        type: string
-        required: true
-        description: Usa letras minúsculas y guiones, por ejemplo vestido-negro.
-        pattern:
-          regex: "^[a-z0-9-]+$"
-          message: Usa únicamente letras minúsculas, números y guiones.
+      - name: image
+        label: Fotografía del producto
+        type: image
+        description: Sube una fotografía clara del producto.
+        options:
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
       - name: name
-        label: Nombre del producto
+        label: Nombre
         type: string
         required: true
+        description: Nombre corto y fácil de reconocer.
       - name: category
         label: Categoría
         type: select
         required: true
         options:
+          placeholder: Selecciona una categoría
           values:
             - name: nino
               label: Ropa Niño
@@ -46,38 +57,39 @@ content:
         label: Precio
         type: string
         required: true
-        description: Incluye la moneda, por ejemplo ₡18 500.
+        description: Incluye el símbolo de colones, por ejemplo ₡18.500.
+      - name: status
+        label: Disponibilidad
+        type: select
+        required: true
+        default: Disponible
+        options:
+          placeholder: Selecciona la disponibilidad
+          values:
+            - name: Disponible
+              label: Disponible
+            - name: Agotado
+              label: Agotado
+      - name: sizes
+        label: Tallas (solo ropa)
+        type: string
+        description: Déjalo vacío para Tecnología y Salud. Ejemplo para ropa: S, M, L.
       - name: description
-        label: Descripción
+        label: Descripción breve
         type: text
         required: true
+        description: Describe brevemente el producto y sus características principales.
         options:
           minlength: 10
           maxlength: 300
-      - name: sizes
-        label: Tallas
-        type: string
-        required: true
-        description: 'Ejemplo: 2, 4, 6 o S, M, L. Usa "Consultar" si todavía no están definidas.'
-      - name: image
-        label: Fotografía
-        type: image
-        options:
-          extensions: [jpg, jpeg, png, webp]
-          rename: safe
-      - name: status
-        label: Estado del producto
-        type: select
-        required: true
-        options:
-          values: [Disponible, Agotado]
-      - name: color
-        label: Color de respaldo
-        type: string
-        description: Se muestra mientras el producto no tenga fotografía, por ejemplo #ddd5c6.
 
 settings:
+  hide: true
   content:
-    merge: direct
+    merge: true
   commit:
-    message: "Actualizar productos desde el administrador"
+    identity: user
+    templates:
+      create: "Agregar {name} desde el administrador"
+      update: "Actualizar {name} desde el administrador"
+      delete: "Eliminar {name} desde el administrador"

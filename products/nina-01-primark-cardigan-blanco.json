@@ -1,0 +1,12 @@
+{
+  "id": "nina-01-primark-cardigan-blanco",
+  "name": "Primark - Cardigan blanco",
+  "category": "nina",
+  "price": "₡14.000",
+  "description": "Disponible. Tallas: 6-9M, 9-12M, 12-18M.",
+  "sizes": "6-9M, 9-12M, 12-18M",
+  "image": "/classic-shop/images/products/nina-01.webp",
+  "status": "Disponible",
+  "color": "#eee9df",
+  "_order": 18
+}

@@ -1,0 +1,12 @@
+{
+  "id": "nino-11-jacket-bluey",
+  "name": "Jacket Bluey",
+  "category": "nino",
+  "price": "₡17.000",
+  "description": "Disponible. Tallas: 24M.",
+  "sizes": "24M",
+  "image": "/classic-shop/images/products/nino-11.webp",
+  "status": "Disponible",
+  "color": "#eee9df",
+  "_order": 10
+}
