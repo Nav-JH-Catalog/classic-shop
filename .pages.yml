@@ -80,7 +80,7 @@ content:
       - name: sizes
         label: Tallas (solo ropa)
         type: string
-        description: Déjalo vacío para Tecnología y Salud. Ejemplo para ropa: S, M, L.
+        description: "Déjalo vacío para Tecnología y Salud. Ejemplo para ropa: S, M, L."
       - name: description
         label: Descripción breve
         type: text
