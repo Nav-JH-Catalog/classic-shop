@@ -14,10 +14,10 @@ content:
       template: "{name}.json"
       field: false
     view:
-      fields: [image, name, category, price, status]
+      fields: [image, name, category, price, status, visible, updatedAt]
       primary: name
       search: [name, description, category, status]
-      sort: [name, category, price, status]
+      sort: [name, category, price, status, updatedAt]
       default:
         sort: name
         order: asc
@@ -70,6 +70,12 @@ content:
               label: Disponible
             - name: Agotado
               label: Agotado
+      - name: visible
+        label: Mostrar en el catálogo público
+        type: boolean
+        required: true
+        default: true
+        description: Actívalo para mostrar el producto. Desactívalo para guardarlo sin que aparezca en la tienda.
       - name: sizes
         label: Tallas (solo ropa)
         type: string
@@ -82,6 +88,14 @@ content:
         options:
           minlength: 10
           maxlength: 300
+      - name: updatedAt
+        label: Última actualización
+        type: date
+        readonly: true
+        description: Este registro se actualiza automáticamente cada vez que guardas el producto.
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm"
 
 settings:
   hide: true

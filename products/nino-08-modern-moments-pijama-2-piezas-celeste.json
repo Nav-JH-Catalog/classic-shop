@@ -8,5 +8,7 @@
   "image": "/classic-shop/images/products/nino-08.webp",
   "status": "Disponible",
   "color": "#eee9df",
-  "_order": 7
+  "_order": 7,
+  "visible": true,
+  "updatedAt": "2026-10-21T09:46"
 }

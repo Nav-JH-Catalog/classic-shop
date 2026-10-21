@@ -8,5 +8,7 @@
   "image": "/classic-shop/images/products/salud-09.webp",
   "status": "Disponible",
   "color": "#eee9df",
-  "_order": 74
+  "_order": 74,
+  "visible": true,
+  "updatedAt": "2026-10-21T09:46"
 }

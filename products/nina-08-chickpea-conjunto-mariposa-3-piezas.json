@@ -8,5 +8,7 @@
   "image": "/classic-shop/images/products/nina-08.webp",
   "status": "Disponible",
   "color": "#eee9df",
-  "_order": 25
+  "_order": 25,
+  "visible": true,
+  "updatedAt": "2026-10-21T09:46"
 }

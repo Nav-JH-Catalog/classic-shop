@@ -8,5 +8,7 @@
   "image": "/classic-shop/images/products/mujer-12.webp",
   "status": "Disponible",
   "color": "#eee9df",
-  "_order": 64
+  "_order": 64,
+  "visible": true,
+  "updatedAt": "2026-10-21T09:46"
 }

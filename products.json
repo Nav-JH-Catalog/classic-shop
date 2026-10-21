@@ -8,7 +8,9 @@
     "sizes": "9M, 12M, 24M",
     "image": "/classic-shop/images/products/nino-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-02-abercrombie-fitch-camisa-manga-corta-celeste",
@@ -19,7 +21,9 @@
     "sizes": "2T, 3T",
     "image": "/classic-shop/images/products/nino-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-03-abercrombie-fitch-camisa-manga-corta-blanca",
@@ -30,7 +34,9 @@
     "sizes": "2T",
     "image": "/classic-shop/images/products/nino-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-04-modern-moments-pijama-onsie-gris",
@@ -41,7 +47,9 @@
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nino-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-05-modern-moments-pijama-onsie-azul",
@@ -52,7 +60,9 @@
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nino-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-06-modern-moments-pijama-2-piezas-gris",
@@ -63,7 +73,9 @@
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nino-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-07-modern-moments-pijama-2-piezas-cafe",
@@ -74,7 +86,9 @@
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nino-07.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-08-modern-moments-pijama-2-piezas-celeste",
@@ -85,7 +99,9 @@
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nino-08.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-09-primark-conjunto-3-piezas-azul",
@@ -96,7 +112,9 @@
     "sizes": "9-12M",
     "image": "/classic-shop/images/products/nino-09.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-10-primark-conjunto-overalls-2-piezas-cafe",
@@ -107,7 +125,9 @@
     "sizes": "9-12M",
     "image": "/classic-shop/images/products/nino-10.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-11-jacket-bluey",
@@ -118,7 +138,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nino-11.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-12-pijama-bluey-2-piezas",
@@ -129,7 +151,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nino-12.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-13-primark-conjunto-overalls-2-piezas-comegalletas",
@@ -140,7 +164,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nino-13.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-14-calvin-klein-conjunto-2-piezas-azul",
@@ -151,7 +177,9 @@
     "sizes": "12M",
     "image": "/classic-shop/images/products/nino-14.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-15-calvin-klein-conjunto-2-piezas-camisa-manga-larga-azul",
@@ -162,7 +190,9 @@
     "sizes": "6-9M, 12M",
     "image": "/classic-shop/images/products/nino-15.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-16-calvin-klein-conjunto-2-piezas-manga-larga-negro",
@@ -173,7 +203,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nino-16.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-17-primark-pantalon-largo-azul-verde-o-rojo",
@@ -184,7 +216,9 @@
     "sizes": "1.5Y – 2Y",
     "image": "/classic-shop/images/products/nino-17.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nino-18-primark-conjunto-shorts-azul-y-gris",
@@ -195,7 +229,9 @@
     "sizes": "1.5Y – 2Y",
     "image": "/classic-shop/images/products/nino-18.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-01-primark-cardigan-blanco",
@@ -206,7 +242,9 @@
     "sizes": "6-9M, 9-12M, 12-18M",
     "image": "/classic-shop/images/products/nina-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-02-modern-moments-pijama-onsie-morado",
@@ -217,7 +255,9 @@
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nina-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-03-baby-bgosh-cardigan-floral",
@@ -228,7 +268,9 @@
     "sizes": "9M, 12M, 18M",
     "image": "/classic-shop/images/products/nina-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-04-baby-bgosh-jacket-mezclilla-lila",
@@ -239,7 +281,9 @@
     "sizes": "12M",
     "image": "/classic-shop/images/products/nina-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-05-primark-jacket-floral",
@@ -250,7 +294,9 @@
     "sizes": "3-6M, 6-9M",
     "image": "/classic-shop/images/products/nina-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-06-oshkosh-jacket-mezclilla-verde",
@@ -261,7 +307,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nina-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-07-tommy-hilfiger-shirt-jacket-corduroy-rosa",
@@ -272,7 +320,9 @@
     "sizes": "2T-3T(XXS)",
     "image": "/classic-shop/images/products/nina-07.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-08-chickpea-conjunto-mariposa-3-piezas",
@@ -283,7 +333,9 @@
     "sizes": "12M, 24M",
     "image": "/classic-shop/images/products/nina-08.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-09-btween-baby-conjunto-lazo-2-piezas",
@@ -294,7 +346,9 @@
     "sizes": "12M, 18M",
     "image": "/classic-shop/images/products/nina-09.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-10-calvin-klein-conjunto-2-piezas",
@@ -305,7 +359,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nina-10.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-11-modern-moments-pijama-2-piezas-lazos",
@@ -316,7 +372,9 @@
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nina-11.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-12-tommy-hilfiger-conjunto-corazon-2-piezas",
@@ -327,7 +385,9 @@
     "sizes": "6-9M, 12M",
     "image": "/classic-shop/images/products/nina-12.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-13-tommy-hilfiger-conjunto-rayas-2-piezas",
@@ -338,7 +398,9 @@
     "sizes": "18M, 24M",
     "image": "/classic-shop/images/products/nina-13.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-14-modern-moments-pijama-2-piezas-ciruela",
@@ -349,7 +411,9 @@
     "sizes": "6-9M, 18M",
     "image": "/classic-shop/images/products/nina-14.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-15-tommy-hilfiger-vestido-manga-larga-blanco",
@@ -360,7 +424,9 @@
     "sizes": "24M",
     "image": "/classic-shop/images/products/nina-15.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "nina-16-tommy-hilfiger-vestido-manga-corta-rosa",
@@ -371,7 +437,9 @@
     "sizes": "18M",
     "image": "/classic-shop/images/products/nina-16.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-01-birkenstock-boston-essentials-eva",
@@ -382,7 +450,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-02-gorra-azul-logo-h-bordado-tommy-hilfiger",
@@ -393,7 +463,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-03-gorra-vino-logo-bordado-tommy-hilfiger",
@@ -404,7 +476,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-04-gorra-cafe-logo-h-bordado-tommy-hilfiger",
@@ -415,7 +489,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-05-gorra-verde-logo-bordado-tommy-hilfiger",
@@ -426,7 +502,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-06-old-navy-everyday-shirt-blanco",
@@ -437,7 +515,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-07-old-navy-everyday-shirt-gris",
@@ -448,7 +528,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-07.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-08-old-navy-everyday-shirt-celeste",
@@ -459,7 +541,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-08.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-09-calvin-klein-liquid-touch-crewneck-t-shirt-blanco",
@@ -470,7 +554,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-09.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-10-calvin-klein-liquid-touch-crewneck-t-shirt-celeste",
@@ -481,7 +567,9 @@
     "sizes": "L",
     "image": "/classic-shop/images/products/hombre-10.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-11-calvin-klein-liquid-touch-crewneck-t-shirt-azul-marino",
@@ -492,7 +580,9 @@
     "sizes": "M",
     "image": "/classic-shop/images/products/hombre-11.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-12-calvin-klein-liquid-touch-crewneck-t-shirt-negro",
@@ -503,7 +593,9 @@
     "sizes": "M, XL, XXL",
     "image": "/classic-shop/images/products/hombre-12.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-13-calvin-klein-liquid-touch-crewneck-t-shirt-verde-olivo",
@@ -514,7 +606,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/hombre-13.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-14-calvin-klein-liquid-touch-crewneck-t-shirt-amarillo",
@@ -525,7 +619,9 @@
     "sizes": "L",
     "image": "/classic-shop/images/products/hombre-14.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-15-tommy-hilfiger-regular-fit-wicking-polo-vino",
@@ -536,7 +632,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-15.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-16-tommy-hilfiger-regular-fit-wicking-polo-gris",
@@ -547,7 +645,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-16.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-17-tommy-hilfiger-regular-fit-wicking-polo-celeste-rayas",
@@ -558,7 +658,9 @@
     "sizes": "L, XL, XXL",
     "image": "/classic-shop/images/products/hombre-17.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-18-tommy-hilfiger-t-shirt-rugby-blanco-y-azul-marino",
@@ -569,7 +671,9 @@
     "sizes": "M, L, XXL",
     "image": "/classic-shop/images/products/hombre-18.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "hombre-19-tommy-hilfiger-pocket-t-shirt-rayas",
@@ -580,7 +684,9 @@
     "sizes": "L, XL, XXL",
     "image": "/classic-shop/images/products/hombre-19.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-01-kate-spade-tote-bag",
@@ -591,7 +697,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/mujer-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-02-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-rosado-rayas",
@@ -602,7 +710,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-03-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-beige-rayas",
@@ -613,7 +723,9 @@
     "sizes": "M, XL",
     "image": "/classic-shop/images/products/mujer-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-04-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-rojo-rayas",
@@ -624,7 +736,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-05-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-blanco-rayas",
@@ -635,7 +749,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-06-tommy-hilfiger-cardigan-con-tejido-de-cable-vino",
@@ -646,7 +762,9 @@
     "sizes": "M",
     "image": "/classic-shop/images/products/mujer-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-07-uniqlo-t-shirt-cuello-redondo-beige",
@@ -657,7 +775,9 @@
     "sizes": "L",
     "image": "/classic-shop/images/products/mujer-07.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-08-uniqlo-t-shirt-cuello-redondo-blanco",
@@ -668,7 +788,9 @@
     "sizes": "S, M, L, XL",
     "image": "/classic-shop/images/products/mujer-08.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-09-uniqlo-t-shirt-cuello-redondo-negro",
@@ -679,7 +801,9 @@
     "sizes": "S, M, L, XL",
     "image": "/classic-shop/images/products/mujer-09.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-10-uniqlo-t-shirt-cuello-redondo-cafe",
@@ -690,7 +814,9 @@
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/mujer-10.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-11-uniqlo-t-shirt-cuello-redondo-ciruela",
@@ -701,7 +827,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-11.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-12-uniqlo-t-shirt-cuello-redondo-azul-marino",
@@ -712,7 +840,9 @@
     "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-12.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "mujer-13-uniqlo-cardigan-blanco-hueso",
@@ -723,7 +853,9 @@
     "sizes": "M",
     "image": "/classic-shop/images/products/mujer-13.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-01-natrol-melatonina-60-10mg",
@@ -734,7 +866,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-02-cerave-renewing-cleaner",
@@ -745,7 +879,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-03-cerave-foaming-cleaner",
@@ -756,7 +892,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-04-advil-migranas",
@@ -767,7 +905,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-05-pepto-bismol-chewables-30-unidades",
@@ -778,7 +918,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-06-now-omega-3",
@@ -789,7 +931,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-07-crema-a-d-4oz",
@@ -800,7 +944,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-07.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-08-crema-desitin-4oz",
@@ -811,7 +957,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-08.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-09-crema-desitin-16-oz",
@@ -822,7 +970,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-09.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "salud-10-miss-mouth-s-spray-quita-manchas",
@@ -833,7 +983,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/salud-10.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-01-anker-power-bank-magnetico-5-000-mah-negro",
@@ -844,7 +996,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-01.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-02-anker-power-bank-magnetico-5-000-mah-blanco",
@@ -855,7 +1009,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-02.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-03-anker-cable-usb-c-a-usb-c-1metro-carga-rapida-paquete-de-2-negro",
@@ -866,7 +1022,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-03.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-04-anker-cable-usb-c-a-usb-c-1metro-carga-rapida-paquete-de-2-blanco",
@@ -877,7 +1035,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-04.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-05-lenovo-idea-pad-11-8-gb-ram-256-hd",
@@ -888,7 +1048,9 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-05.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   },
   {
     "id": "tecnologia-06-crayola-bluey-color-wonder-magic-light-brush",
@@ -899,6 +1061,8 @@
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/tecnologia-06.webp",
     "status": "Disponible",
-    "color": "#eee9df"
+    "color": "#eee9df",
+    "visible": true,
+    "updatedAt": "2026-10-21T09:46"
   }
 ]

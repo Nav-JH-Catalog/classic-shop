@@ -31,9 +31,10 @@ function normalizeText(value = "") {
 }
 
 function renderProducts() {
+  const publicProducts = products.filter(product => product.visible !== false);
   const categoryItems = (activeCategory === "Todos"
-    ? products
-    : products.filter(product => product.category === activeCategory));
+    ? publicProducts
+    : publicProducts.filter(product => product.category === activeCategory));
   const query = normalizeText(searchTerm.trim());
   const items = query
     ? categoryItems.filter(product => normalizeText([

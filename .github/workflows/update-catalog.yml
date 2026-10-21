@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build-catalog:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Descargar catálogo
@@ -18,17 +19,24 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Registrar última actualización
+        if: github.event_name == 'push'
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: node scripts/stamp-products.mjs
+
       - name: Generar archivo público
         run: node scripts/build-products.mjs
 
       - name: Publicar actualización
         run: |
-          if git diff --quiet -- products.json; then
+          if git diff --quiet -- products products.json; then
             echo "El catálogo ya está actualizado."
             exit 0
           fi
           git config user.name "Finds Catálogo"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add products.json
+          git add products products.json
           git commit -m "Actualizar catálogo público"
           git push

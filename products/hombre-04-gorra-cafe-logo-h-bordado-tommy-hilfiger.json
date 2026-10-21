@@ -8,5 +8,7 @@
   "image": "/classic-shop/images/products/hombre-04.webp",
   "status": "Disponible",
   "color": "#eee9df",
-  "_order": 37
+  "_order": 37,
+  "visible": true,
+  "updatedAt": "2026-10-21T09:46"
 }
