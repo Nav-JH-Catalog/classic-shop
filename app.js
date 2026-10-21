@@ -4,7 +4,14 @@ const STORE_CONFIG = {
   businessName: "Finds"
 };
 let products = [];
-const categoryLabels = { nino: "Ropa Niño", nina: "Ropa Niña", hombre: "Hombre", mujer: "Mujer" };
+const categoryLabels = {
+  nino: "Ropa Niño",
+  nina: "Ropa Niña",
+  hombre: "Hombre",
+  mujer: "Mujer",
+  tecnologia: "Tecnología",
+  salud: "Salud y cuidado personal"
+};
 
 function whatsappUrl(message) {
   return `https://wa.me/${STORE_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;

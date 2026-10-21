@@ -50,6 +50,10 @@ collections:
             value: hombre
           - label: Mujer
             value: mujer
+          - label: Tecnología
+            value: tecnologia
+          - label: Salud y cuidado personal
+            value: salud
       - name: price
         label: Precio
         widget: string

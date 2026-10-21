@@ -38,6 +38,10 @@ content:
               label: Hombre
             - name: mujer
               label: Mujer
+            - name: tecnologia
+              label: Tecnología
+            - name: salud
+              label: Salud y cuidado personal
       - name: price
         label: Precio
         type: string
