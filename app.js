@@ -14,6 +14,13 @@ const categoryLabels = {
   tecnologia: "Tecnología",
   salud: "Salud y cuidado personal"
 };
+const clothingCategories = new Set(["nino", "nina", "hombre", "mujer"]);
+
+function productSizeMarkup(product) {
+  return clothingCategories.has(product.category)
+    ? `<p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>`
+    : "";
+}
 
 function whatsappUrl(message) {
   return `https://wa.me/${STORE_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -57,7 +64,7 @@ function renderProducts() {
         <div>
           <h3>${product.name}</h3>
           <p>${categoryLabels[product.category] || product.category} · ${product.price}</p>
-          <p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>
+          ${productSizeMarkup(product)}
           ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         </div>
         ${product.status === "Agotado"
@@ -82,7 +89,8 @@ function openImageViewer(product) {
   imageViewerPhoto.src = product.image;
   imageViewerPhoto.alt = product.name;
   imageViewerCaption.textContent = product.name;
-  imageViewerMeta.textContent = `${categoryLabels[product.category] || product.category} · ${product.price} · Tallas: ${product.sizes || "Consultar"} · ${product.status || "Disponible"}`;
+  const sizeDetail = clothingCategories.has(product.category) ? ` · Tallas: ${product.sizes || "Consultar"}` : "";
+  imageViewerMeta.textContent = `${categoryLabels[product.category] || product.category} · ${product.price}${sizeDetail} · ${product.status || "Disponible"}`;
   imageViewerDescription.textContent = product.description || "Consulta por más detalles y disponibilidad.";
   imageViewerContact.href = whatsappUrl(`Hola, me gusta ${product.name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
   imageViewer.hidden = false;
