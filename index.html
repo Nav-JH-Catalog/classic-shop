@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <header class="site-header">
@@ -48,15 +48,29 @@
           <p class="eyebrow">Catálogo</p>
           <h2>La colección</h2>
         </div>
-        <div class="filters" aria-label="Filtrar productos">
-          <button class="filter active" data-filter="Todos">Todos</button>
-          <button class="filter" data-filter="nino">Ropa Niño</button>
-          <button class="filter" data-filter="nina">Ropa Niña</button>
-          <button class="filter" data-filter="hombre">Hombre</button>
-          <button class="filter" data-filter="mujer">Mujer</button>
-          <button class="filter" data-filter="tecnologia">Tecnología</button>
-          <button class="filter" data-filter="salud">Salud y cuidado personal</button>
+      </div>
+      <div class="catalog-tools" role="search" aria-label="Buscar y filtrar el catálogo">
+        <label class="catalog-search" for="catalog-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg>
+          <input id="catalog-search" type="search" placeholder="Buscar por nombre, descripción, talla…" autocomplete="off">
+        </label>
+        <div class="category-filter">
+          <button class="category-filter-button" id="category-filter-button" type="button" aria-expanded="false" aria-controls="category-menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10m-7 5h4"/></svg>
+            <span id="category-filter-label">Todas las categorías</span>
+            <span class="category-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="category-menu" id="category-menu" role="menu" hidden>
+            <button class="category-option active" type="button" role="menuitemradio" aria-checked="true" data-filter="Todos">Todas las categorías</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="nino">Ropa Niño</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="nina">Ropa Niña</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="hombre">Hombre</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="mujer">Mujer</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="tecnologia">Tecnología</button>
+            <button class="category-option" type="button" role="menuitemradio" aria-checked="false" data-filter="salud">Salud y cuidado personal</button>
+          </div>
         </div>
+        <p class="results-count" id="results-count" aria-live="polite"></p>
       </div>
       <div class="product-grid" id="product-grid" aria-live="polite"></div>
     </section>
@@ -110,6 +124,6 @@
     </figure>
   </div>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>

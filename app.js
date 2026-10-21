@@ -4,6 +4,8 @@ const STORE_CONFIG = {
   businessName: "Finds"
 };
 let products = [];
+let activeCategory = "Todos";
+let searchTerm = "";
 const categoryLabels = {
   nino: "Ropa Niño",
   nina: "Ropa Niña",
@@ -17,10 +19,33 @@ function whatsappUrl(message) {
   return `https://wa.me/${STORE_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
-function renderProducts(filter = "Todos") {
-  const items = (filter === "Todos"
+function normalizeText(value = "") {
+  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+function renderProducts() {
+  const categoryItems = (activeCategory === "Todos"
     ? products
-    : products.filter(product => product.category === filter));
+    : products.filter(product => product.category === activeCategory));
+  const query = normalizeText(searchTerm.trim());
+  const items = query
+    ? categoryItems.filter(product => normalizeText([
+        product.name,
+        product.description,
+        product.sizes,
+        product.price,
+        product.status,
+        categoryLabels[product.category]
+      ].join(" ")).includes(query))
+    : categoryItems;
+
+  document.querySelector("#results-count").textContent = `${items.length} ${items.length === 1 ? "producto" : "productos"}`;
+
+  if (!items.length) {
+    grid.innerHTML = `<div class="empty-results"><strong>No encontramos resultados</strong><span>Prueba con otro término o selecciona todas las categorías.</span><button type="button" id="clear-catalog-filters">Limpiar búsqueda</button></div>`;
+    document.querySelector("#clear-catalog-filters")?.addEventListener("click", clearCatalogFilters);
+    return;
+  }
 
   grid.innerHTML = items.map(product => `
     <article class="product-card">
@@ -97,12 +122,61 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeImageViewer();
 });
 
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelector(".filter.active")?.classList.remove("active");
-    button.classList.add("active");
-    renderProducts(button.dataset.filter);
+const searchInput = document.querySelector("#catalog-search");
+const categoryFilter = document.querySelector(".category-filter");
+const categoryButton = document.querySelector("#category-filter-button");
+const categoryMenu = document.querySelector("#category-menu");
+const categoryFilterLabel = document.querySelector("#category-filter-label");
+
+function setCategoryMenu(open) {
+  categoryMenu.hidden = !open;
+  categoryButton.setAttribute("aria-expanded", String(open));
+}
+
+function clearCatalogFilters() {
+  activeCategory = "Todos";
+  searchTerm = "";
+  searchInput.value = "";
+  categoryFilterLabel.textContent = "Todas las categorías";
+  document.querySelectorAll(".category-option").forEach(option => {
+    const selected = option.dataset.filter === "Todos";
+    option.classList.toggle("active", selected);
+    option.setAttribute("aria-checked", String(selected));
   });
+  renderProducts();
+  searchInput.focus();
+}
+
+searchInput.addEventListener("input", () => {
+  searchTerm = searchInput.value;
+  renderProducts();
+});
+
+categoryButton.addEventListener("click", () => setCategoryMenu(categoryMenu.hidden));
+
+document.querySelectorAll(".category-option").forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.filter;
+    categoryFilterLabel.textContent = button.textContent;
+    document.querySelectorAll(".category-option").forEach(option => {
+      const selected = option === button;
+      option.classList.toggle("active", selected);
+      option.setAttribute("aria-checked", String(selected));
+    });
+    setCategoryMenu(false);
+    renderProducts();
+  });
+});
+
+document.addEventListener("click", event => {
+  if (!categoryFilter.contains(event.target)) setCategoryMenu(false);
+});
+
+categoryFilter.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    setCategoryMenu(false);
+    categoryButton.focus();
+  }
 });
 
 const menuButton = document.querySelector(".menu-button");
