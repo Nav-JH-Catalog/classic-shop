@@ -98,7 +98,6 @@ content:
           format: "yyyy-MM-dd'T'HH:mm"
 
 settings:
-  hide: true
   content:
     merge: true
   commit:
