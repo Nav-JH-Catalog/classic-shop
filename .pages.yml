@@ -5,7 +5,7 @@ media:
   rename: safe
 
 content:
-  - name: products
+  - name: catalogo
     label: Catálogo de productos
     type: collection
     path: products
