@@ -37,9 +37,15 @@ nav { display: flex; gap: 32px; }
 nav a, .text-link { border-bottom: 1px solid transparent; padding-bottom: 3px; }
 nav a:hover, .text-link:hover { border-color: currentColor; }
 .header-actions { display: flex; align-items: center; gap: 10px; }
-.header-instagram { display: inline-flex; align-items: center; gap: 7px; padding: 10px 13px; border: 1px solid #dac89f; border-radius: 999px; color: var(--ink); background: #fffaf0; font-size: 12px; font-weight: 600; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
-.header-instagram svg, .footer-instagram svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-.header-instagram:hover { color: white; background: var(--ink); border-color: var(--ink); transform: translateY(-1px); }
+.header-instagram { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 10px 15px; border: 1px solid #b98a38; border-radius: 999px; color: white; background: linear-gradient(135deg,var(--ink) 12%,#174f78 60%,#bd8431 125%); box-shadow: 0 7px 20px rgba(6,40,75,.16); font-size: 12px; font-weight: 700; letter-spacing: .02em; transition: box-shadow .2s ease, transform .2s ease; animation: instagram-pulse 2.4s ease-in-out infinite; }
+.header-instagram svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.footer-instagram svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.header-instagram:hover { box-shadow: 0 10px 28px rgba(6,40,75,.25); transform: translateY(-2px); animation-play-state: paused; }
+@keyframes instagram-pulse {
+  0%, 62%, 100% { box-shadow: 0 7px 20px rgba(6,40,75,.16),0 0 0 0 rgba(214,157,64,0); }
+  74% { box-shadow: 0 7px 20px rgba(6,40,75,.18),0 0 0 5px rgba(214,157,64,.18); }
+  86% { box-shadow: 0 7px 20px rgba(6,40,75,.16),0 0 0 10px rgba(214,157,64,0); }
+}
 .header-whatsapp { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 10px 15px; border: 1px solid #b8d8c1; border-radius: 999px; color: #176b3a; background: #f4faf5; font-size: 12px; font-weight: 600; letter-spacing: .02em; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; animation: whatsapp-pulse 2.4s ease-in-out infinite; }
 .header-whatsapp svg { width: 19px; height: 19px; fill: currentColor; }
 .header-whatsapp:hover { color: white; background: #218b4f; border-color: #218b4f; transform: translateY(-1px); animation-play-state: paused; }
@@ -148,11 +154,12 @@ h1 { font-size: clamp(48px, 6.2vw, 96px); line-height: .98; letter-spacing: -.03
 .primary-button:hover { background: var(--accent); transform: translateY(-2px); }
 .instagram-button { display: inline-flex; align-items: center; gap: 10px; padding: 7px 18px 7px 7px; border: 1px solid #dac89f; border-radius: 999px; background: #fffaf0; text-align: left; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
 .instagram-button:hover { border-color: var(--accent); box-shadow: 0 10px 28px rgba(6,40,75,.09); transform: translateY(-2px); }
-.instagram-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; color: white; background: linear-gradient(145deg,#06284b,#d69d40); }
+.instagram-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; color: white; background: linear-gradient(145deg,#06284b,#d69d40); animation: instagram-icon-pulse 2.4s ease-in-out infinite; }
 .instagram-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; }
 .instagram-button strong,.instagram-button small { display: block; }
 .instagram-button strong { font-size: 13px; }
 .instagram-button small { margin-top: 2px; color: var(--muted); font-size: 10px; }
+@keyframes instagram-icon-pulse { 0%,62%,100%{box-shadow:0 0 0 0 rgba(214,157,64,0)}74%{box-shadow:0 0 0 5px rgba(214,157,64,.2)}86%{box-shadow:0 0 0 10px rgba(214,157,64,0)} }
 footer { display: flex; justify-content: space-between; align-items: center; padding: 38px 4vw; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 footer .brand { color: var(--ink); }
 footer .brand img { width: 110px; height: 68px; }
@@ -188,7 +195,7 @@ body.viewer-open { overflow: hidden; }
   .brand { height: 52px; }
   .brand img { width: 80px; height: 50px; }
   .header-actions { gap: 7px; }
-  .header-instagram { width: 39px; height: 39px; justify-content: center; padding: 0; }
+  .header-instagram { width: 42px; height: 42px; justify-content: center; padding: 0; box-shadow: 0 6px 18px rgba(6,40,75,.2); }
   .header-instagram span { display: none; }
   .header-whatsapp { gap: 6px; padding: 9px 11px; font-size: 11px; }
   .header-whatsapp svg { width: 17px; height: 17px; }
@@ -214,7 +221,7 @@ body.viewer-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header-whatsapp, .image-viewer-contact-icon { animation: none; }
+  .header-whatsapp, .header-instagram, .instagram-icon, .image-viewer-contact-icon { animation: none; }
 }
 
 @media (max-width: 480px) {
