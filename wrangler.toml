@@ -1,0 +1,9 @@
+name = "finds-analytics-api"
+main = "cloudflare/worker.js"
+compatibility_date = "2026-10-22"
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "finds-analytics"
+database_id = "cb31b83c-96b3-437b-818f-f7053f06d91f"

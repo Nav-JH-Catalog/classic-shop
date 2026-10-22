@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="theme-color" content="#f8f5ed">
     <title>Gestión de catálogo · Finds</title>
-    <link rel="stylesheet" href="dashboard.css?v=1">
+    <link rel="stylesheet" href="dashboard.css?v=2">
   </head>
   <body>
     <header class="topbar">
@@ -22,6 +22,11 @@
         <article class="stat-card"><span class="stat-value" id="total-count">—</span><span class="stat-label">Productos totales</span></article>
         <article class="stat-card"><span class="stat-value" id="available-count">—</span><span class="stat-label">Disponibles</span></article>
         <article class="stat-card stat-card--compact"><span class="stat-value" id="hidden-count">—</span><span class="stat-label">Ocultos o agotados</span></article>
+      </section>
+      <section class="analytics" aria-labelledby="analytics-title">
+        <div class="analytics-head"><div><p class="eyebrow">Inteligencia comercial</p><h2 id="analytics-title">Actividad de la tienda</h2><p id="analytics-status">Conectando con las estadísticas…</p></div><div class="report-actions"><select id="analytics-range" aria-label="Periodo"><option value="7">Últimos 7 días</option><option value="30" selected>Últimos 30 días</option><option value="90">Últimos 90 días</option></select><button id="export-excel" type="button">Descargar Excel</button><button id="export-pdf" type="button">Guardar PDF</button></div></div>
+        <div class="metric-grid"><article><span id="metric-visits">—</span><small>Visitas</small></article><article><span id="metric-products">—</span><small>Productos vistos</small></article><article><span id="metric-whatsapp">—</span><small>Clics en WhatsApp</small></article><article><span id="metric-instagram">—</span><small>Clics en Instagram</small></article><article><span id="metric-searches">—</span><small>Búsquedas</small></article><article><span id="metric-sales">—</span><small>Ventas estimadas</small></article></div>
+        <div class="chart-grid"><article class="chart-card"><div class="chart-title"><h3>Visitas por fecha</h3><span>Actividad diaria</span></div><div id="visits-chart" class="bar-chart"></div></article><article class="chart-card"><div class="chart-title"><h3>Productos más consultados</h3><span>Vistas de detalle</span></div><div id="products-chart" class="rank-list"></div></article><article class="chart-card"><div class="chart-title"><h3>Búsquedas frecuentes</h3><span>Interés del público</span></div><div id="searches-chart" class="rank-list"></div></article><article class="chart-card"><div class="chart-title"><h3>Ventas estimadas por mes</h3><span>Productos marcados como agotados</span></div><div id="sales-chart" class="bar-chart"></div></article></div>
       </section>
       <section class="workspace" aria-labelledby="products-heading">
         <div class="toolbar">
@@ -39,6 +44,6 @@
     <template id="product-template">
       <article class="product-row"><img class="product-image" alt="" loading="lazy"><div class="product-copy"><div class="product-title-line"><h3 class="product-name"></h3><span class="status-pill"></span></div><p class="product-meta"></p><p class="product-description"></p></div><strong class="product-price"></strong><a class="edit-button" aria-label="Editar producto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z"></path><path d="m14.7 6.5 2.8 2.8"></path></svg></a></article>
     </template>
-    <script src="dashboard.js?v=1" defer></script>
+    <script src="dashboard.js?v=2" defer></script>
   </body>
 </html>

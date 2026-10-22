@@ -4,6 +4,22 @@ const STORE_CONFIG = {
   instagram: "https://www.instagram.com/finds_cr/",
   businessName: "Finds"
 };
+const ANALYTICS_API = "https://finds-analytics-api.josuehidalgocastro.workers.dev";
+const ANALYTICS_ENABLED = !ANALYTICS_API.startsWith("__");
+const analyticsSession = (() => {
+  const key = "finds_analytics_session";
+  const existing = sessionStorage.getItem(key);
+  if (existing) return existing;
+  const value = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  sessionStorage.setItem(key, value);
+  return value;
+})();
+
+function trackEvent(type, details = {}) {
+  if (!ANALYTICS_ENABLED) return;
+  const payload = JSON.stringify({ type, sessionId: analyticsSession, path: location.pathname, ...details });
+  fetch(`${ANALYTICS_API}/event`, { method:"POST", headers:{"content-type":"application/json"}, body:payload, keepalive:true }).catch(() => {});
+}
 let products = [];
 let activeCategory = "Todos";
 let searchTerm = "";
@@ -95,9 +111,11 @@ function openImageViewer(product) {
   imageViewerMeta.textContent = `${categoryLabels[product.category] || product.category} · ${product.price}${sizeDetail} · ${product.status || "Disponible"}`;
   imageViewerDescription.textContent = product.description || "Consulta por más detalles y disponibilidad.";
   imageViewerContact.href = whatsappUrl(`Hola, me gusta ${product.name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
+  imageViewerContact.dataset.productId = product.id;
   imageViewer.hidden = false;
   document.body.classList.add("viewer-open");
   imageViewerClose.focus();
+  trackEvent("product_view", { productId:product.id, category:product.category });
 }
 
 function closeImageViewer() {
@@ -160,6 +178,10 @@ function clearCatalogFilters() {
 searchInput.addEventListener("input", () => {
   searchTerm = searchInput.value;
   renderProducts();
+  clearTimeout(searchInput.analyticsTimer);
+  searchInput.analyticsTimer = setTimeout(() => {
+    if (searchTerm.trim().length > 1) trackEvent("search", { query:searchTerm.trim(), resultCount:document.querySelectorAll(".product-card").length });
+  }, 700);
 });
 
 categoryButton.addEventListener("click", () => setCategoryMenu(categoryMenu.hidden));
@@ -175,6 +197,7 @@ document.querySelectorAll(".category-option").forEach(button => {
     });
     setCategoryMenu(false);
     renderProducts();
+    trackEvent("category_filter", { category:activeCategory });
   });
 });
 
@@ -206,6 +229,17 @@ document.querySelectorAll(".whatsapp-general").forEach(link => {
 document.querySelectorAll(".instagram-link").forEach(link => {
   link.href = STORE_CONFIG.instagram;
 });
+document.addEventListener("click", event => {
+  const link = event.target.closest("a");
+  if (!link) return;
+  if (link.classList.contains("instagram-link")) trackEvent("instagram_click");
+  if (link.classList.contains("whatsapp-general")) trackEvent("whatsapp_click", { source:"general" });
+  if (link.id === "image-viewer-contact") trackEvent("whatsapp_click", { source:"product", productId:link.dataset.productId || "" });
+  if (link.classList.contains("product-action") && !link.classList.contains("sold-out")) {
+    const card = link.closest(".product-card");
+    trackEvent("whatsapp_click", { source:"product", productId:card?.querySelector(".product-image")?.dataset.productId || "" });
+  }
+});
 document.querySelector("#copyright").textContent = `© ${new Date().getFullYear()} ${STORE_CONFIG.businessName}`;
 
 async function loadProducts() {
@@ -220,3 +254,4 @@ async function loadProducts() {
 }
 
 loadProducts();
+trackEvent("page_view", { referrer:document.referrer ? new URL(document.referrer).hostname : "direct" });
