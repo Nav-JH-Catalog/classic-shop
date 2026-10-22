@@ -1,6 +1,7 @@
 const grid = document.querySelector("#product-grid");
 const STORE_CONFIG = {
   whatsapp: "50688989259",
+  instagram: "https://www.instagram.com/finds_cr/",
   businessName: "Finds"
 };
 let products = [];
@@ -201,6 +202,9 @@ nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
 
 document.querySelectorAll(".whatsapp-general").forEach(link => {
   link.href = whatsappUrl("Hola, quisiera recibir más información sobre el catálogo.");
+});
+document.querySelectorAll(".instagram-link").forEach(link => {
+  link.href = STORE_CONFIG.instagram;
 });
 document.querySelector("#copyright").textContent = `© ${new Date().getFullYear()} ${STORE_CONFIG.businessName}`;
 

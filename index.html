@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
   <header class="site-header">
@@ -19,6 +19,10 @@
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="header-actions">
+      <a class="header-instagram instagram-link" href="https://www.instagram.com/finds_cr/" target="_blank" rel="noopener" aria-label="Seguir a Finds en Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+        <span>Instagram</span>
+      </a>
       <a class="header-whatsapp whatsapp-general" href="#" target="_blank" rel="noopener" aria-label="Contactar a Finds por WhatsApp">
         <svg viewBox="0 0 32 32" aria-hidden="true">
           <path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.9 1 1.1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.9-.9-3.2-1.7-4.5-3.9-.3-.5.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.5c-.3-.6-.6-.5-.9-.5h-.7c-.3 0-.7.1-1 .5-.3.3-1.3 1.3-1.3 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.1 6.5 5.7.9.4 1.6.6 2.2.8.9.3 1.7.2 2.4.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.2-.3-.4-.4-.7-.6Z"/>
@@ -93,14 +97,21 @@
     <section class="contact" id="contacto">
       <p class="eyebrow">Atención personal</p>
       <h2>¿Te interesa una pieza?</h2>
-      <p>Escríbenos para confirmar disponibilidad, formas de entrega y resolver cualquier consulta.</p>
-      <a class="primary-button whatsapp-general" href="#" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      <p>Escríbenos para confirmar disponibilidad, formas de entrega y resolver cualquier consulta. También puedes seguir nuestros nuevos hallazgos en Instagram.</p>
+      <div class="contact-actions">
+        <a class="primary-button whatsapp-general" href="#" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        <a class="instagram-button instagram-link" href="https://www.instagram.com/finds_cr/" target="_blank" rel="noopener">
+          <span class="instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></span>
+          <span><strong>@finds_cr</strong><small>Síguenos en Instagram</small></span>
+        </a>
+      </div>
     </section>
   </main>
 
   <footer>
     <a class="brand brand-footer" href="#inicio" aria-label="Finds — Volver al inicio"><img src="logo-finds.png?v=2" alt="Finds"></a>
     <p>Catálogo independiente · Costa Rica</p>
+    <a class="footer-instagram instagram-link" href="https://www.instagram.com/finds_cr/" target="_blank" rel="noopener" aria-label="Instagram de Finds"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg><span>@finds_cr</span></a>
     <p id="copyright"></p>
   </footer>
 
@@ -124,6 +135,6 @@
     </figure>
   </div>
 
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
