@@ -859,7 +859,7 @@
   },
   {
     "id": "salud-01-natrol-melatonina-60-10mg",
-    "name": "Natrol melatonina 60 10mg",
+    "name": "Melatonina 10 mg, 60 gomitas",
     "category": "salud",
     "price": "₡22.000",
     "description": "Producto de salud y cuidado personal disponible. Consulta detalles y disponibilidad.",
@@ -868,7 +868,7 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-10-24T10:01"
   },
   {
     "id": "salud-02-cerave-renewing-cleanser",
