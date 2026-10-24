@@ -871,8 +871,8 @@
     "updatedAt": "2026-10-21T09:47"
   },
   {
-    "id": "salud-02-cerave-renewing-cleaner",
-    "name": "CeraVe Renewing Cleaner",
+    "id": "salud-02-cerave-renewing-cleanser",
+    "name": "CeraVe Renewing Cleanser",
     "category": "salud",
     "price": "₡14.000",
     "description": "Producto de salud y cuidado personal disponible. Consulta detalles y disponibilidad.",
@@ -881,7 +881,7 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-10-24T09:58"
   },
   {
     "id": "salud-03-cerave-foaming-cleaner",
