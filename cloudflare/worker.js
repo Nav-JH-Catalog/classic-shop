@@ -5,7 +5,7 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:8765"
 ]);
 const EVENT_TYPES = new Set(["page_view","product_view","whatsapp_click","instagram_click","search","category_filter"]);
-const CATALOG_SOURCE = "https://raw.githubusercontent.com/Nav-JH-Catalog/classic-shop/main/products.json";
+const CATALOG_SOURCE = "https://nav-jh-catalog.github.io/classic-shop/products.json";
 const CATALOG_SYNC_SECONDS = 300;
 
 function cors(request) {
@@ -25,7 +25,7 @@ async function syncCatalog(env) {
     const age=(Date.now()-Date.parse(`${last.updated_at}Z`))/1000;
     if(Number.isFinite(age)&&age<CATALOG_SYNC_SECONDS)return;
   }
-  const response=await fetch(CATALOG_SOURCE,{headers:{"accept":"application/json","user-agent":"Finds-Catalog-Sync"},cf:{cacheTtl:60,cacheEverything:true}});
+  const response=await fetch(`${CATALOG_SOURCE}?sync=${Date.now()}`,{cache:"no-store",headers:{"accept":"application/json","cache-control":"no-cache","user-agent":"Finds-Catalog-Sync"}});
   if(!response.ok)throw new Error(`Catalog source ${response.status}`);
   const raw=await response.text();
   const hash=await digest(raw);
