@@ -244,7 +244,9 @@ document.querySelector("#copyright").textContent = `© ${new Date().getFullYear(
 
 async function loadProducts() {
   try {
-    const response = await fetch(`products.json?v=${Date.now()}`);
+    let response;
+    try { response = await fetch(`${ANALYTICS_API}/products`, { cache:"no-store" }); } catch {}
+    if (!response?.ok) response = await fetch(`products.json?v=${Date.now()}`, { cache:"no-store" });
     if (!response.ok) throw new Error("No se pudo cargar el catálogo");
     products = await response.json();
     renderProducts();
