@@ -1124,6 +1124,18 @@
     "id": "Victorias-secret-pink-mochila-grande-rosa"
   },
   {
+    "image": "/classic-shop/images/products/20-1.png",
+    "name": "Zara Kids – Blusa corazón blanca",
+    "category": "nina",
+    "price": "₡ 10.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "2T, 3T",
+    "description": "Zara Kids – Blusa corazón blanca",
+    "updatedAt": "2026-10-26T10:50",
+    "id": "zara-kids-blusa-corazon-blanca"
+  },
+  {
     "image": "/classic-shop/images/products/21.png",
     "name": "Zara Kids – Blusa estampado de perritos beige",
     "category": "nina",
