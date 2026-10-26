@@ -1162,6 +1162,18 @@
     "id": "paquete-surtido-de-3-baberos-nino"
   },
   {
+    "image": "/classic-shop/images/products/27.jpeg",
+    "name": "Paquete surtido de 3 baberos Winnie Pooh",
+    "category": "nino",
+    "price": "₡ 7.500",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "+3M",
+    "description": "Paquete surtido de 3 baberos Winnie Pooh",
+    "updatedAt": "2026-10-26T12:34",
+    "id": "paquete-surtido-de-3-baberos-winnie-pooh"
+  },
+  {
     "image": "/classic-shop/images/products/21-1.png",
     "name": "Primark – Camisa Paw Patrol",
     "category": "nino",
