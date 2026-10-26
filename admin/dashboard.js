@@ -27,7 +27,10 @@ function render() {
     row.querySelector(".product-meta").textContent=[CATEGORY_LABELS[product.category]||product.category,product.sizes&&product.sizes!=="No aplica"?`Tallas: ${product.sizes}`:""].filter(Boolean).join(" · ");
     row.querySelector(".product-description").textContent=product.description||"Sin descripción"; row.querySelector(".product-price").textContent=product.price||"Sin precio";
     const status=row.querySelector(".status-pill"); if(product.visible===false){ status.textContent="Oculto"; status.classList.add("is-hidden"); } else { status.textContent=product.status||"Disponible"; if(product.status==="Agotado") status.classList.add("is-out"); }
-    const edit=row.querySelector(".edit-button"); edit.dataset.productId=product.id; edit.setAttribute("aria-label",`Editar ${product.name}`); fragment.append(row);
+    const edit=row.querySelector(".edit-button"); edit.dataset.productId=product.id; edit.setAttribute("aria-label",`Editar ${product.name}`);
+    const quick=row.querySelector(".quick-status"); quick.dataset.productId=product.id; quick.textContent=product.status==="Agotado"?"Marcar disponible":"Marcar agotado"; quick.setAttribute("aria-label",`${quick.textContent}: ${product.name}`);
+    for(const selector of [".share-whatsapp",".share-instagram"]){const button=row.querySelector(selector);button.dataset.productId=product.id;button.setAttribute("aria-label",`${button.textContent}: ${product.name}`);}
+    fragment.append(row);
   }); elements.list.append(fragment);
 }
 function updateStats() { elements.total.textContent=state.products.length; elements.available.textContent=state.products.filter((p)=>p.visible!==false&&p.status==="Disponible").length; elements.hidden.textContent=state.products.filter((p)=>p.visible===false||p.status==="Agotado").length; }

@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="theme-color" content="#f8f5ed">
     <title>Gestión de catálogo · Finds</title>
-    <link rel="stylesheet" href="dashboard.css?v=5">
+    <link rel="stylesheet" href="dashboard.css?v=6">
   </head>
   <body>
     <header class="topbar">
@@ -39,9 +39,14 @@
         <div id="product-list" class="product-list" aria-live="polite"></div>
         <div id="empty-state" class="empty" hidden><span aria-hidden="true">⌕</span><h3>No encontramos productos</h3><p>Prueba otro nombre, categoría o disponibilidad.</p></div>
       </section>
+      <section class="activity-panel" aria-labelledby="activity-title">
+        <div class="activity-head"><div><p class="eyebrow">Control y recuperación</p><h2 id="activity-title">Actividad reciente</h2></div><button id="refresh-activity" class="secondary-button" type="button">Actualizar</button></div>
+        <p id="activity-help">Inicia sesión para ver quién modificó el catálogo y restaurar cambios recientes.</p>
+        <div id="activity-list" class="activity-list"></div>
+      </section>
     </main>
     <template id="product-template">
-      <article class="product-row"><img class="product-image" alt="" loading="lazy"><div class="product-copy"><div class="product-title-line"><h3 class="product-name"></h3><span class="status-pill"></span></div><p class="product-meta"></p><p class="product-description"></p></div><strong class="product-price"></strong><button class="edit-button" type="button" aria-label="Editar producto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z"></path><path d="m14.7 6.5 2.8 2.8"></path></svg></button></article>
+      <article class="product-row"><img class="product-image" alt="" loading="lazy"><div class="product-copy"><div class="product-title-line"><h3 class="product-name"></h3><span class="status-pill"></span></div><p class="product-meta"></p><p class="product-description"></p><div class="quick-actions"><button class="quick-status" type="button"></button><button class="share-whatsapp" type="button">WhatsApp</button><button class="share-instagram" type="button">Instagram</button></div></div><strong class="product-price"></strong><button class="edit-button" type="button" aria-label="Editar producto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z"></path><path d="m14.7 6.5 2.8 2.8"></path></svg></button></article>
     </template>
     <dialog id="product-dialog" class="product-dialog">
       <form id="product-form">
@@ -63,7 +68,7 @@
         <div class="dialog-actions"><button type="button" id="delete-product" class="danger-button" hidden>Eliminar</button><button type="button" class="secondary-button dialog-close">Cancelar</button><button type="submit" class="primary-button">Guardar cambios</button></div>
       </form>
     </dialog>
-    <script src="dashboard.js?v=5" defer></script>
-    <script src="editor.js?v=2" defer></script>
+    <script src="dashboard.js?v=6" defer></script>
+    <script src="editor.js?v=3" defer></script>
   </body>
 </html>

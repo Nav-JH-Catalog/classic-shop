@@ -63,6 +63,8 @@ async function putGithubFile(path,content,message,token,sha){
   const body={message,content:btoa(unescape(encodeURIComponent(content))),branch:"main"}; if(sha)body.sha=sha;
   return github(`/repos/${REPO}/contents/${path}`,token,{method:"PUT",body:JSON.stringify(body)});
 }
+function decodeGithubFile(file){try{const bytes=Uint8Array.from(atob(String(file.content||"").replace(/\s/g,"")),char=>char.charCodeAt(0));return JSON.parse(new TextDecoder().decode(bytes));}catch{return null;}}
+async function logActivity(env,session,action,product,before,after){await env.DB.prepare("INSERT INTO admin_activity (action,product_id,product_name,github_user,before_data,after_data) VALUES (?,?,?,?,?,?)").bind(action,product.id,product.name||before?.name||"",session.github_user,before?JSON.stringify(before):null,after?JSON.stringify(after):null).run();}
 
 export default {
   async fetch(request, env) {
@@ -93,6 +95,12 @@ export default {
     if(request.method==="POST"&&url.pathname==="/admin/logout"){
       const session=await adminSession(request,env); if(session)await env.DB.prepare("DELETE FROM admin_sessions WHERE id=?").bind(session.id).run(); return json({ok:true},200,request);
     }
+    if(request.method==="GET"&&url.pathname==="/admin/activity"){
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
+      const limit=Math.min(50,Math.max(1,Number(url.searchParams.get("limit"))||20));
+      const rows=await env.DB.prepare("SELECT id,action,product_id,product_name,github_user,created_at,before_data IS NOT NULL can_restore FROM admin_activity ORDER BY id DESC LIMIT ?").bind(limit).all();
+      return json(rows.results,200,request);
+    }
     if(request.method==="POST"&&url.pathname==="/admin/image"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
       const body=await request.json(); const extension=String(body.extension||"jpg").toLowerCase().replace(/[^a-z0-9]/g,""); const filename=`${slug(body.name)||"producto"}-${Date.now()}.${extension}`;
@@ -102,16 +110,23 @@ export default {
     if(request.method==="PUT"&&url.pathname==="/admin/product"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
       const body=await request.json(); const id=body.id||slug(body.name); if(!id||!body.name||!body.category||!body.price||!body.description)return json({error:"Missing required fields"},400,request);
-      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null;
-      const product={...body,id,visible:body.visible!==false,updatedAt:new Date().toISOString().slice(0,16)}; delete product.originalId;
+      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null; const before=existing?decodeGithubFile(existing):null;
+      const activity=body._activity==="status"?"status":existing?"update":"create"; const product={...body,id,visible:body.visible!==false,updatedAt:new Date().toISOString().slice(0,16)}; delete product.originalId; delete product._activity;
       const saved=await putGithubFile(path,`${JSON.stringify(product,null,2)}\n`,`${existing?"Actualizar":"Agregar"} ${body.name} desde el panel Finds`,session.access_token,existing?.sha);
-      if(!saved.ok)return json({error:"No fue posible guardar el producto"},saved.status,request); return json({ok:true,id},200,request);
+      if(!saved.ok)return json({error:"No fue posible guardar el producto"},saved.status,request); await logActivity(env,session,activity,product,before,product); return json({ok:true,id},200,request);
     }
     if(request.method==="DELETE"&&url.pathname==="/admin/product"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const id=slug(url.searchParams.get("id"));
-      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); if(!current.ok)return json({error:"Product not found"},404,request); const file=await current.json();
+      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); if(!current.ok)return json({error:"Product not found"},404,request); const file=await current.json(); const before=decodeGithubFile(file);
       const removed=await github(`/repos/${REPO}/contents/${path}`,session.access_token,{method:"DELETE",body:JSON.stringify({message:`Eliminar ${id} desde el panel Finds`,sha:file.sha,branch:"main"})});
-      return removed.ok?json({ok:true},200,request):json({error:"No fue posible eliminar"},removed.status,request);
+      if(!removed.ok)return json({error:"No fue posible eliminar"},removed.status,request); await logActivity(env,session,"delete",before||{id,name:id},before,null); return json({ok:true},200,request);
+    }
+    if(request.method==="POST"&&url.pathname==="/admin/restore"){
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const activityId=Number(url.searchParams.get("id"));
+      const activity=await env.DB.prepare("SELECT * FROM admin_activity WHERE id=?").bind(activityId).first(); if(!activity?.before_data)return json({error:"Nothing to restore"},400,request);
+      const restored=JSON.parse(activity.before_data),path=`products/${restored.id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null,before=existing?decodeGithubFile(existing):null;
+      restored.updatedAt=new Date().toISOString().slice(0,16); const saved=await putGithubFile(path,`${JSON.stringify(restored,null,2)}\n`,`Restaurar ${restored.name} desde el historial Finds`,session.access_token,existing?.sha);
+      if(!saved.ok)return json({error:"No fue posible restaurar"},saved.status,request); await logActivity(env,session,"restore",restored,before,restored); return json({ok:true},200,request);
     }
     if(request.method==="POST"&&url.pathname==="/event"){
       const origin=request.headers.get("Origin")||""; if(!ALLOWED_ORIGINS.has(origin))return json({error:"Origin not allowed"},403,request);
