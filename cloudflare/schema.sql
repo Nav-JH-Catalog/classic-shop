@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS events (
   source TEXT NOT NULL DEFAULT '',
   path TEXT NOT NULL DEFAULT '',
   referrer TEXT NOT NULL DEFAULT '',
+  device TEXT NOT NULL DEFAULT 'unknown',
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_events_created_at ON events(created_at);

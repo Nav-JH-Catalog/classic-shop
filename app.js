@@ -5,6 +5,7 @@ const STORE_CONFIG = {
   businessName: "Finds"
 };
 const ANALYTICS_API = "https://finds-analytics-api.josuehidalgocastro.workers.dev";
+function analyticsDevice(){const ua=navigator.userAgent||"";if(/iPad|Tablet|Kindle|Silk/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1))return "tablet";if(navigator.userAgentData?.mobile||/Mobi|Android|iPhone|iPod/i.test(ua))return "mobile";return "desktop";}
 const ANALYTICS_ENABLED = !ANALYTICS_API.startsWith("__");
 const analyticsSession = (() => {
   const key = "finds_analytics_session";
@@ -17,7 +18,7 @@ const analyticsSession = (() => {
 
 function trackEvent(type, details = {}) {
   if (!ANALYTICS_ENABLED) return;
-  const payload = JSON.stringify({ type, sessionId: analyticsSession, path: location.pathname, ...details });
+  const payload = JSON.stringify({ type, sessionId: analyticsSession, path: location.pathname, device:analyticsDevice(), ...details });
   fetch(`${ANALYTICS_API}/event`, { method:"POST", headers:{"content-type":"application/json"}, body:payload, keepalive:true }).catch(() => {});
 }
 let products = [];

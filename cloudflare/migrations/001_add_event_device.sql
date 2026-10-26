@@ -1,0 +1,1 @@
+ALTER TABLE events ADD COLUMN device TEXT NOT NULL DEFAULT 'unknown';
