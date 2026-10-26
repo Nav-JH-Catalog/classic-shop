@@ -101,6 +101,21 @@ export default {
       const rows=await env.DB.prepare("SELECT id,action,product_id,product_name,github_user,created_at,before_data IS NOT NULL can_restore FROM admin_activity ORDER BY id DESC LIMIT ?").bind(limit).all();
       return json(rows.results,200,request);
     }
+    if(request.method==="GET"&&url.pathname==="/admin/customers"){
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
+      const rows=await env.DB.prepare("SELECT c.*,(SELECT COUNT(*) FROM events e JOIN customer_sessions s ON s.session_id=e.session_id WHERE s.customer_id=c.id AND e.type='page_view') visits,(SELECT COUNT(*) FROM customer_interactions i WHERE i.customer_id=c.id AND i.type='contact') contacts,(SELECT COUNT(*) FROM customer_interactions i WHERE i.customer_id=c.id AND i.type='purchase') purchases,(SELECT COALESCE(SUM(i.amount),0) FROM customer_interactions i WHERE i.customer_id=c.id AND i.type='purchase') total_spent,(SELECT GROUP_CONCAT(DISTINCT i.channel) FROM customer_interactions i WHERE i.customer_id=c.id) channels FROM customers c ORDER BY c.last_contact_at DESC").all();
+      return json(rows.results,200,request);
+    }
+    if(request.method==="GET"&&url.pathname==="/admin/customer"){
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const id=Number(url.searchParams.get("id"));
+      const customer=await env.DB.prepare("SELECT * FROM customers WHERE id=?").bind(id).first(); if(!customer)return json({error:"Not found"},404,request);
+      const interactions=await env.DB.prepare("SELECT * FROM customer_interactions WHERE customer_id=? ORDER BY id DESC").bind(id).all(); return json({customer,interactions:interactions.results},200,request);
+    }
+    if(request.method==="POST"&&url.pathname==="/admin/customer-interaction"){
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const body=await request.json(),id=Number(body.customerId);
+      if(!id||!["contact","purchase","note"].includes(body.type)||!["whatsapp","instagram","phone","in_person","other"].includes(body.channel))return json({error:"Invalid interaction"},400,request);
+      await env.DB.batch([env.DB.prepare("INSERT INTO customer_interactions (customer_id,type,channel,product_id,note,amount,created_by) VALUES (?,?,?,?,?,?,?)").bind(id,body.type,body.channel,String(body.productId||"").slice(0,120),String(body.note||"").slice(0,500),Number(body.amount)||0,session.github_user),env.DB.prepare("UPDATE customers SET last_contact_at=datetime('now'),updated_at=datetime('now') WHERE id=?").bind(id)]); return json({ok:true},201,request);
+    }
     if(request.method==="POST"&&url.pathname==="/admin/image"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
       const body=await request.json(); const extension=String(body.extension||"jpg").toLowerCase().replace(/[^a-z0-9]/g,""); const filename=`${slug(body.name)||"producto"}-${Date.now()}.${extension}`;
@@ -136,6 +151,13 @@ export default {
       const device=DEVICE_TYPES.has(body.device)?body.device:"unknown";
       await env.DB.prepare("INSERT INTO events (type,session_id,product_id,category,query,result_count,source,path,referrer,device) VALUES (?,?,?,?,?,?,?,?,?,?)").bind(body.type,clean(body.sessionId),clean(body.productId),clean(body.category),clean(body.query),Number(body.resultCount)||0,clean(body.source),clean(body.path),clean(body.referrer),device).run();
       return json({ok:true},201,request);
+    }
+    if(request.method==="POST"&&url.pathname==="/lead"){
+      const origin=request.headers.get("Origin")||""; if(!ALLOWED_ORIGINS.has(origin))return json({error:"Origin not allowed"},403,request); let body;try{body=await request.json();}catch{return json({error:"Invalid JSON"},400,request);}
+      const phone=String(body.phone||"").replace(/\D/g,"").slice(0,15),name=String(body.name||"").trim().slice(0,100),email=String(body.email||"").trim().slice(0,140),sessionId=String(body.sessionId||"").slice(0,180),productId=String(body.productId||"").slice(0,120);
+      if(!body.consent||name.length<2||phone.length<8)return json({error:"Name, phone and consent are required"},400,request);
+      await env.DB.prepare("INSERT INTO customers (name,phone,email,consent_at) VALUES (?,?,?,datetime('now')) ON CONFLICT(phone) DO UPDATE SET name=excluded.name,email=CASE WHEN excluded.email<>'' THEN excluded.email ELSE customers.email END,updated_at=datetime('now'),last_contact_at=datetime('now')").bind(name,phone,email).run(); const customer=await env.DB.prepare("SELECT id FROM customers WHERE phone=?").bind(phone).first();
+      await env.DB.batch([env.DB.prepare("INSERT INTO customer_sessions (session_id,customer_id) VALUES (?,?) ON CONFLICT(session_id) DO UPDATE SET customer_id=excluded.customer_id").bind(sessionId,customer.id),env.DB.prepare("INSERT INTO customer_interactions (customer_id,type,channel,product_id,note,created_by) VALUES (?,'contact','whatsapp',?,?,'cliente')").bind(customer.id,productId,productId?"Consulta desde producto":"Consulta general")]); return json({ok:true,id:customer.id},201,request);
     }
     if(request.method==="GET"&&url.pathname==="/analytics"){
       const days=Math.min(365,Math.max(1,Number(url.searchParams.get("days"))||30)); const since=`-${days-1} days`;

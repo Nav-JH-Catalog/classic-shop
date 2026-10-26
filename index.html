@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
   <header class="site-header">
@@ -135,6 +135,19 @@
     </figure>
   </div>
 
-  <script src="app.js?v=15"></script>
+  <dialog class="lead-dialog" id="lead-dialog">
+    <form id="lead-form">
+      <button class="lead-close" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow">Atención personalizada</p><h2>Antes de conversar</h2>
+      <p>Déjanos tus datos para atenderte mejor y mantener el historial de tu consulta.</p>
+      <label>Nombre<input name="name" required autocomplete="name" maxlength="100"></label>
+      <label>Teléfono<input name="phone" required autocomplete="tel" inputmode="tel" minlength="8" maxlength="20" placeholder="8888-8888"></label>
+      <label>Correo <small>(opcional)</small><input name="email" type="email" autocomplete="email" maxlength="140"></label>
+      <label class="lead-consent"><input name="consent" type="checkbox" required> Acepto que Finds guarde estos datos para atender mis consultas y dar seguimiento a futuras compras.</label>
+      <p id="lead-status" aria-live="polite"></p><button class="primary-button" type="submit">Continuar a WhatsApp</button>
+    </form>
+  </dialog>
+
+  <script src="app.js?v=16"></script>
 </body>
 </html>

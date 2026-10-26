@@ -44,6 +44,14 @@ function whatsappUrl(message) {
   return `https://wa.me/${STORE_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
+const leadDialog=document.querySelector("#lead-dialog"),leadForm=document.querySelector("#lead-form"),leadStatus=document.querySelector("#lead-status");
+let pendingWhatsapp=null;
+function savedLead(){try{return JSON.parse(localStorage.getItem("finds_customer")||"null");}catch{return null;}}
+async function registerLead(lead,target){const response=await fetch(`${ANALYTICS_API}/lead`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({...lead,consent:true,sessionId:analyticsSession,productId:target.productId||""})});if(!response.ok)throw new Error("No pudimos guardar el contacto.");}
+document.addEventListener("click",event=>{const link=event.target.closest("a");if(!link||!(link.classList.contains("whatsapp-general")||link.id==="image-viewer-contact"||(link.classList.contains("product-action")&&!link.classList.contains("sold-out"))))return;event.preventDefault();const card=link.closest(".product-card"),target={url:link.href,productId:link.dataset.productId||card?.querySelector(".product-image")?.dataset.productId||""};const known=savedLead();if(known){const popup=window.open("about:blank","_blank");registerLead(known,target).catch(()=>{}).finally(()=>{if(popup)popup.location.href=target.url;else location.href=target.url;});return;}pendingWhatsapp=target;leadStatus.textContent="";leadDialog.showModal();},{capture:true});
+leadForm.addEventListener("submit",async event=>{event.preventDefault();if(!pendingWhatsapp)return;const values=Object.fromEntries(new FormData(leadForm));const popup=window.open("about:blank","_blank");leadStatus.textContent="Guardando tus datos…";try{const lead={name:values.name.trim(),phone:values.phone,email:values.email||""};await registerLead(lead,pendingWhatsapp);localStorage.setItem("finds_customer",JSON.stringify(lead));const url=pendingWhatsapp.url;pendingWhatsapp=null;leadDialog.close();if(popup)popup.location.href=url;else location.href=url;}catch(error){if(popup)popup.close();leadStatus.textContent=error.message;}});
+leadDialog.querySelector(".lead-close").addEventListener("click",()=>{pendingWhatsapp=null;leadDialog.close();});
+
 function normalizeText(value = "") {
   return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
