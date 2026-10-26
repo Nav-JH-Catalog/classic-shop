@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="theme-color" content="#f8f5ed">
     <title>Gestión de catálogo · Finds</title>
-    <link rel="stylesheet" href="dashboard.css?v=3">
+    <link rel="stylesheet" href="dashboard.css?v=4">
   </head>
   <body>
     <header class="topbar">
@@ -43,8 +43,27 @@
     <template id="product-template">
       <article class="product-row"><img class="product-image" alt="" loading="lazy"><div class="product-copy"><div class="product-title-line"><h3 class="product-name"></h3><span class="status-pill"></span></div><p class="product-meta"></p><p class="product-description"></p></div><strong class="product-price"></strong><button class="edit-button" type="button" aria-label="Editar producto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.2-1 10.9-10.9a2.1 2.1 0 0 0-3-3L5.2 16 4 20Z"></path><path d="m14.7 6.5 2.8 2.8"></path></svg></button></article>
     </template>
-    <dialog id="product-dialog" class="product-dialog"><form id="product-form"><div class="dialog-head"><div><p class="eyebrow">Editor de producto</p><h2 id="editor-title">Nuevo producto</h2></div><button type="button" class="dialog-close" aria-label="Cerrar">×</button></div><input type="hidden" name="id"><div class="editor-grid"><label class="image-field"><span>Fotografía</span><img id="image-preview" alt="Vista previa"><input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG o WebP</small></label><div class="fields"><label>Nombre<input name="name" required></label><div class="field-row"><label>Categoría<select name="category" required><option value="nino">Ropa Niño</option><option value="nina">Ropa Niña</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="tecnologia">Tecnología</option><option value="salud">Salud y cuidado personal</option></select></label><label>Precio<input name="price" required placeholder="₡18.500"></label></div><div class="field-row"><label>Disponibilidad<select name="status"><option>Disponible</option><option>Agotado</option></select></label><label>Tallas<input name="sizes" placeholder="S, M, L"></label></div><label>Descripción<textarea name="description" rows="4" required maxlength="300"></textarea></label><label class="check-field"><input name="visible" type="checkbox" checked> Mostrar en el catálogo público</label></div></div><p id="editor-status" class="editor-status" aria-live="polite"></p><div class="dialog-actions"><button type="button" id="delete-product" class="danger-button" hidden>Eliminar</button><button type="button" class="secondary-button dialog-close">Cancelar</button><button type="submit" class="primary-button">Guardar cambios</button></div></form></dialog>
+    <dialog id="product-dialog" class="product-dialog">
+      <form id="product-form">
+        <div class="dialog-head"><div><p class="eyebrow">Editor de producto</p><h2 id="editor-title">Nuevo producto</h2></div><button type="button" class="dialog-close" aria-label="Cerrar">×</button></div>
+        <input type="hidden" name="id">
+        <div class="editor-grid">
+          <label class="image-field"><span>Fotografía</span><img id="image-preview" alt="Vista previa"><input name="photo" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG o WebP</small></label>
+          <div class="fields">
+            <label>Nombre<input name="name" required></label>
+            <div class="field-row"><label>Categoría<select name="category" required><option value="nino">Ropa Niño</option><option value="nina">Ropa Niña</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="tecnologia">Tecnología</option><option value="salud">Salud y cuidado personal</option></select></label><label>Precio<input name="price" required placeholder="₡18.500"></label></div>
+            <div class="field-row"><label>Disponibilidad<select name="status"><option>Disponible</option><option>Agotado</option></select></label><label>Tallas<input name="sizes" placeholder="S, M, L"></label></div>
+            <div class="size-picker"><select id="size-preset" aria-label="Seleccionar una talla común"><option value="">Agregar una talla común…</option><optgroup label="Bebé"><option>Recién nacido</option><option>0-3M</option><option>3-6M</option><option>6-9M</option><option>9-12M</option><option>12M</option><option>18M</option><option>24M</option></optgroup><optgroup label="Niños"><option>2T</option><option>3T</option><option>4T</option><option>5T</option><option>6</option><option>8</option><option>10</option><option>12</option><option>14</option><option>16</option></optgroup><optgroup label="Ropa general"><option>XXS</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>3XL</option></optgroup><optgroup label="Calzado"><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option></optgroup><option>No aplica</option></select><button id="add-size" type="button" class="secondary-button">＋ Agregar talla</button></div>
+            <small class="size-help">Puedes agregar varias tallas o escribir una medida especial.</small>
+            <label>Descripción<textarea name="description" rows="4" required maxlength="300"></textarea></label>
+            <label class="check-field"><input name="visible" type="checkbox" checked> Mostrar en el catálogo público</label>
+          </div>
+        </div>
+        <p id="editor-status" class="editor-status" aria-live="polite"></p>
+        <div class="dialog-actions"><button type="button" id="delete-product" class="danger-button" hidden>Eliminar</button><button type="button" class="secondary-button dialog-close">Cancelar</button><button type="submit" class="primary-button">Guardar cambios</button></div>
+      </form>
+    </dialog>
     <script src="dashboard.js?v=4" defer></script>
-    <script src="editor.js?v=1" defer></script>
+    <script src="editor.js?v=2" defer></script>
   </body>
 </html>
