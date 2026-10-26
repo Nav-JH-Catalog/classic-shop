@@ -1066,6 +1066,18 @@
     "updatedAt": "2026-10-21T09:47"
   },
   {
+    "image": "/classic-shop/images/products/22-1.png",
+    "name": "Carters – Pijama Onesie",
+    "category": "nino",
+    "price": "₡ 12.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "12M, 18M",
+    "description": "Carters – Pijama Onesie",
+    "updatedAt": "2026-10-26T12:30",
+    "id": "carters-pijama-onesie"
+  },
+  {
     "image": "/classic-shop/images/products/17.png",
     "name": "Carters – Pijama Onesie osito ",
     "category": "nina",
