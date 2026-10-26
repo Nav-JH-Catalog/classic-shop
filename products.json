@@ -1138,6 +1138,18 @@
     "id": "primark-medias-colores-7-pares"
   },
   {
+    "image": "/classic-shop/images/products/25.png",
+    "name": "Primark – Vestido 2 piezas floral ",
+    "category": "nina",
+    "price": "₡ 16.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "6-9M, 9-12M",
+    "description": "Primark – Vestido 2 piezas floral ",
+    "updatedAt": "2026-10-26T12:25",
+    "id": "primark-vestido-2-piezas-floral"
+  },
+  {
     "image": "/classic-shop/images/products/15.png",
     "name": "Victoria’s Secret Pink – Mochila grande mauve",
     "category": "mujer",
