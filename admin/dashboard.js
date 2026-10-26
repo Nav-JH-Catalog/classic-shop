@@ -27,7 +27,7 @@ function render() {
     row.querySelector(".product-meta").textContent=[CATEGORY_LABELS[product.category]||product.category,product.sizes&&product.sizes!=="No aplica"?`Tallas: ${product.sizes}`:""].filter(Boolean).join(" · ");
     row.querySelector(".product-description").textContent=product.description||"Sin descripción"; row.querySelector(".product-price").textContent=product.price||"Sin precio";
     const status=row.querySelector(".status-pill"); if(product.visible===false){ status.textContent="Oculto"; status.classList.add("is-hidden"); } else { status.textContent=product.status||"Disponible"; if(product.status==="Agotado") status.classList.add("is-out"); }
-    const edit=row.querySelector(".edit-button"); edit.href=productEditUrl(product); edit.setAttribute("aria-label",`Editar ${product.name}`); fragment.append(row);
+    const edit=row.querySelector(".edit-button"); edit.dataset.productId=product.id; edit.setAttribute("aria-label",`Editar ${product.name}`); fragment.append(row);
   }); elements.list.append(fragment);
 }
 function updateStats() { elements.total.textContent=state.products.length; elements.available.textContent=state.products.filter((p)=>p.visible!==false&&p.status==="Disponible").length; elements.hidden.textContent=state.products.filter((p)=>p.visible===false||p.status==="Agotado").length; }
@@ -56,7 +56,7 @@ async function loadAnalytics() {
 }
 function exportCsv(){ if(!analyticsReport)return; const rows=[["Reporte Finds"],["Periodo",document.querySelector("#analytics-range").selectedOptions[0].text],["Generado",new Date().toLocaleString("es-CR")],[],["Métrica","Cantidad"],...[Object.entries(analyticsReport.totals||{})],[],["Producto","Vistas"],...(analyticsReport.topProducts||[]).map(r=>[r.label,r.value]),[],["Búsqueda","Cantidad"],...(analyticsReport.topSearches||[]).map(r=>[r.label,r.value])]; const csv="\ufeff"+rows.map(row=>row.map(cell=>`"${String(cell??"").replaceAll('"','""')}"`).join(",")).join("\r\n"); const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"})); const a=document.createElement("a");a.href=url;a.download=`finds-reporte-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(url);}
 async function loadProducts() {
-  try { let response; try{response=await fetch(`${ANALYTICS_API}/products`,{cache:"no-store"});}catch{} if(!response?.ok)response=await fetch(`../products.json?v=${Date.now()}`,{cache:"no-store"}); if(!response.ok) throw new Error(`No se pudo cargar el catálogo (${response.status})`); state.products=await response.json(); updateStats(); render(); if(analyticsReport) renderAnalytics(analyticsReport); }
+  try { let response; try{response=await fetch(`${ANALYTICS_API}/products`,{cache:"no-store"});}catch{} if(!response?.ok)response=await fetch(`../products.json?v=${Date.now()}`,{cache:"no-store"}); if(!response.ok) throw new Error(`No se pudo cargar el catálogo (${response.status})`); state.products=await response.json(); window.findsProducts=state.products; updateStats(); render(); window.dispatchEvent(new CustomEvent("finds:products")); if(analyticsReport) renderAnalytics(analyticsReport); }
   catch(error){ elements.results.textContent="Error de carga"; elements.list.innerHTML=`<p class="error">${error.message}. Actualiza la página para intentarlo nuevamente.</p>`; }
 }
 elements.search.addEventListener("input",(event)=>{ state.query=event.target.value; render(); });
