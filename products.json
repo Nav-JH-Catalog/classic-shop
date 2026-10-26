@@ -1150,6 +1150,18 @@
     "id": "osh-kosh-blusa-estampado-de-flores-verde"
   },
   {
+    "image": "/classic-shop/images/products/26.png",
+    "name": "Paquete surtido de 3 baberos niño",
+    "category": "nino",
+    "price": "₡ 7.500",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "+3M",
+    "description": "Paquete surtido de 3 baberos niño",
+    "updatedAt": "2026-10-26T12:33",
+    "id": "paquete-surtido-de-3-baberos-nino"
+  },
+  {
     "image": "/classic-shop/images/products/21-1.png",
     "name": "Primark – Camisa Paw Patrol",
     "category": "nino",
