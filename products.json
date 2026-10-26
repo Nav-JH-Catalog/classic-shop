@@ -1066,6 +1066,17 @@
     "updatedAt": "2026-10-21T09:47"
   },
   {
+    "image": "/classic-shop/images/products/15.png",
+    "name": "Victoria’s Secret Pink – Mochila grande mauve",
+    "category": "mujer",
+    "price": "₡ 25.000",
+    "status": "Disponible",
+    "visible": true,
+    "description": "Victoria’s Secret Pink – Mochila grande mauve",
+    "updatedAt": "2026-10-26T10:36",
+    "id": "victorias-secret-pink-mochila-grande-mauve"
+  },
+  {
     "image": "/classic-shop/images/products/14.png",
     "name": "Victoria’s Secret Pink – Mochila grande rosa",
     "category": "mujer",
