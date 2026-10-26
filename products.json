@@ -1078,6 +1078,18 @@
     "id": "carters-pijama-onesie-osito"
   },
   {
+    "image": "/classic-shop/images/products/18.png",
+    "name": "Osh Kosh – Blusa estampado de flores rosa",
+    "category": "nina",
+    "price": "₡ 8.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "2T",
+    "description": "Osh Kosh – Blusa estampado de flores rosa",
+    "updatedAt": "2026-10-26T10:43",
+    "id": "osh-kosh-blusa-estampado-de-flores-rosa"
+  },
+  {
     "image": "/classic-shop/images/products/15.png",
     "name": "Victoria’s Secret Pink – Mochila grande mauve",
     "category": "mujer",
