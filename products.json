@@ -1186,6 +1186,18 @@
     "id": "primark-medias-colores-7-pares"
   },
   {
+    "image": "/classic-shop/images/products/25-1.png",
+    "name": "Primark – Paquete de 7 Media de colores",
+    "category": "nino",
+    "price": "₡ 9.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "12 – 24M",
+    "description": "Primark – Paquete de 7 Media de colores",
+    "updatedAt": "2026-10-26T12:33",
+    "id": "primark-paquete-de-7-media-de-colores"
+  },
+  {
     "image": "/classic-shop/images/products/25.png",
     "name": "Primark – Vestido 2 piezas floral ",
     "category": "nina",
