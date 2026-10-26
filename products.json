@@ -1114,6 +1114,18 @@
     "id": "osh-kosh-blusa-estampado-de-flores-verde"
   },
   {
+    "image": "/classic-shop/images/products/21-1.png",
+    "name": "Primark – Camisa Paw Patrol",
+    "category": "nino",
+    "price": "₡ 7.500",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "1.5 – 2T",
+    "description": "Primark – Camisa Paw Patrol",
+    "updatedAt": "2026-10-26T12:29",
+    "id": "primark-camisa-paw-patrol"
+  },
+  {
     "image": "/classic-shop/images/products/22.png",
     "name": "Primark – Medias blancas 5 pares",
     "category": "nina",
