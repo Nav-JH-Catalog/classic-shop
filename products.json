@@ -1078,6 +1078,18 @@
     "id": "carters-pijama-onesie-osito"
   },
   {
+    "image": "/classic-shop/images/products/24.png",
+    "name": "Old Navy – Medias colores 6 pares",
+    "category": "nina",
+    "price": "₡ 12.000",
+    "status": "Disponible",
+    "visible": true,
+    "sizes": "6-12M, 12-24M",
+    "description": "Old Navy – Medias colores 6 pares",
+    "updatedAt": "2026-10-26T11:46",
+    "id": "old-navy-medias-colores-6-pares"
+  },
+  {
     "image": "/classic-shop/images/products/18.png",
     "name": "Osh Kosh – Blusa estampado de flores rosa",
     "category": "nina",
