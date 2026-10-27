@@ -1,14 +1,12 @@
 {
   "id": "tecnologia-05-lenovo-idea-pad-11-8-gb-ram-256-hd",
-  "name": "Lenovo — Idea Pad 11’’, 8 gb RAM, 256 hd",
+  "name": "Lenovo — Idea Tab 11’’, 8 gb RAM, 256 hd",
   "category": "tecnologia",
   "price": "₡125.000",
-  "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
-  "sizes": "No aplica",
-  "image": "/classic-shop/images/products/tecnologia-05.webp",
   "status": "Disponible",
-  "color": "#eee9df",
-  "_order": 80,
+  "sizes": "No aplica",
+  "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "image": "/classic-shop/images/products/tecnologia-05.webp",
+  "updatedAt": "2026-10-27T19:45"
 }
