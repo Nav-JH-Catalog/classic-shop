@@ -1078,16 +1078,16 @@
     "id": "abrigo-comegalletas"
   },
   {
-    "image": "/classic-shop/images/products/22-1.png",
-    "name": "Carters – Pijama Onesie",
+    "id": "carters-pijama-onesie",
+    "name": "Carter's – Pijama Onesie",
     "category": "nino",
     "price": "₡ 12.000",
     "status": "Disponible",
-    "visible": true,
     "sizes": "12M, 18M",
-    "description": "Carters – Pijama Onesie",
-    "updatedAt": "2026-10-26T12:30",
-    "id": "carters-pijama-onesie"
+    "description": "Carter's – Pijama Onesie",
+    "visible": true,
+    "image": "/classic-shop/images/products/22-1.png",
+    "updatedAt": "2026-10-27T13:42"
   },
   {
     "image": "/classic-shop/images/products/17.png",
