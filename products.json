@@ -1138,16 +1138,16 @@
     "id": "old-navy-paquete-de-6-medias-de-colores"
   },
   {
-    "image": "/classic-shop/images/products/18.png",
-    "name": "Osh Kosh – Blusa estampado de flores rosa",
+    "id": "osh-kosh-blusa-estampado-de-flores-rosa",
+    "name": "OshKosh – Blusa estampado de flores rosa",
     "category": "nina",
     "price": "₡ 8.000",
     "status": "Disponible",
-    "visible": true,
     "sizes": "2T",
-    "description": "Osh Kosh – Blusa estampado de flores rosa",
-    "updatedAt": "2026-10-26T10:43",
-    "id": "osh-kosh-blusa-estampado-de-flores-rosa"
+    "description": "OshKosh – Blusa estampado de flores rosa",
+    "visible": true,
+    "image": "/classic-shop/images/products/18.png",
+    "updatedAt": "2026-10-27T13:44"
   },
   {
     "id": "osh-kosh-blusa-estampado-de-flores-verde",
