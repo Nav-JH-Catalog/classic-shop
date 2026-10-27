@@ -101,6 +101,7 @@ function validProduct(body){return ['name','category','price','description'].eve
 const chatNormalize=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 function chatProducts(products,message){
   const normalized=chatNormalize(message),aliases={nino:"nino infantil niño",nina:"nina infantil niña",hombre:"hombre caballero",mujer:"mujer dama",tecnologia:"tecnologia electronica",salud:"salud cuidado personal"};
+  if(/^(buscar por talla|buscar por precio)$/.test(normalized))return [];
   if(/ver productos disponibles|que hay disponible|mostrar disponibles/.test(normalized))return products.filter(product=>product.visible!==false&&product.status==="Disponible").slice(0,4);
   if(/^(hola|buenas|hey|ayuda)\b/.test(normalized))return [];
   const budgetMatch=normalized.match(/(?:menos de|hasta|maximo|por debajo de)\s*(?:₡|¢)?\s*([\d.,]+)/),budget=budgetMatch?Number(budgetMatch[1].replace(/[^\d]/g,"")):0,sizeMatch=normalized.match(/\b(?:\d{1,2}t|\d{1,2}-\d{1,2}m|\d{1,2}m|xxs|xs|xxl|xl|[sml])\b/i),wantedSize=sizeMatch?.[0]||"";
