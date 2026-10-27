@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body>
   <header class="site-header">
@@ -52,6 +52,15 @@
           <p class="eyebrow">Catálogo</p>
           <h2>La colección</h2>
         </div>
+      </div>
+      <div class="category-shortcuts" role="group" aria-label="Categorías del catálogo">
+        <button class="category-shortcut active" type="button" data-filter="Todos" aria-pressed="true" style="--category-color:#a67525;--category-tint:#f5ead4"><span class="category-shortcut-icon" aria-hidden="true">✦</span><span>Todas</span></button>
+        <button class="category-shortcut" type="button" data-filter="nino" aria-pressed="false" style="--category-color:#38738b;--category-tint:#e6f2f6"><span class="category-shortcut-icon" aria-hidden="true">🧒</span><span>Ropa Niño</span></button>
+        <button class="category-shortcut" type="button" data-filter="nina" aria-pressed="false" style="--category-color:#ae5d7e;--category-tint:#fae9f0"><span class="category-shortcut-icon" aria-hidden="true">👧</span><span>Ropa Niña</span></button>
+        <button class="category-shortcut" type="button" data-filter="hombre" aria-pressed="false" style="--category-color:#536b9b;--category-tint:#e9edf8"><span class="category-shortcut-icon" aria-hidden="true">👔</span><span>Hombre</span></button>
+        <button class="category-shortcut" type="button" data-filter="mujer" aria-pressed="false" style="--category-color:#885d9b;--category-tint:#f2eaf8"><span class="category-shortcut-icon" aria-hidden="true">👗</span><span>Mujer</span></button>
+        <button class="category-shortcut" type="button" data-filter="tecnologia" aria-pressed="false" style="--category-color:#2d7b78;--category-tint:#e4f3f0"><span class="category-shortcut-icon" aria-hidden="true">💻</span><span>Tecnología</span></button>
+        <button class="category-shortcut" type="button" data-filter="salud" aria-pressed="false" style="--category-color:#6b813a;--category-tint:#eef4df"><span class="category-shortcut-icon" aria-hidden="true">🧴</span><span>Salud y cuidado personal</span></button>
       </div>
       <div class="catalog-tools" role="search" aria-label="Buscar y filtrar el catálogo">
         <label class="catalog-search" for="catalog-search">
@@ -148,6 +157,6 @@
     </form>
   </dialog>
 
-  <script src="app.js?v=31"></script>
+  <script src="app.js?v=32"></script>
 </body>
 </html>

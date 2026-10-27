@@ -174,12 +174,7 @@ function clearCatalogFilters() {
   activeCategory = "Todos";
   searchTerm = "";
   searchInput.value = "";
-  categoryFilterLabel.textContent = "Todas las categorías";
-  document.querySelectorAll(".category-option").forEach(option => {
-    const selected = option.dataset.filter === "Todos";
-    option.classList.toggle("active", selected);
-    option.setAttribute("aria-checked", String(selected));
-  });
+  updateCategoryControls();
   renderProducts();
   searchInput.focus();
 }
@@ -195,15 +190,18 @@ searchInput.addEventListener("input", () => {
 
 categoryButton.addEventListener("click", () => setCategoryMenu(categoryMenu.hidden));
 
-document.querySelectorAll(".category-option").forEach(button => {
+function updateCategoryControls() {
+  categoryFilterLabel.textContent = activeCategory === "Todos" ? "Todas las categorías" : categoryLabels[activeCategory];
+  document.querySelectorAll(".category-option, .category-shortcut").forEach(option => {
+    const selected = option.dataset.filter === activeCategory;
+    option.classList.toggle("active", selected);
+    option.setAttribute(option.classList.contains("category-shortcut") ? "aria-pressed" : "aria-checked", String(selected));
+  });
+}
+document.querySelectorAll(".category-option, .category-shortcut").forEach(button => {
   button.addEventListener("click", () => {
     activeCategory = button.dataset.filter;
-    categoryFilterLabel.textContent = button.textContent;
-    document.querySelectorAll(".category-option").forEach(option => {
-      const selected = option === button;
-      option.classList.toggle("active", selected);
-      option.setAttribute("aria-checked", String(selected));
-    });
+    updateCategoryControls();
     setCategoryMenu(false);
     renderProducts();
     trackEvent("category_filter", { category:activeCategory });
