@@ -45,7 +45,7 @@ async function syncCatalog(env) {
   for(const edit of edits.results){
     const published=merged.get(edit.product_id);
     const after=edit.after_data?JSON.parse(edit.after_data):null;
-    const editedAt=after?.updatedAt||`${edit.created_at.replace(' ','T')}Z`;
+    const editedAt=after?.updatedAt&&/[zZ]|[+-]\d\d:\d\d$/.test(after.updatedAt)?after.updatedAt:`${edit.created_at.replace(' ','T')}Z`;
     if(!published||productTime(published.updatedAt)<=productTime(editedAt)){
       if(after)merged.set(edit.product_id,after);else merged.delete(edit.product_id);
     }
