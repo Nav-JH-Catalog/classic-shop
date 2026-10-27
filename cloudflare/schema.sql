@@ -77,3 +77,12 @@ CREATE TABLE IF NOT EXISTS customer_interactions (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_customer_interactions_customer ON customer_interactions(customer_id,created_at);
+
+CREATE TABLE IF NOT EXISTS catalog_backups (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_count INTEGER NOT NULL,
+  checksum TEXT NOT NULL,
+  data TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_catalog_backups_created ON catalog_backups(created_at);

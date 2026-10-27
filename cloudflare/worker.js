@@ -63,6 +63,20 @@ async function syncCatalog(env) {
 const base64url=bytes=>btoa(String.fromCharCode(...bytes)).replaceAll("+","-").replaceAll("/","_").replaceAll("=","");
 const randomToken=()=>base64url(crypto.getRandomValues(new Uint8Array(32)));
 const slug=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,100);
+async function createCatalogBackup(env) {
+  await syncCatalog(env);
+  const rows=await env.DB.prepare("SELECT data FROM products ORDER BY sort_order").all();
+  if(!rows.results.length)throw new Error("Catalog is empty; backup cancelled");
+  const products=rows.results.map(row=>JSON.parse(row.data));
+  const payload=JSON.stringify(products);
+  const checksum=await digest(payload);
+  await env.DB.batch([
+    env.DB.prepare("INSERT INTO catalog_backups (product_count,checksum,data) VALUES (?,?,?)").bind(products.length,checksum,payload),
+    env.DB.prepare("DELETE FROM catalog_backups WHERE id NOT IN (SELECT id FROM catalog_backups ORDER BY created_at DESC,id DESC LIMIT 12)")
+  ]);
+  return {productCount:products.length,checksum};
+}
+
 async function adminSession(request,env){
   const token=(request.headers.get("authorization")||"").replace(/^Bearer\s+/i,"");
   if(!token)return null;
@@ -85,6 +99,7 @@ const productPath=id=>`products/${encodeURIComponent(id)}.json`;
 function validProduct(body){return ['name','category','price','description'].every(key=>typeof body[key]==='string'&&body[key].trim())&&['nino','nina','hombre','mujer','tecnologia','salud'].includes(body.category)&&['Disponible','Agotado'].includes(body.status)&&(!body.id||(typeof body.id==='string'&&!/[\\/\x00-\x1f?#]/.test(body.id)&&body.id.length<=200));}
 
 export default {
+  async scheduled(controller,env,ctx){ctx.waitUntil(createCatalogBackup(env));},
   async fetch(request, env) {
     if(request.method==="OPTIONS") return new Response(null,{status:204,headers:cors(request)});
     const url=new URL(request.url);
