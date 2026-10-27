@@ -266,3 +266,6 @@ async function loadProducts() {
 
 loadProducts();
 trackEvent("page_view", { referrer:document.referrer ? new URL(document.referrer).hostname : "direct" });
+
+// Refrescar el catálogo al volver desde el panel.
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")loadProducts();});

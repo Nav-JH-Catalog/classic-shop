@@ -14,6 +14,7 @@ const identifiers = new Set();
 for (const file of files) {
   const product = JSON.parse(await readFile(path.join(productsDirectory, file), 'utf8'));
   product.id ||= path.basename(file, '.json');
+  if (product.id !== path.basename(file, '.json')) throw new Error(`${file}: el identificador debe coincidir con el nombre del archivo`);
 
   for (const field of ['name', 'category', 'price', 'description', 'status']) {
     if (!product[field]) throw new Error(`${file}: falta el campo ${field}`);

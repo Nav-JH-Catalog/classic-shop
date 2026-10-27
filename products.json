@@ -1028,7 +1028,7 @@
   },
   {
     "id": "tecnologia-04-anker-cable-usb-c-a-usb-c-1 metro-carga-rapida-paquete-de-2-blanco",
-    "name": "Anker — Cable USB C a USB C, 1 metro, carga rápida, paquete de 2, blanco",
+    "name": "Anker — Cable USB C a USB C, 1 metro, carga rápida, paquete de 2, gris",
     "category": "tecnologia",
     "price": "₡13.000",
     "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
@@ -1037,7 +1037,7 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-24T10:04"
+    "updatedAt": "2026-10-27T19:45"
   },
   {
     "id": "tecnologia-06-crayola-bluey-color-wonder-magic-light-brush",
@@ -1077,7 +1077,7 @@
     "updatedAt": "2026-10-27T13:42"
   },
   {
-    "id": "carters-pijama-onesie-osito",
+    "id": "carter's-pijama-onesie-osito",
     "name": "Carter's – Pijama Onesie osito ",
     "category": "nina",
     "price": "₡ 12.000",
@@ -1221,7 +1221,7 @@
     "id": "primark-medias-colores-7-pares"
   },
   {
-    "id": "primark-paquete-de-7-media-de-colores",
+    "id": "primark-paquete-de-7-medias-de-colores",
     "name": "Primark – Paquete de 7 Medias de colores",
     "category": "nino",
     "price": "₡ 9.000",

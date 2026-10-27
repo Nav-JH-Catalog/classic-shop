@@ -1,12 +1,14 @@
 {
   "id": "tecnologia-04-anker-cable-usb-c-a-usb-c-1 metro-carga-rapida-paquete-de-2-blanco",
-  "name": "Anker — Cable USB C a USB C, 1 metro, carga rápida, paquete de 2, plateado",
+  "name": "Anker — Cable USB C a USB C, 1 metro, carga rápida, paquete de 2, gris",
   "category": "tecnologia",
   "price": "₡13.000",
-  "status": "Disponible",
-  "sizes": "No aplica",
   "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
-  "visible": true,
+  "sizes": "No aplica",
   "image": "/classic-shop/images/products/tecnologia-04.webp",
+  "status": "Disponible",
+  "color": "#eee9df",
+  "_order": 79,
+  "visible": true,
   "updatedAt": "2026-10-27T19:45"
 }

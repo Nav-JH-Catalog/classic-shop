@@ -16,7 +16,7 @@ function cors(request) {
   const origin=request.headers.get("Origin")||"";
   return {"access-control-allow-origin":ALLOWED_ORIGINS.has(origin)?origin:"https://nav-jh-catalog.github.io","access-control-allow-methods":"GET,POST,PUT,DELETE,OPTIONS","access-control-allow-headers":"content-type,authorization","vary":"Origin"};
 }
-function json(data,status,request){return new Response(JSON.stringify(data),{status,headers:{"content-type":"application/json;charset=utf-8",...cors(request)}});}
+function json(data,status,request){return new Response(JSON.stringify(data),{status,headers:{"content-type":"application/json;charset=utf-8","cache-control":"no-store",...cors(request)}});}
 
 async function digest(value) {
   const bytes=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));
@@ -37,8 +37,20 @@ async function syncCatalog(env) {
     await env.DB.prepare("UPDATE catalog_sync SET updated_at=datetime('now') WHERE key='catalog_hash'").run();
     return;
   }
-  const products=JSON.parse(raw);
+  let products=JSON.parse(raw);
   if(!Array.isArray(products))throw new Error("Invalid catalog");
+  // Conservar las ediciones del panel mientras se publica el archivo estático.
+  const edits=await env.DB.prepare("SELECT a.* FROM admin_activity a JOIN (SELECT product_id,MAX(id) id FROM admin_activity GROUP BY product_id) latest ON a.id=latest.id").all();
+  const merged=new Map(products.map(product=>[product.id,product]));
+  for(const edit of edits.results){
+    const published=merged.get(edit.product_id);
+    const after=edit.after_data?JSON.parse(edit.after_data):null;
+    const editedAt=after?.updatedAt||`${edit.created_at.replace(' ','T')}Z`;
+    if(!published||productTime(published.updatedAt)<=productTime(editedAt)){
+      if(after)merged.set(edit.product_id,after);else merged.delete(edit.product_id);
+    }
+  }
+  products=[...merged.values()];
   const statements=[env.DB.prepare("DELETE FROM products")];
   products.forEach((product,index)=>{
     if(!product?.id)return;
@@ -64,7 +76,13 @@ async function putGithubFile(path,content,message,token,sha){
   return github(`/repos/${REPO}/contents/${path}`,token,{method:"PUT",body:JSON.stringify(body)});
 }
 function decodeGithubFile(file){try{const bytes=Uint8Array.from(atob(String(file.content||"").replace(/\s/g,"")),char=>char.charCodeAt(0));return JSON.parse(new TextDecoder().decode(bytes));}catch{return null;}}
-async function logActivity(env,session,action,product,before,after){await env.DB.prepare("INSERT INTO admin_activity (action,product_id,product_name,github_user,before_data,after_data) VALUES (?,?,?,?,?,?)").bind(action,product.id,product.name||before?.name||"",session.github_user,before?JSON.stringify(before):null,after?JSON.stringify(after):null).run();}
+async function logActivity(env,session,action,product,before,after){const activity=env.DB.prepare("INSERT INTO admin_activity (action,product_id,product_name,github_user,before_data,after_data) VALUES (?,?,?,?,?,?)").bind(action,product.id,product.name||before?.name||"",session.github_user,before?JSON.stringify(before):null,after?JSON.stringify(after):null);
+  const change=after?env.DB.prepare("INSERT INTO products (id,data,sort_order,synced_at) VALUES (?,?,COALESCE((SELECT sort_order FROM products WHERE id=?),(SELECT COALESCE(MAX(sort_order),0)+1 FROM products)),datetime('now')) ON CONFLICT(id) DO UPDATE SET data=excluded.data,synced_at=excluded.synced_at").bind(product.id,JSON.stringify(after),product.id):env.DB.prepare("DELETE FROM products WHERE id=?").bind(product.id);
+  await env.DB.batch([activity,change]);
+}
+function productTime(value){if(!value)return 0;return Date.parse(/[zZ]|[+-]\d\d:\d\d$/.test(value)?value:`${value}-06:00`)||0;}
+const productPath=id=>`products/${encodeURIComponent(id)}.json`;
+function validProduct(body){return ['name','category','price','description'].every(key=>typeof body[key]==='string'&&body[key].trim())&&['nino','nina','hombre','mujer','tecnologia','salud'].includes(body.category)&&['Disponible','Agotado'].includes(body.status)&&(!body.id||(typeof body.id==='string'&&!/[\\/\x00-\x1f?#]/.test(body.id)&&body.id.length<=200));}
 
 export default {
   async fetch(request, env) {
@@ -124,23 +142,24 @@ export default {
     }
     if(request.method==="PUT"&&url.pathname==="/admin/product"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request);
-      const body=await request.json(); const id=body.id||slug(body.name); if(!id||!body.name||!body.category||!body.price||!body.description)return json({error:"Missing required fields"},400,request);
-      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null; const before=existing?decodeGithubFile(existing):null;
-      const activity=body._activity==="status"?"status":existing?"update":"create"; const product={...body,id,visible:body.visible!==false,updatedAt:new Date().toISOString().slice(0,16)}; delete product.originalId; delete product._activity;
+      const body=await request.json(); const id=body.id||slug(body.name); if(!id||!validProduct(body))return json({error:"Complete nombre, categoría, precio, descripción y disponibilidad con valores válidos."},400,request);
+      const path=productPath(id); const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null; const before=existing?decodeGithubFile(existing):null;
+      if(!current.ok&&current.status!==404)return json({error:"No fue posible consultar la versión actual. Intente nuevamente."},502,request);
+      const activity=body._activity==="status"?"status":existing?"update":"create"; const product={...(before||{}),...body,id,visible:body.visible!==false,updatedAt:new Date().toISOString()}; delete product.originalId; delete product._activity;
       const saved=await putGithubFile(path,`${JSON.stringify(product,null,2)}\n`,`${existing?"Actualizar":"Agregar"} ${body.name} desde el panel Finds`,session.access_token,existing?.sha);
-      if(!saved.ok)return json({error:"No fue posible guardar el producto"},saved.status,request); await logActivity(env,session,activity,product,before,product); return json({ok:true,id},200,request);
+      if(!saved.ok)return json({error:saved.status===409?"El producto cambió mientras lo editabas. Recarga su información y vuelve a intentar.":saved.status===403?"Tu cuenta no tiene permiso para guardar este producto.":"No fue posible guardar el producto. Intenta nuevamente."},saved.status,request); await logActivity(env,session,activity,product,before,product); return json({ok:true,id,product,message:"Cambios guardados y disponibles en el catálogo."},200,request);
     }
     if(request.method==="DELETE"&&url.pathname==="/admin/product"){
-      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const id=slug(url.searchParams.get("id"));
-      const path=`products/${id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); if(!current.ok)return json({error:"Product not found"},404,request); const file=await current.json(); const before=decodeGithubFile(file);
+      const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const id=url.searchParams.get("id")||""; if(!id||/[\\/\x00-\x1f?#]/.test(id))return json({error:"Identificador inválido."},400,request);
+      const path=productPath(id); const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); if(!current.ok)return json({error:"Product not found"},404,request); const file=await current.json(); const before=decodeGithubFile(file);
       const removed=await github(`/repos/${REPO}/contents/${path}`,session.access_token,{method:"DELETE",body:JSON.stringify({message:`Eliminar ${id} desde el panel Finds`,sha:file.sha,branch:"main"})});
       if(!removed.ok)return json({error:"No fue posible eliminar"},removed.status,request); await logActivity(env,session,"delete",before||{id,name:id},before,null); return json({ok:true},200,request);
     }
     if(request.method==="POST"&&url.pathname==="/admin/restore"){
       const session=await adminSession(request,env); if(!session)return json({error:"Unauthorized"},401,request); const activityId=Number(url.searchParams.get("id"));
       const activity=await env.DB.prepare("SELECT * FROM admin_activity WHERE id=?").bind(activityId).first(); if(!activity?.before_data)return json({error:"Nothing to restore"},400,request);
-      const restored=JSON.parse(activity.before_data),path=`products/${restored.id}.json`; const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null,before=existing?decodeGithubFile(existing):null;
-      restored.updatedAt=new Date().toISOString().slice(0,16); const saved=await putGithubFile(path,`${JSON.stringify(restored,null,2)}\n`,`Restaurar ${restored.name} desde el historial Finds`,session.access_token,existing?.sha);
+      const restored=JSON.parse(activity.before_data),path=productPath(restored.id); const current=await github(`/repos/${REPO}/contents/${path}?ref=main`,session.access_token); const existing=current.ok?await current.json():null,before=existing?decodeGithubFile(existing):null;
+      restored.updatedAt=new Date().toISOString(); const saved=await putGithubFile(path,`${JSON.stringify(restored,null,2)}\n`,`Restaurar ${restored.name} desde el historial Finds`,session.access_token,existing?.sha);
       if(!saved.ok)return json({error:"No fue posible restaurar"},saved.status,request); await logActivity(env,session,"restore",restored,before,restored); return json({ok:true},200,request);
     }
     if(request.method==="POST"&&url.pathname==="/event"){
