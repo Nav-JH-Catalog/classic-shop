@@ -6,6 +6,9 @@ preview_urls = false
 [triggers]
 crons = ["0 6 * * SUN"]
 
+[ai]
+binding = "AI"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "finds-analytics"
