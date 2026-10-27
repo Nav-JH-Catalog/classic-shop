@@ -160,15 +160,18 @@ export default {
       await env.DB.batch([env.DB.prepare("INSERT INTO customer_sessions (session_id,customer_id) VALUES (?,?) ON CONFLICT(session_id) DO UPDATE SET customer_id=excluded.customer_id").bind(sessionId,customer.id),env.DB.prepare("INSERT INTO customer_interactions (customer_id,type,channel,product_id,note,created_by) VALUES (?,'contact','whatsapp',?,?,'cliente')").bind(customer.id,productId,productId?"Consulta desde producto":"Consulta general")]); return json({ok:true,id:customer.id},201,request);
     }
     if(request.method==="GET"&&url.pathname==="/analytics"){
-      const days=Math.min(365,Math.max(1,Number(url.searchParams.get("days"))||30)); const since=`-${days-1} days`;
+      const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||"");
+      const requestedStart=url.searchParams.get("start"),requestedEnd=url.searchParams.get("end"),hasRange=validDate(requestedStart)&&validDate(requestedEnd)&&requestedStart<requestedEnd;
+      const days=Math.min(365,Math.max(1,Number(url.searchParams.get("days"))||30)),start=hasRange?requestedStart:null,end=hasRange?requestedEnd:null,since=`-${days-1} days`;
+      const periodSql=hasRange?"created_at>=? AND created_at<?":"created_at>=datetime('now',?)",bindings=hasRange?[start,end]:[since];
       const [totals,daily,products,searches,devices]=await Promise.all([
-        env.DB.prepare("SELECT type,COUNT(*) value FROM events WHERE created_at>=datetime('now',?) GROUP BY type").bind(since).all(),
-        env.DB.prepare("SELECT substr(created_at,1,10) label,COUNT(*) value FROM events WHERE type='page_view' AND created_at>=datetime('now',?) GROUP BY label ORDER BY label").bind(since).all(),
-        env.DB.prepare("SELECT product_id label,COUNT(*) value FROM events WHERE type='product_view' AND created_at>=datetime('now',?) AND product_id<>'' GROUP BY product_id ORDER BY value DESC LIMIT 10").bind(since).all(),
-        env.DB.prepare("SELECT query label,COUNT(*) value FROM events WHERE type='search' AND created_at>=datetime('now',?) AND query<>'' GROUP BY lower(query) ORDER BY value DESC LIMIT 10").bind(since).all(),
-        env.DB.prepare("SELECT device label,COUNT(*) value FROM events WHERE type='page_view' AND created_at>=datetime('now',?) AND device<>'unknown' GROUP BY device ORDER BY value DESC").bind(since).all()
+        env.DB.prepare(`SELECT type,COUNT(*) value FROM events WHERE ${periodSql} GROUP BY type`).bind(...bindings).all(),
+        env.DB.prepare(`SELECT substr(created_at,1,10) label,COUNT(*) value FROM events WHERE type='page_view' AND ${periodSql} GROUP BY label ORDER BY label`).bind(...bindings).all(),
+        env.DB.prepare(`SELECT product_id label,COUNT(*) value FROM events WHERE type='product_view' AND ${periodSql} AND product_id<>'' GROUP BY product_id ORDER BY value DESC LIMIT 10`).bind(...bindings).all(),
+        env.DB.prepare(`SELECT query label,COUNT(*) value FROM events WHERE type='search' AND ${periodSql} AND query<>'' GROUP BY lower(query) ORDER BY value DESC LIMIT 10`).bind(...bindings).all(),
+        env.DB.prepare(`SELECT device label,COUNT(*) value FROM events WHERE type='page_view' AND ${periodSql} AND device<>'unknown' GROUP BY device ORDER BY value DESC`).bind(...bindings).all()
       ]);
-      return json({totals:Object.fromEntries(totals.results.map(r=>[r.type,r.value])),dailyVisits:daily.results,topProducts:products.results,topSearches:searches.results,deviceBreakdown:devices.results},200,request);
+      return json({range:{start,end},totals:Object.fromEntries(totals.results.map(r=>[r.type,r.value])),dailyVisits:daily.results,topProducts:products.results,topSearches:searches.results,deviceBreakdown:devices.results},200,request);
     }
     if(request.method==="GET"&&url.pathname==="/products"){
       try{await syncCatalog(env);}catch(error){console.error("Catalog sync failed",error);}
