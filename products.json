@@ -1040,19 +1040,6 @@
     "updatedAt": "2026-10-24T10:04"
   },
   {
-    "id": "tecnologia-05-lenovo-idea-pad-11-8-gb-ram-256-hd",
-    "name": "Lenovo — Idea Pad 11’’, 8 gb RAM, 256 hd",
-    "category": "tecnologia",
-    "price": "₡125.000",
-    "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
-    "sizes": "No aplica",
-    "image": "/classic-shop/images/products/tecnologia-05.webp",
-    "status": "Disponible",
-    "color": "#eee9df",
-    "visible": true,
-    "updatedAt": "2026-10-21T09:47"
-  },
-  {
     "id": "tecnologia-06-crayola-bluey-color-wonder-magic-light-brush",
     "name": "Crayola Bluey Color Wonder Magic Light Brush",
     "category": "tecnologia",
@@ -1100,6 +1087,18 @@
     "visible": true,
     "image": "/classic-shop/images/products/17.png",
     "updatedAt": "2026-10-27T13:43"
+  },
+  {
+    "id": "tecnologia-05-lenovo-idea-pad-11-8-gb-ram-256-hd",
+    "name": "Lenovo — Idea Tab 11’’, 8 gb RAM, 256 hd",
+    "category": "tecnologia",
+    "price": "₡125.000",
+    "status": "Disponible",
+    "sizes": "No aplica",
+    "description": "Producto de tecnología disponible. Consulta características y compatibilidad.",
+    "visible": true,
+    "image": "/classic-shop/images/products/tecnologia-05.webp",
+    "updatedAt": "2026-10-27T13:45"
   },
   {
     "image": "/classic-shop/images/products/24.png",
