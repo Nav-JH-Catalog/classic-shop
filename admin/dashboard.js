@@ -4,6 +4,9 @@ let analyticsReport = null;
 const CATEGORY_LABELS = { nino:"Ropa Niño", nina:"Ropa Niña", hombre:"Hombre", mujer:"Mujer", tecnologia:"Tecnología", salud:"Salud y cuidado personal" };
 const state = { products:[], query:"", category:"all", availability:"all" };
 const elements = { list:document.querySelector("#product-list"), template:document.querySelector("#product-template"), empty:document.querySelector("#empty-state"), total:document.querySelector("#total-count"), available:document.querySelector("#available-count"), hidden:document.querySelector("#hidden-count"), results:document.querySelector("#result-count"), search:document.querySelector("#search"), category:document.querySelector("#category"), availability:document.querySelector("#availability") };
+const inventoryPanel=document.querySelector(".workspace"),inventoryToggle=document.querySelector("#toggle-inventory");
+function setInventoryCollapsed(collapsed){inventoryPanel.classList.toggle("is-collapsed",collapsed);inventoryToggle.setAttribute("aria-expanded",String(!collapsed));inventoryToggle.textContent=collapsed?"Mostrar inventario":"Minimizar inventario";localStorage.setItem("finds_inventory_collapsed",collapsed?"1":"0");}
+inventoryToggle.addEventListener("click",()=>setInventoryCollapsed(!inventoryPanel.classList.contains("is-collapsed")));setInventoryCollapsed(localStorage.getItem("finds_inventory_collapsed")==="1");
 function normalize(value) { return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
 function productEditUrl(product) { return `${CMS_BASE}/edit/${encodeURIComponent(`products/${product.id}.json`)}`; }
 function filteredProducts() {
