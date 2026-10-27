@@ -2,8 +2,8 @@ const CMS_BASE = "https://app.pagescms.org/nav-jh-catalog/classic-shop/main/coll
 const ANALYTICS_API = "https://finds-analytics-api.josuehidalgocastro.workers.dev";
 let analyticsReport = null;
 const CATEGORY_LABELS = { nino:"Ropa Niño", nina:"Ropa Niña", hombre:"Hombre", mujer:"Mujer", tecnologia:"Tecnología", salud:"Salud y cuidado personal" };
-const state = { products:[], query:"", category:"all", availability:"all" };
-const elements = { list:document.querySelector("#product-list"), template:document.querySelector("#product-template"), empty:document.querySelector("#empty-state"), total:document.querySelector("#total-count"), available:document.querySelector("#available-count"), hidden:document.querySelector("#hidden-count"), results:document.querySelector("#result-count"), search:document.querySelector("#search"), category:document.querySelector("#category"), availability:document.querySelector("#availability") };
+const state = { products:[], query:"", category:"all", availability:"all", sort:"updated_desc" };
+const elements = { list:document.querySelector("#product-list"), template:document.querySelector("#product-template"), empty:document.querySelector("#empty-state"), total:document.querySelector("#total-count"), available:document.querySelector("#available-count"), hidden:document.querySelector("#hidden-count"), results:document.querySelector("#result-count"), search:document.querySelector("#search"), category:document.querySelector("#category"), availability:document.querySelector("#availability"), sort:document.querySelector("#inventory-sort") };
 const inventoryPanel=document.querySelector(".workspace"),inventoryToggle=document.querySelector("#toggle-inventory");
 function setInventoryCollapsed(collapsed){inventoryPanel.classList.toggle("is-collapsed",collapsed);inventoryToggle.setAttribute("aria-expanded",String(!collapsed));inventoryToggle.textContent=collapsed?"Mostrar inventario":"Minimizar inventario";localStorage.setItem("finds_inventory_collapsed",collapsed?"1":"0");}
 inventoryToggle.addEventListener("click",()=>setInventoryCollapsed(!inventoryPanel.classList.contains("is-collapsed")));setInventoryCollapsed(localStorage.getItem("finds_inventory_collapsed")==="1");
@@ -11,7 +11,7 @@ function normalize(value) { return String(value||"").normalize("NFD").replace(/[
 function productEditUrl(product) { return `${CMS_BASE}/edit/${encodeURIComponent(`products/${product.id}.json`)}`; }
 function filteredProducts() {
   const query=normalize(state.query);
-  return state.products.filter((product)=>{
+  const filtered=state.products.filter((product)=>{
     const text=normalize([product.name,product.description,product.category,product.price,product.sizes].join(" "));
     const matchesQuery=!query||text.includes(query);
     const matchesCategory=state.category==="all"||product.category===state.category;
@@ -20,6 +20,7 @@ function filteredProducts() {
     else if(state.availability!=="all") matchesAvailability=product.status===state.availability&&product.visible!==false;
     return matchesQuery&&matchesCategory&&matchesAvailability;
   });
+  return filtered.sort((a,b)=>{if(state.sort==="name_asc")return String(a.name||"").localeCompare(String(b.name||""),"es");if(state.sort==="name_desc")return String(b.name||"").localeCompare(String(a.name||""),"es");const left=Date.parse(a.updatedAt||0)||0,right=Date.parse(b.updatedAt||0)||0;return state.sort==="updated_asc"?left-right:right-left;});
 }
 function render() {
   const products=filteredProducts(); elements.list.replaceChildren(); elements.results.textContent=`${products.length} ${products.length===1?"producto":"productos"}`; elements.empty.hidden=products.length!==0;
@@ -27,7 +28,7 @@ function render() {
   products.forEach((product)=>{
     const row=elements.template.content.firstElementChild.cloneNode(true); const image=row.querySelector(".product-image"); image.src=product.image||"../logo-finds.png"; image.alt=product.name||"Producto de Finds"; image.onerror=()=>{ image.src="../logo-finds.png"; };
     row.querySelector(".product-name").textContent=product.name;
-    row.querySelector(".product-meta").textContent=[CATEGORY_LABELS[product.category]||product.category,product.sizes&&product.sizes!=="No aplica"?`Tallas: ${product.sizes}`:""].filter(Boolean).join(" · ");
+    const updated=product.updatedAt?new Date(product.updatedAt).toLocaleString("es-CR",{dateStyle:"short",timeStyle:"short"}):"Sin fecha";row.querySelector(".product-meta").textContent=[CATEGORY_LABELS[product.category]||product.category,product.sizes&&product.sizes!=="No aplica"?`Tallas: ${product.sizes}`:"",`Editado: ${updated}`].filter(Boolean).join(" · ");
     row.querySelector(".product-description").textContent=product.description||"Sin descripción"; row.querySelector(".product-price").textContent=product.price||"Sin precio";
     const status=row.querySelector(".status-pill"); if(product.visible===false){ status.textContent="Oculto"; status.classList.add("is-hidden"); } else { status.textContent=product.status||"Disponible"; if(product.status==="Agotado") status.classList.add("is-out"); }
     const edit=row.querySelector(".edit-button"); edit.dataset.productId=product.id; edit.setAttribute("aria-label",`Editar ${product.name}`);
@@ -69,6 +70,7 @@ async function loadProducts() {
 elements.search.addEventListener("input",(event)=>{ state.query=event.target.value; render(); });
 elements.category.addEventListener("change",(event)=>{ state.category=event.target.value; render(); });
 elements.availability.addEventListener("change",(event)=>{ state.availability=event.target.value; render(); });
+elements.sort.addEventListener("change",event=>{state.sort=event.target.value;render();});
 document.querySelector("#analytics-range").addEventListener("change",loadAnalytics); document.querySelector("#export-excel").addEventListener("click",exportCsv); document.querySelector("#export-pdf").addEventListener("click",()=>window.print());
 loadProducts();
 loadAnalytics();

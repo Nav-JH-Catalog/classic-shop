@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="theme-color" content="#f8f5ed">
     <title>Gestión de catálogo · Finds</title>
-    <link rel="stylesheet" href="dashboard.css?v=8">
+    <link rel="stylesheet" href="dashboard.css?v=9">
   </head>
   <body>
     <header class="topbar">
@@ -34,6 +34,7 @@
           <button class="primary-button" id="new-product" type="button"><span aria-hidden="true">＋</span> Agregar producto</button>
           <select id="category" aria-label="Filtrar por categoría"><option value="all">Todas las categorías</option><option value="nino">Ropa Niño</option><option value="nina">Ropa Niña</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="tecnologia">Tecnología</option><option value="salud">Salud y cuidado personal</option></select>
           <select id="availability" aria-label="Filtrar por disponibilidad"><option value="all">Toda disponibilidad</option><option value="Disponible">Disponibles</option><option value="Agotado">Agotados</option><option value="hidden">Ocultos</option></select>
+          <select id="inventory-sort" aria-label="Ordenar inventario"><option value="updated_desc" selected>Última edición: más reciente</option><option value="updated_asc">Última edición: más antigua</option><option value="name_asc">Nombre: A–Z</option><option value="name_desc">Nombre: Z–A</option></select>
         </div>
         <div class="list-head"><div><h2 id="products-heading">Inventario</h2><span id="result-count" aria-live="polite">Cargando…</span></div><button id="toggle-inventory" class="collapse-button" type="button" aria-expanded="true" aria-controls="product-list">Minimizar inventario</button></div>
         <div id="product-list" class="product-list" aria-live="polite"></div>
@@ -70,7 +71,7 @@
       </form>
     </dialog>
     <dialog id="customer-dialog" class="product-dialog customer-dialog"><form id="interaction-form"><div class="dialog-head"><div><p class="eyebrow">Historial del cliente</p><h2 id="customer-title">Cliente</h2><p id="customer-contact"></p></div><button type="button" class="customer-close dialog-close" aria-label="Cerrar">×</button></div><input type="hidden" name="customerId"><div id="customer-history" class="customer-history"></div><h3>Agregar actividad</h3><div class="field-row"><label>Tipo<select name="type"><option value="contact">Contacto</option><option value="purchase">Compra</option><option value="note">Nota</option></select></label><label>Canal<select name="channel"><option value="whatsapp">WhatsApp</option><option value="instagram">Instagram</option><option value="phone">Teléfono</option><option value="in_person">En persona</option><option value="other">Otro</option></select></label></div><div class="field-row"><label>Monto de compra<input name="amount" inputmode="decimal" placeholder="0"></label><label>Producto<input name="productId" placeholder="Nombre o código"></label></div><label>Nota<textarea name="note" rows="3" maxlength="500"></textarea></label><p id="interaction-status" class="editor-status" aria-live="polite"></p><div class="dialog-actions"><button type="button" class="secondary-button customer-close">Cerrar</button><button type="submit" class="primary-button">Guardar actividad</button></div></form></dialog>
-    <script src="dashboard.js?v=7" defer></script>
+    <script src="dashboard.js?v=8" defer></script>
     <script src="editor.js?v=4" defer></script>
   </body>
 </html>
