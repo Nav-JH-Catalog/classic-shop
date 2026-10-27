@@ -11,7 +11,7 @@ const files = output.split(/\r?\n/).filter((file) => file.endsWith('.json'));
 for (const file of files) {
   try { await access(file); } catch { continue; }
   const product = JSON.parse(await readFile(file, 'utf8'));
-  product.updatedAt = new Date().toISOString();
+  product.updatedAt = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], { encoding: 'utf8' }).trim() || new Date().toISOString();
   if (product.visible === undefined) product.visible = true;
   await writeFile(file, `${JSON.stringify(product, null, 2)}\n`, 'utf8');
 }
