@@ -41,9 +41,10 @@ function render() {
 function updateStats() { elements.total.textContent=state.products.length; elements.available.textContent=state.products.filter((p)=>p.visible!==false&&p.status==="Disponible").length; elements.hidden.textContent=state.products.filter((p)=>p.visible===false||p.status==="Agotado").length; }
 function estimatedSalesByMonth() {
   const months = new Map();
-  state.products.filter(p=>p.status==="Agotado"&&(!analyticsPeriod||(p.updatedAt>=analyticsPeriod.start&&p.updatedAt<analyticsPeriod.end))).forEach(p=>{ const month=(p.updatedAt||new Date().toISOString()).slice(0,7); months.set(month,(months.get(month)||0)+1); });
+  state.products.filter(p=>p.status==="Agotado"&&inAnalyticsPeriod(p.updatedAt)).forEach(p=>{ const month=(p.updatedAt||new Date().toISOString()).slice(0,7); months.set(month,(months.get(month)||0)+1); });
   return [...months].sort(([a],[b])=>a.localeCompare(b)).slice(-6).map(([label,value])=>({label,value}));
 }
+function inAnalyticsPeriod(value){if(!analyticsPeriod)return true;const time=Date.parse(value||"");return Number.isFinite(time)&&time>=Date.parse(`${analyticsPeriod.start}T06:00:00Z`)&&time<Date.parse(`${analyticsPeriod.end}T06:00:00Z`);}
 function isoDate(date){return date.toISOString().slice(0,10);}
 function isoWeekValue(date){const d=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7));const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1));return `${d.getUTCFullYear()}-W${String(Math.ceil((((d-yearStart)/86400000)+1)/7)).padStart(2,"0")}`;}
 function setupPeriodFilter(){const now=new Date(),month=document.querySelector("#analytics-month"),week=document.querySelector("#analytics-week"),year=document.querySelector("#analytics-year");month.value=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`;week.value=isoWeekValue(now);for(let value=now.getFullYear();value>=2024;value--){const option=document.createElement("option");option.value=option.textContent=value;year.append(option);}year.value=String(now.getFullYear());}
@@ -59,7 +60,7 @@ function renderRanks(target, rows) {
 }
 function renderDevices(rows){const el=document.querySelector("#devices-chart"),labels={desktop:"Computadora",mobile:"Teléfono móvil",tablet:"Tablet"},icons={desktop:"▰",mobile:"▯",tablet:"▭"};if(!rows?.length){el.innerHTML='<p class="chart-empty">La clasificación comenzará con las nuevas visitas.</p>';return;}const total=rows.reduce((sum,row)=>sum+Number(row.value||0),0);el.innerHTML=rows.map(row=>{const percent=Math.round((Number(row.value)/total)*100);return `<div class="device-row"><span class="device-icon" aria-hidden="true">${icons[row.label]||"◇"}</span><div><strong>${labels[row.label]||"Otro"}</strong><i><span style="width:${percent}%"></span></i></div><b>${row.value}<small>${percent}%</small></b></div>`;}).join("");}
 function renderAnalytics(report) {
-  analyticsReport=report; const totals=report.totals||{}; const sales=state.products.filter(p=>p.status==="Agotado"&&(!analyticsPeriod||(p.updatedAt>=analyticsPeriod.start&&p.updatedAt<analyticsPeriod.end))).length;
+  analyticsReport=report; const totals=report.totals||{}; const sales=state.products.filter(p=>p.status==="Agotado"&&inAnalyticsPeriod(p.updatedAt)).length;
   document.querySelector("#metric-visits").textContent=totals.page_view||0; document.querySelector("#metric-products").textContent=totals.product_view||0; document.querySelector("#metric-whatsapp").textContent=totals.whatsapp_click||0; document.querySelector("#metric-instagram").textContent=totals.instagram_click||0; document.querySelector("#metric-searches").textContent=totals.search||0; document.querySelector("#metric-sales").textContent=sales;
   const namedProducts=(report.topProducts||[]).map(row=>({...row,label:state.products.find(product=>product.id===row.label)?.name||row.label}));
   renderBars("#visits-chart",report.dailyVisits); renderDevices(report.deviceBreakdown); renderRanks("#products-chart",namedProducts); renderRanks("#searches-chart",report.topSearches); renderBars("#sales-chart",estimatedSalesByMonth());

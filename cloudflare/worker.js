@@ -247,10 +247,10 @@ export default {
       const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||"");
       const requestedStart=url.searchParams.get("start"),requestedEnd=url.searchParams.get("end"),hasRange=validDate(requestedStart)&&validDate(requestedEnd)&&requestedStart<requestedEnd;
       const days=Math.min(365,Math.max(1,Number(url.searchParams.get("days"))||30)),start=hasRange?requestedStart:null,end=hasRange?requestedEnd:null,since=`-${days-1} days`;
-      const periodSql=hasRange?"created_at>=? AND created_at<?":"created_at>=datetime('now',?)",bindings=hasRange?[start,end]:[since];
+      const periodSql=hasRange?"created_at>=datetime(?,'+6 hours') AND created_at<datetime(?,'+6 hours')":"created_at>=datetime('now',?)",bindings=hasRange?[start,end]:[since];
       const [totals,daily,products,searches,devices]=await Promise.all([
         env.DB.prepare(`SELECT type,COUNT(*) value FROM events WHERE ${periodSql} GROUP BY type`).bind(...bindings).all(),
-        env.DB.prepare(`SELECT substr(created_at,1,10) label,COUNT(*) value FROM events WHERE type='page_view' AND ${periodSql} GROUP BY label ORDER BY label`).bind(...bindings).all(),
+        env.DB.prepare(`SELECT substr(datetime(created_at,'-6 hours'),1,10) label,COUNT(*) value FROM events WHERE type='page_view' AND ${periodSql} GROUP BY label ORDER BY label`).bind(...bindings).all(),
         env.DB.prepare(`SELECT product_id label,COUNT(*) value FROM events WHERE type='product_view' AND ${periodSql} AND product_id<>'' GROUP BY product_id ORDER BY value DESC LIMIT 10`).bind(...bindings).all(),
         env.DB.prepare(`SELECT query label,COUNT(*) value FROM events WHERE type='search' AND ${periodSql} AND query<>'' GROUP BY lower(query) ORDER BY value DESC LIMIT 10`).bind(...bindings).all(),
         env.DB.prepare(`SELECT device label,COUNT(*) value FROM events WHERE type='page_view' AND ${periodSql} AND device<>'unknown' GROUP BY device ORDER BY value DESC`).bind(...bindings).all()
