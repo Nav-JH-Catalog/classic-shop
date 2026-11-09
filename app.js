@@ -34,6 +34,27 @@ const categoryLabels = {
 };
 const clothingCategories = new Set(["nino", "nina", "hombre", "mujer"]);
 
+function currencyAmount(value) {
+  return Number(String(value || "").replace(/[^\d]/g, "")) || 0;
+}
+
+function hasDiscount(product) {
+  return product.discountActive === true && currencyAmount(product.discountPrice) > 0 && currencyAmount(product.discountPrice) < currencyAmount(product.price);
+}
+
+function currentPrice(product) {
+  return hasDiscount(product) ? product.discountPrice : product.price;
+}
+
+function discountPercent(product) {
+  return Math.round((1 - currencyAmount(product.discountPrice) / currencyAmount(product.price)) * 100);
+}
+
+function productPriceMarkup(product) {
+  if (!hasDiscount(product)) return `<span class="regular-price">${product.price}</span>`;
+  return `<span class="price-original"><span class="sr-only">Precio original: </span>${product.price}</span><strong class="price-sale"><span class="sr-only">Precio con descuento: </span>${product.discountPrice}</strong><span class="discount-saving">Ahorras ${discountPercent(product)}%</span>`;
+}
+
 function productSizeMarkup(product) {
   return clothingCategories.has(product.category)
     ? `<p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>`
@@ -68,6 +89,7 @@ function renderProducts() {
         product.description,
         product.sizes,
         product.price,
+        product.discountPrice,
         product.status,
         categoryLabels[product.category]
       ].join(" ")).includes(query))
@@ -85,12 +107,14 @@ function renderProducts() {
     <article class="product-card">
       <div class="product-image ${product.image ? "has-photo" : ""}" style="--card-color:${product.color || "#ded9ce"}" ${product.image ? `role="button" tabindex="0" data-product-id="${product.id}" aria-label="Ver imagen completa de ${product.name}"` : ""}>
         ${product.image ? `<img src="${product.image}" alt="${product.name}" loading="lazy">` : `<span class="demo-tag">Sin fotografía</span>`}
+        ${hasDiscount(product) ? `<span class="discount-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13.2 12.2 21 3 11.8V4h7.8L20 13.2Z"></path><circle cx="7.5" cy="8" r="1.25"></circle></svg> ${discountPercent(product)}% menos</span>` : ""}
         <span class="status-tag ${product.status === "Agotado" ? "is-sold-out" : "is-available"}"><span aria-hidden="true"></span>${product.status || "Disponible"}</span>
       </div>
       <div class="product-info">
         <div>
           <h3>${product.name}</h3>
-          <p>${categoryLabels[product.category] || product.category} · ${product.price}</p>
+          <p>${categoryLabels[product.category] || product.category}</p>
+          <div class="product-price-line">${productPriceMarkup(product)}</div>
           ${productSizeMarkup(product)}
           ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
         </div>
@@ -117,7 +141,14 @@ function openImageViewer(product) {
   imageViewerPhoto.alt = product.name;
   imageViewerCaption.textContent = product.name;
   const sizeDetail = clothingCategories.has(product.category) ? ` · Tallas: ${product.sizes || "Consultar"}` : "";
-  imageViewerMeta.textContent = `${categoryLabels[product.category] || product.category} · ${product.price}${sizeDetail} · ${product.status || "Disponible"}`;
+  imageViewerMeta.replaceChildren();
+  imageViewerMeta.append(document.createTextNode(`${categoryLabels[product.category] || product.category} · `));
+  if (hasDiscount(product)) {
+    const original=document.createElement("s"),sale=document.createElement("strong"),saving=document.createElement("em");
+    original.textContent=product.price;sale.textContent=product.discountPrice;saving.textContent=`${discountPercent(product)}% menos`;
+    imageViewerMeta.append(original,document.createTextNode(" "),sale,document.createTextNode(" "),saving);
+  } else imageViewerMeta.append(document.createTextNode(product.price));
+  imageViewerMeta.append(document.createTextNode(`${sizeDetail} · ${product.status || "Disponible"}`));
   imageViewerDescription.textContent = product.description || "Consulta por más detalles y disponibilidad.";
   imageViewerContact.href = whatsappUrl(`Hola, me gusta ${product.name}. ¿Podrías darme más información y confirmar su disponibilidad?`);
   imageViewerContact.dataset.productId = product.id;

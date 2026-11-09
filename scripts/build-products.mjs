@@ -19,6 +19,10 @@ for (const file of files) {
   for (const field of ['name', 'category', 'price', 'description', 'status']) {
     if (!product[field]) throw new Error(`${file}: falta el campo ${field}`);
   }
+  const amount = (value) => Number(String(value || '').replace(/[^\d]/g, '')) || 0;
+  if (product.discountActive === true && (!amount(product.discountPrice) || amount(product.discountPrice) >= amount(product.price))) {
+    throw new Error(`${file}: el precio con descuento debe ser menor al precio original`);
+  }
 
   if (identifiers.has(product.id)) throw new Error(`${file}: identificador duplicado ${product.id}`);
   identifiers.add(product.id);

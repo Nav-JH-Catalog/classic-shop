@@ -15,7 +15,7 @@ content:
       template: "{name}.json"
       field: false
     view:
-      fields: [image, name, category, price, status, visible, updatedAt]
+      fields: [image, name, category, price, discountActive, discountPrice, status, visible, updatedAt]
       primary: name
       search: [name, description, category, status]
       sort: [name, category, price, status, updatedAt]
@@ -55,10 +55,19 @@ content:
             - name: salud
               label: Salud y cuidado personal
       - name: price
-        label: Precio
+        label: Precio original
         type: string
         required: true
         description: Incluye el símbolo de colones, por ejemplo ₡18.500.
+      - name: discountActive
+        label: ¿Tiene descuento?
+        type: boolean
+        default: false
+        description: Actívalo para mostrar el precio original tachado y el precio de oferta.
+      - name: discountPrice
+        label: Precio con descuento
+        type: string
+        description: Debe ser menor al precio original. Ejemplo: ₡14.500.
       - name: status
         label: Disponibilidad
         type: select
