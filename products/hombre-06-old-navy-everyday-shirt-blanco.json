@@ -3,12 +3,14 @@
   "name": "Old Navy — Everyday Shirt blanco",
   "category": "hombre",
   "price": "₡18.000",
-  "description": "Disponible. Tallas: M, L, XL.",
-  "sizes": "M, L, XL",
+  "description": "Disponible. Tallas: L, XL.",
+  "sizes": "L, XL",
   "image": "/classic-shop/images/products/hombre-06.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 39,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-10T17:38:12.158Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
