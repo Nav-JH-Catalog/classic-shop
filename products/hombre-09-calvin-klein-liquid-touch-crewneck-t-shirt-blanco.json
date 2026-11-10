@@ -4,13 +4,13 @@
   "category": "hombre",
   "price": "₡24.000",
   "description": "Disponible. Tallas: L, XL.",
-  "sizes": "M, L, XL",
+  "sizes": "L, XL",
   "image": "/classic-shop/images/products/hombre-09.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 42,
   "visible": true,
-  "updatedAt": "2026-11-10T11:36:34-06:00",
+  "updatedAt": "2026-11-10T17:37:42.889Z",
   "discountActive": false,
   "discountPrice": ""
 }
