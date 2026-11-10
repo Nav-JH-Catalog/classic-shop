@@ -673,13 +673,15 @@
     "name": "Tommy Hilfiger — T-Shirt Rugby blanco y azul marino",
     "category": "hombre",
     "price": "₡24.000",
-    "description": "Disponible. Tallas: M, L, XXL.",
-    "sizes": "M, L, XXL",
+    "description": "Disponible. Tallas: M, XXL.",
+    "sizes": "M, XXL",
     "image": "/classic-shop/images/products/hombre-18.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:39:01.986Z",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "hombre-19-tommy-hilfiger-pocket-t-shirt-rayas",
@@ -702,10 +704,10 @@
     "description": "Disponible. Tallas: No aplica.",
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/mujer-01.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T11:39:11-06:00"
   },
   {
     "id": "mujer-02-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-rosado-rayas",
