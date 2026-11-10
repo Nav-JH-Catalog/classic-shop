@@ -85,10 +85,10 @@
     "description": "Disponible. Tallas: 6-9M.",
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nino-07.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:35:09.091Z"
   },
   {
     "id": "nino-08-modern-moments-pijama-2-piezas-celeste",
@@ -228,10 +228,10 @@
     "description": "Disponible. Tallas: 1.5Y – 2Y.",
     "sizes": "1.5Y – 2Y",
     "image": "/classic-shop/images/products/nino-18.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:35:19.231Z"
   },
   {
     "id": "nina-01-primark-cardigan-blanco",
@@ -254,10 +254,10 @@
     "description": "Disponible. Tallas: 3-6M.",
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nina-02.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:35:21.795Z"
   },
   {
     "id": "nina-03-baby-bgosh-cardigan-floral",
@@ -332,10 +332,10 @@
     "description": "Disponible. Tallas: 12M, 24M.",
     "sizes": "12M, 24M",
     "image": "/classic-shop/images/products/nina-08.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T11:35:30-06:00"
   },
   {
     "id": "nina-09-btween-baby-conjunto-lazo-2-piezas",
