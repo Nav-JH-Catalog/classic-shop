@@ -371,10 +371,10 @@
     "description": "Disponible. Tallas: 6-9M.",
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nina-11.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:35:41.536Z"
   },
   {
     "id": "nina-12-tommy-hilfiger-conjunto-corazon-2-piezas",
@@ -449,10 +449,10 @@
     "description": "Disponible. Tallas: No aplica.",
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-01.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T17:35:48.175Z"
   },
   {
     "id": "hombre-02-gorra-azul-logo-h-bordado-tommy-hilfiger",
@@ -475,10 +475,10 @@
     "description": "Disponible. Tallas: No aplica.",
     "sizes": "No aplica",
     "image": "/classic-shop/images/products/hombre-03.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T11:35:51-06:00"
   },
   {
     "id": "hombre-04-gorra-cafe-logo-h-bordado-tommy-hilfiger",
