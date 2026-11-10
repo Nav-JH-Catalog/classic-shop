@@ -3,12 +3,14 @@
   "name": "Tommy Hilfiger — T-Shirt Rugby blanco y azul marino",
   "category": "hombre",
   "price": "₡24.000",
-  "description": "Disponible. Tallas: M, L, XXL.",
-  "sizes": "M, L, XXL",
+  "description": "Disponible. Tallas: M, XXL.",
+  "sizes": "M, XXL",
   "image": "/classic-shop/images/products/hombre-18.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 51,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-10T17:39:01.986Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
