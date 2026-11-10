@@ -6,9 +6,9 @@
   "description": "Producto de salud y cuidado personal disponible. Consulta detalles y disponibilidad.",
   "sizes": "No aplica",
   "image": "/classic-shop/images/products/salud-09.webp",
-  "status": "Disponible",
+  "status": "Agotado",
   "color": "#eee9df",
   "_order": 74,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-10T17:39:35.786Z"
 }
