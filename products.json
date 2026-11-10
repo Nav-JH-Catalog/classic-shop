@@ -581,10 +581,10 @@
     "description": "Disponible. Tallas: M.",
     "sizes": "M",
     "image": "/classic-shop/images/products/hombre-11.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-10T11:36:56-06:00"
   },
   {
     "id": "hombre-12-calvin-klein-liquid-touch-crewneck-t-shirt-negro",
