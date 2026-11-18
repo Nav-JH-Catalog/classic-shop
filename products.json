@@ -23,7 +23,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:32:22-06:00",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "nino-03-abercrombie-fitch-camisa-manga-corta-blanca",
