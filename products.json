@@ -785,7 +785,7 @@
   },
   {
     "id": "hombre-15-tommy-hilfiger-regular-fit-wicking-polo-vino",
-    "name": "Tommy Hilfiger - Regular Fit Wicking Polo vino",
+    "name": "Regular Fit Wicking Polo vino",
     "category": "hombre",
     "price": "₡36.000",
     "description": "",
@@ -794,7 +794,24 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T15:04:39-06:00",
+    "brand": "Tommy Hilfiger",
+    "discountActive": true,
+    "discountPrice": "₡28.500",
+    "sizeOptions": [
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      },
+      {
+        "label": "XL",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-16-tommy-hilfiger-regular-fit-wicking-polo-gris",
