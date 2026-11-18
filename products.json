@@ -537,16 +537,20 @@
   },
   {
     "id": "hombre-03-gorra-vino-logo-bordado-tommy-hilfiger",
-    "name": "Gorra vino logo bordado Tommy Hilfiger",
+    "name": "Gorra vino logo bordado",
     "category": "hombre",
-    "price": "₡17.000",
+    "price": "₡19.000",
     "description": "",
-    "sizes": "No aplica",
+    "sizes": "",
     "image": "/classic-shop/images/products/hombre-03.webp",
     "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T14:58:49-06:00",
+    "brand": "Tommy Hilfiger",
+    "discountActive": false,
+    "discountPrice": "",
+    "sizeOptions": []
   },
   {
     "id": "hombre-04-gorra-cafe-logo-h-bordado-tommy-hilfiger",
