@@ -737,7 +737,7 @@
   },
   {
     "id": "hombre-13-calvin-klein-liquid-touch-crewneck-t-shirt-verde-olivo",
-    "name": "Calvin Klein - Liquid Touch Crewneck T-Shirt verde olivo",
+    "name": "Liquid Touch Crewneck T-Shirt verde olivo",
     "category": "hombre",
     "price": "₡24.000",
     "description": "",
@@ -746,11 +746,24 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T21:03:41.705Z",
+    "brand": "Calvin Klein",
+    "discountActive": true,
+    "discountPrice": "₡20.000",
+    "sizeOptions": [
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-14-calvin-klein-liquid-touch-crewneck-t-shirt-amarillo",
-    "name": "Calvin Klein - Liquid Touch Crewneck T-Shirt amarillo",
+    "name": "Liquid Touch Crewneck T-Shirt amarillo",
     "category": "hombre",
     "price": "₡24.000",
     "description": "",
@@ -759,7 +772,16 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T15:03:52-06:00",
+    "brand": "Calvin Klein",
+    "discountActive": true,
+    "discountPrice": "₡20.000",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-15-tommy-hilfiger-regular-fit-wicking-polo-vino",
