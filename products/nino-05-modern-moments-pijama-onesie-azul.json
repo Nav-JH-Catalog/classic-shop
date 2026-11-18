@@ -2,7 +2,7 @@
   "id": "nino-05-modern-moments-pijama-onesie-azul",
   "name": "Modern Moments — Pijama onesie azul",
   "category": "nino",
-  "price": "₡9.500",
+  "price": "₡12.500",
   "description": "Disponible. Tallas: 6-9M.",
   "sizes": "6-9M",
   "image": "/classic-shop/images/products/nino-05.webp",
@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 4,
   "visible": true,
-  "updatedAt": "2026-10-27T20:07:51.439Z"
+  "updatedAt": "2026-11-18T18:49:59.144Z",
+  "discountActive": true,
+  "discountPrice": "₡9.500"
 }
