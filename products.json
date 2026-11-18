@@ -439,7 +439,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:49:39-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 21.500"
   },
   {
     "id": "nina-13-tommy-hilfiger-conjunto-rayas-2-piezas",
