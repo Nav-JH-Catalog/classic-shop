@@ -1090,15 +1090,17 @@
   },
   {
     "image": "/classic-shop/images/products/28.jpeg",
-    "name": "Abrigo Comegalletas ",
+    "name": "Abrigo Comegalletas",
     "category": "nino",
     "price": "₡ 14.000",
     "status": "Disponible",
     "visible": true,
     "sizes": "9-12M, 12-18M",
-    "description": "Abrigo Comegalletas ",
-    "updatedAt": "2026-10-26T12:35",
-    "id": "abrigo-comegalletas"
+    "description": "Abrigo Comegalletas",
+    "updatedAt": "2026-11-18T11:41:31-06:00",
+    "id": "abrigo-comegalletas",
+    "discountActive": true,
+    "discountPrice": "₡11.500"
   },
   {
     "id": "carters-pijama-onesie",
