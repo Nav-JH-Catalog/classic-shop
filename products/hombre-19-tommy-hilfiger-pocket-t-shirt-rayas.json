@@ -10,10 +10,10 @@
   "color": "#eee9df",
   "_order": 52,
   "visible": true,
-  "updatedAt": "2026-11-18T21:06:20.712Z",
+  "updatedAt": "2026-11-18T21:06:48.463Z",
   "brand": "Tommy Hilfiger",
-  "discountActive": false,
-  "discountPrice": "",
+  "discountActive": true,
+  "discountPrice": "₡20.000",
   "sizeOptions": [
     {
       "label": "L",
