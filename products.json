@@ -476,7 +476,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:44:04-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 21.500"
   },
   {
     "id": "nina-16-tommy-hilfiger-vestido-manga-corta-rosa",
