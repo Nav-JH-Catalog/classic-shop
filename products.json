@@ -1169,8 +1169,10 @@
     "visible": true,
     "sizes": "6-12M, 12-24M",
     "description": "Old Navy – Medias colores 6 pares",
-    "updatedAt": "2026-10-26T11:46",
-    "id": "old-navy-medias-colores-6-pares"
+    "updatedAt": "2026-11-18T12:57:09-06:00",
+    "id": "old-navy-medias-colores-6-pares",
+    "discountActive": true,
+    "discountPrice": "₡10.000"
   },
   {
     "name": "Old Navy – Paquete de 6 Medias blancas",
