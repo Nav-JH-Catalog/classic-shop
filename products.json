@@ -1330,15 +1330,17 @@
   },
   {
     "image": "/classic-shop/images/products/25.png",
-    "name": "Primark – Vestido 2 piezas floral ",
+    "name": "Primark – Vestido 2 piezas floral",
     "category": "nina",
     "price": "₡ 16.000",
     "status": "Disponible",
     "visible": true,
     "sizes": "6-9M, 9-12M",
-    "description": "Primark – Vestido 2 piezas floral ",
-    "updatedAt": "2026-10-26T12:25",
-    "id": "primark-vestido-2-piezas-floral"
+    "description": "Primark – Vestido 2 piezas floral",
+    "updatedAt": "2026-11-18T13:04:16-06:00",
+    "id": "primark-vestido-2-piezas-floral",
+    "discountActive": true,
+    "discountPrice": "₡ 13.500"
   },
   {
     "image": "/classic-shop/images/products/20-2.png",
