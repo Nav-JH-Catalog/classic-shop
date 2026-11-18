@@ -35,6 +35,11 @@ content:
         type: string
         required: true
         description: Nombre corto y fácil de reconocer.
+      - name: brand
+        label: Marca
+        type: string
+        required: false
+        description: Marca del producto. En el portal principal se detecta automáticamente al separar el nombre.
       - name: category
         label: Categoría
         type: select
@@ -93,10 +98,9 @@ content:
       - name: description
         label: Descripción breve
         type: text
-        required: true
-        description: Describe brevemente el producto y sus características principales.
+        required: false
+        description: Opcional. Agrega solamente información útil que no aparezca en los otros campos.
         options:
-          minlength: 10
           maxlength: 300
       - name: updatedAt
         label: Última actualización

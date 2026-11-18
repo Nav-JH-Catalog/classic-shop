@@ -58,6 +58,17 @@ nav a:hover, .text-link:hover { border-color: currentColor; }
 }
 .menu-button { display: none; padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px; background: transparent; cursor: pointer; }
 
+.seasonal-banner { position:relative;display:block;width:100%;height:clamp(240px,24vw,380px);overflow:hidden;color:#fff;background:#020b16;isolation:isolate; }
+.seasonal-banner::before { content:"";position:absolute;inset:-28px;z-index:0;background:url("images/black-friday-hero-v3.png") center/cover no-repeat;filter:blur(24px) brightness(.38) saturate(.85);transform:scale(1.07);opacity:.9;pointer-events:none; }
+.seasonal-banner img { position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center;transform:scale(1.002);animation:seasonal-banner-breathe 8s ease-in-out infinite alternate; }
+.seasonal-banner::after { content:"";position:absolute;inset:0;z-index:1;border-bottom:1px solid rgba(214,157,64,.5);box-shadow:inset 0 -35px 65px rgba(0,0,0,.2);pointer-events:none; }
+.seasonal-banner-shine { position:absolute;top:-35%;left:-18%;z-index:1;width:20%;height:180%;background:linear-gradient(90deg,transparent,rgba(255,239,194,.22),transparent);filter:blur(7px);transform:rotate(16deg);animation:seasonal-banner-shine 6.5s ease-in-out infinite;pointer-events:none; }
+.seasonal-banner-action { position:absolute;right:clamp(18px,4vw,70px);bottom:clamp(16px,2.5vw,36px);z-index:2;display:inline-flex;align-items:center;gap:12px;padding:11px 18px;border:1px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;background:rgba(3,23,42,.64);backdrop-filter:blur(10px);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+.seasonal-banner:hover .seasonal-banner-action,.seasonal-banner:focus-visible .seasonal-banner-action { background:var(--accent);border-color:var(--accent);transform:translateY(-2px); }
+.seasonal-banner:focus-visible { outline:3px solid var(--accent);outline-offset:-3px; }
+@keyframes seasonal-banner-breathe { from{transform:scale(1.002)} to{transform:scale(1.014)} }
+@keyframes seasonal-banner-shine { 0%,34%{left:-22%;opacity:0} 47%{opacity:1} 66%,100%{left:112%;opacity:0} }
+
 .hero {
   min-height: calc(100vh - 74px);
   display: grid;
@@ -144,8 +155,12 @@ h1 { font-size: clamp(48px, 6.2vw, 96px); line-height: .98; letter-spacing: -.03
 .price-sale { font-size:17px; }
 .price-original { color:#88847c; font-size:12px; text-decoration:line-through; text-decoration-thickness:1.5px; }
 .discount-saving { padding:3px 7px; border-radius:999px; color:#8d3024; background:#f8e5df; font-size:9px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
-.product-info .product-sizes { margin-top: 7px; color: var(--ink); font-size: 12px; font-weight: 600; }
+.product-info .product-sizes { display:flex;flex-wrap:wrap;gap:7px;margin-top:11px; }
+.product-size { min-width:35px;padding:6px 8px;border-radius:4px;color:#0a3156;background:#e5e6e7;font-size:11px;font-weight:700;text-align:center; }
+.product-size.is-available { color:#fff;background:#1774ce; }
+.product-size.is-unavailable { color:#6f6f6c;background:#dededb;text-decoration:line-through;text-decoration-thickness:1.5px; }
 .product-info .product-description { max-width: 310px; margin-top: 10px; line-height: 1.55; }
+.product-brand { display:block; margin-bottom:5px; color:#7b7972; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
 .catalog-error { grid-column: 1 / -1; padding: 50px 0; color: var(--muted); }
 .product-action { flex: 0 0 auto; align-self: start; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; font-weight: 600; transition: color .2s ease, background .2s ease, border-color .2s ease; }
 .product-action:hover { color: var(--paper); background: var(--accent); border-color: var(--accent); }
@@ -201,6 +216,9 @@ body.viewer-open { overflow: hidden; }
 .image-viewer-close:hover, .image-viewer-close:focus-visible { color: var(--ink); background: white; transform: scale(1.05); outline: none; }
 
 @media (max-width: 780px) {
+  .seasonal-banner { height:min(50vw,240px);min-height:180px;max-height:240px; }
+  .seasonal-banner img { object-position:center; }
+  .seasonal-banner-action { right:10px;bottom:10px;padding:8px 11px;font-size:8px; }
   .site-header { height: 64px; }
   .brand { height: 52px; }
   .brand img { width: 80px; height: 50px; }
@@ -233,7 +251,7 @@ body.viewer-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header-whatsapp, .header-instagram, .instagram-icon, .image-viewer-contact-icon { animation: none; }
+  .header-whatsapp, .header-instagram, .instagram-icon, .image-viewer-contact-icon, .seasonal-banner img, .seasonal-banner-shine { animation: none; }
 }
 
 @media (max-width: 480px) {

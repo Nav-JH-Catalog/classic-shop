@@ -99,7 +99,7 @@ const productPath=id=>`products/${encodeURIComponent(id)}.json`;
 const productAmount=value=>Number(String(value||"").replace(/[^\d]/g,""))||0;
 const discountedProduct=product=>product.discountActive===true&&productAmount(product.discountPrice)>0&&productAmount(product.discountPrice)<productAmount(product.price);
 const productCurrentPrice=product=>discountedProduct(product)?product.discountPrice:product.price;
-function validProduct(body){const base=['name','category','price','description'].every(key=>typeof body[key]==='string'&&body[key].trim())&&['nino','nina','hombre','mujer','tecnologia','salud'].includes(body.category)&&['Disponible','Agotado'].includes(body.status)&&(!body.id||(typeof body.id==='string'&&!/[\\/\x00-\x1f?#]/.test(body.id)&&body.id.length<=200));return base&&(body.discountActive!==true||(typeof body.discountPrice==='string'&&productAmount(body.discountPrice)>0&&productAmount(body.discountPrice)<productAmount(body.price)));}
+function validProduct(body){const base=['name','category','price'].every(key=>typeof body[key]==='string'&&body[key].trim())&&typeof body.description==='string'&&!/-/.test(body.price)&&['nino','nina','hombre','mujer','tecnologia','salud'].includes(body.category)&&['Disponible','Agotado'].includes(body.status)&&(!body.id||(typeof body.id==='string'&&!/[\\/\x00-\x1f?#]/.test(body.id)&&body.id.length<=200));return base&&(body.discountActive!==true||(typeof body.discountPrice==='string'&&!/-/.test(body.discountPrice)&&productAmount(body.discountPrice)>0&&productAmount(body.discountPrice)<productAmount(body.price)));}
 
 const chatNormalize=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 function chatProducts(products,message,previousMessage=""){
@@ -114,7 +114,7 @@ function chatProducts(products,message,previousMessage=""){
   filtered.sort((a,b)=>/barato|economico/.test(current)?a.price-b.price:b.score-a.score||a.price-b.price);return filtered.slice(0,4).map(item=>item.product);
 }
 async function answerChat(env,message,products){
-  const catalog=products.map(product=>({id:product.id,nombre:product.name,precio:productCurrentPrice(product),precioOriginal:discountedProduct(product)?product.price:null,descuento:discountedProduct(product),tallas:product.sizes||"No aplica",disponibilidad:product.status,categoria:product.category,descripcion:product.description}));
+  const catalog=products.map(product=>({id:product.id,nombre:product.name,precio:productCurrentPrice(product),precioOriginal:discountedProduct(product)?product.price:null,descuento:discountedProduct(product),tallas:Array.isArray(product.sizeOptions)&&product.sizeOptions.length?product.sizeOptions.map(size=>`${size.label} (${size.available===false?"agotada":"disponible"})`).join(", "):product.sizes||"No aplica",disponibilidad:product.status,categoria:product.category,descripcion:product.description}));
   const fallback=catalog.length===1?`Sí, encontré ${catalog[0].nombre} por ${catalog[0].precio}. Revisa los detalles abajo.`:catalog.length?`Sí, encontré varias opciones que encajan. Puedes empezar por ${catalog[0].nombre} (${catalog[0].precio}) o ${catalog[1].nombre} (${catalog[1].precio}). Te las dejo abajo.`:"No encontré una coincidencia exacta. Puedo ayudarte a buscar por categoría, talla o rango de precio, o conectarte con atención personalizada por WhatsApp.";
   if(catalog.length)return fallback;
   const normalized=chatNormalize(message);

@@ -9,11 +9,14 @@ const inventoryPanel=document.querySelector(".workspace"),inventoryToggle=docume
 function setInventoryCollapsed(collapsed){inventoryPanel.classList.toggle("is-collapsed",collapsed);inventoryToggle.setAttribute("aria-expanded",String(!collapsed));inventoryToggle.textContent=collapsed?"Mostrar inventario":"Minimizar inventario";localStorage.setItem("finds_inventory_collapsed",collapsed?"1":"0");}
 inventoryToggle.addEventListener("click",()=>setInventoryCollapsed(!inventoryPanel.classList.contains("is-collapsed")));setInventoryCollapsed(localStorage.getItem("finds_inventory_collapsed")==="1");
 function normalize(value) { return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
+function productBrand(product){if(String(product.brand||"").trim())return String(product.brand).trim();const parts=String(product.name||"").split(/\s+[—–-]\s+/);return parts.length>1?parts[0].trim():"";}
+function productDisplayName(product){const brand=productBrand(product);if(!brand)return product.name;return String(product.name||"").replace(new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\s*[—–-]\\s*`,"i"),"").trim()||product.name;}
+function visibleDescription(product){const description=String(product.description||"").trim(),value=normalize(description).replace(/\s+/g," ").trim(),name=normalize(product.name).replace(/\s+/g," ").trim();if(!description||value===name||/^(disponible|agotado)\.?\s*(tallas?\s*:\s*.*)?\.?$/.test(value))return "";return description;}
 function productEditUrl(product) { return `${CMS_BASE}/edit/${encodeURIComponent(`products/${product.id}.json`)}`; }
 function filteredProducts() {
   const query=normalize(state.query);
   const filtered=state.products.filter((product)=>{
-    const text=normalize([product.name,product.description,product.category,product.price,product.sizes].join(" "));
+    const text=normalize([product.name,productBrand(product),product.description,product.category,product.price,product.sizes].join(" "));
     const matchesQuery=!query||text.includes(query);
     const matchesCategory=state.category==="all"||product.category===state.category;
     let matchesAvailability=true;
@@ -28,9 +31,9 @@ function render() {
   const fragment=document.createDocumentFragment();
   products.forEach((product)=>{
     const row=elements.template.content.firstElementChild.cloneNode(true); const image=row.querySelector(".product-image"); image.src=product.image||"../logo-finds.png"; image.alt=product.name||"Producto de Finds"; image.onerror=()=>{ image.src="../logo-finds.png"; };
-    row.querySelector(".product-name").textContent=product.name;
+    const brand=row.querySelector(".product-brand"),brandText=productBrand(product);brand.textContent=brandText;brand.hidden=!brandText;row.querySelector(".product-name").textContent=productDisplayName(product);
     const updated=product.updatedAt?new Date(product.updatedAt).toLocaleString("es-CR",{dateStyle:"short",timeStyle:"short"}):"Sin fecha";row.querySelector(".product-meta").textContent=[CATEGORY_LABELS[product.category]||product.category,product.sizes&&product.sizes!=="No aplica"?`Tallas: ${product.sizes}`:"",`Editado: ${updated}`].filter(Boolean).join(" · ");
-    row.querySelector(".product-description").textContent=product.description||"Sin descripción"; const price=row.querySelector(".product-price"),discounted=product.discountActive===true&&Number(String(product.discountPrice||"").replace(/[^\d]/g,""))<Number(String(product.price||"").replace(/[^\d]/g,""));if(discounted){const original=document.createElement("s"),sale=document.createElement("span"),label=document.createElement("small");original.textContent=product.price;sale.textContent=product.discountPrice;label.textContent="Oferta";price.append(original,sale,label);}else price.textContent=product.price||"Sin precio";
+    const description=row.querySelector(".product-description"),descriptionText=visibleDescription(product);description.textContent=descriptionText;description.hidden=!descriptionText; const price=row.querySelector(".product-price"),discounted=product.discountActive===true&&Number(String(product.discountPrice||"").replace(/[^\d]/g,""))<Number(String(product.price||"").replace(/[^\d]/g,""));if(discounted){const original=document.createElement("s"),sale=document.createElement("span"),label=document.createElement("small");original.textContent=product.price;sale.textContent=product.discountPrice;label.textContent="Oferta";price.append(original,sale,label);}else price.textContent=product.price||"Sin precio";
     const status=row.querySelector(".status-pill"); if(product.visible===false){ status.textContent="Oculto"; status.classList.add("is-hidden"); } else { status.textContent=product.status||"Disponible"; if(product.status==="Agotado") status.classList.add("is-out"); }
     const edit=row.querySelector(".edit-button"); edit.dataset.productId=product.id; edit.setAttribute("aria-label",`Editar ${product.name}`);
     const quick=row.querySelector(".quick-status"); quick.dataset.productId=product.id; quick.textContent=product.status==="Agotado"?"Marcar disponible":"Marcar agotado"; quick.setAttribute("aria-label",`${quick.textContent}: ${product.name}`);

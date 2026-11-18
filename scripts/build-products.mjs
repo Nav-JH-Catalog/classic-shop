@@ -16,11 +16,13 @@ for (const file of files) {
   product.id ||= path.basename(file, '.json');
   if (product.id !== path.basename(file, '.json')) throw new Error(`${file}: el identificador debe coincidir con el nombre del archivo`);
 
-  for (const field of ['name', 'category', 'price', 'description', 'status']) {
+  for (const field of ['name', 'category', 'price', 'status']) {
     if (!product[field]) throw new Error(`${file}: falta el campo ${field}`);
   }
+  if (typeof product.description !== 'string') throw new Error(`${file}: la descripción debe ser texto`);
   const amount = (value) => Number(String(value || '').replace(/[^\d]/g, '')) || 0;
-  if (product.discountActive === true && (!amount(product.discountPrice) || amount(product.discountPrice) >= amount(product.price))) {
+  if (/-/.test(String(product.price || ''))) throw new Error(`${file}: el precio original no puede ser negativo`);
+  if (product.discountActive === true && (/-/.test(String(product.discountPrice || '')) || !amount(product.discountPrice) || amount(product.discountPrice) >= amount(product.price))) {
     throw new Error(`${file}: el precio con descuento debe ser menor al precio original`);
   }
 

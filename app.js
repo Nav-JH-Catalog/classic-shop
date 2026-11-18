@@ -1,4 +1,6 @@
 const grid = document.querySelector("#product-grid");
+const seasonalBanner=document.querySelector("#black-friday-banner");
+if(seasonalBanner&&Date.now()>=Date.parse("2027-01-01T00:00:00-06:00"))seasonalBanner.remove();
 const STORE_CONFIG = {
   whatsapp: "50688989259",
   instagram: "https://www.instagram.com/finds_cr/",
@@ -55,10 +57,16 @@ function productPriceMarkup(product) {
   return `<span class="price-original"><span class="sr-only">Precio original: </span>${product.price}</span><strong class="price-sale"><span class="sr-only">Precio con descuento: </span>${product.discountPrice}</strong><span class="discount-saving">Ahorras ${discountPercent(product)}%</span>`;
 }
 
+function productSizeOptions(product) {
+  if (Array.isArray(product.sizeOptions) && product.sizeOptions.length) return product.sizeOptions.map(item => typeof item === "string" ? { label:item, available:true } : { label:String(item.label || "").trim(), available:item.available !== false }).filter(item => item.label);
+  return String(product.sizes || "").split(",").map(label => ({ label:label.trim(), available:true })).filter(item => item.label && item.label !== "No aplica");
+}
+
 function productSizeMarkup(product) {
-  return clothingCategories.has(product.category)
-    ? `<p class="product-sizes">Tallas: ${product.sizes || "Consultar"}</p>`
-    : "";
+  if (!clothingCategories.has(product.category)) return "";
+  const options = productSizeOptions(product);
+  if (!options.length) return `<div class="product-sizes"><span class="product-size">Consultar</span></div>`;
+  return `<div class="product-sizes" aria-label="Tallas">${options.map(size => `<span class="product-size ${size.available ? "is-available" : "is-unavailable"}" title="${size.available ? "Disponible" : "Agotada"}">${size.label}</span>`).join("")}</div>`;
 }
 
 function whatsappUrl(message) {
@@ -67,6 +75,27 @@ function whatsappUrl(message) {
 
 function normalizeText(value = "") {
   return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+function productBrand(product) {
+  if (String(product.brand || "").trim()) return String(product.brand).trim();
+  const parts = String(product.name || "").split(/\s+[—–-]\s+/);
+  return parts.length > 1 ? parts[0].trim() : "";
+}
+
+function productDisplayName(product) {
+  const brand = productBrand(product);
+  if (!brand) return product.name;
+  return String(product.name || "").replace(new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*[—–-]\\s*`, "i"), "").trim() || product.name;
+}
+
+function visibleProductDescription(product) {
+  const description = String(product.description || "").trim();
+  const normalized = normalizeText(description).replace(/\s+/g, " ").trim();
+  const normalizedName = normalizeText(product.name).replace(/\s+/g, " ").trim();
+  if (!description || normalized === normalizedName) return "";
+  if (/^(disponible|agotado)\.?\s*(tallas?\s*:\s*.*)?\.?$/.test(normalized)) return "";
+  return description;
 }
 
 function renderProducts() {
@@ -78,8 +107,10 @@ function renderProducts() {
   const items = query
     ? categoryItems.filter(product => normalizeText([
         product.name,
+        productBrand(product),
         product.description,
         product.sizes,
+        productSizeOptions(product).map(size => size.label).join(" "),
         product.price,
         product.discountPrice,
         product.status,
@@ -104,11 +135,12 @@ function renderProducts() {
       </div>
       <div class="product-info">
         <div>
-          <h3>${product.name}</h3>
+          ${productBrand(product) ? `<span class="product-brand">${productBrand(product)}</span>` : ""}
+          <h3>${productDisplayName(product)}</h3>
           <p>${categoryLabels[product.category] || product.category}</p>
           <div class="product-price-line">${productPriceMarkup(product)}</div>
           ${productSizeMarkup(product)}
-          ${product.description ? `<p class="product-description">${product.description}</p>` : ""}
+          ${visibleProductDescription(product) ? `<p class="product-description">${visibleProductDescription(product)}</p>` : ""}
         </div>
         ${product.status === "Agotado"
           ? `<span class="product-action sold-out" aria-label="Producto agotado">Agotado</span>`
