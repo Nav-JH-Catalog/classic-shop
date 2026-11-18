@@ -834,7 +834,7 @@
   },
   {
     "id": "mujer-11-uniqlo-t-shirt-cuello-redondo-ciruela",
-    "name": "Uniqlo — T-Shirt cuello redondo ciruela",
+    "name": "Uniqlo — T-Shirt cuello redondo mauve",
     "category": "mujer",
     "price": "₡16.000",
     "description": "Disponible. Tallas: M, L.",
@@ -843,7 +843,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:16:27-06:00",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "mujer-12-uniqlo-t-shirt-cuello-redondo-azul-marino",
