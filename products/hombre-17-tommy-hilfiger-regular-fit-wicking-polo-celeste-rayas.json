@@ -1,6 +1,6 @@
 {
   "id": "hombre-17-tommy-hilfiger-regular-fit-wicking-polo-celeste-rayas",
-  "name": "Tommy Hilfiger - Regular Fit Wicking Polo celeste rayas",
+  "name": "Regular Fit Wicking Polo celeste rayas",
   "category": "hombre",
   "price": "₡36.000",
   "description": "",
@@ -10,5 +10,22 @@
   "color": "#eee9df",
   "_order": 50,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T21:05:16.962Z",
+  "brand": "Tommy Hilfiger",
+  "discountActive": true,
+  "discountPrice": "₡28.500",
+  "sizeOptions": [
+    {
+      "label": "L",
+      "available": true
+    },
+    {
+      "label": "XL",
+      "available": true
+    },
+    {
+      "label": "XXL",
+      "available": true
+    }
+  ]
 }
