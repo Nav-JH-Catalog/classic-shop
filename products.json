@@ -108,14 +108,16 @@
     "id": "nino-08-modern-moments-pijama-2-piezas-celeste",
     "name": "Modern Moments — Pijama 2 piezas celeste",
     "category": "nino",
-    "price": "₡9.500",
+    "price": "₡12.500",
     "description": "Disponible. Tallas: 3-6M.",
     "sizes": "3-6M",
     "image": "/classic-shop/images/products/nino-08.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T12:52:14-06:00",
+    "discountActive": true,
+    "discountPrice": "₡9.500"
   },
   {
     "id": "nino-09-primark-conjunto-3-piezas-azul",
