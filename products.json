@@ -1164,9 +1164,11 @@
     "visible": true,
     "sizes": "12 - 24M",
     "description": "Old Navy – Paquete de 6 Medias blancas",
-    "updatedAt": "2026-10-26T12:31",
+    "updatedAt": "2026-11-18T11:56:50-06:00",
     "image": "/classic-shop/images/products/23-2.png",
-    "id": "old-navy-paquete-de-6-medias-blancas"
+    "id": "old-navy-paquete-de-6-medias-blancas",
+    "discountActive": true,
+    "discountPrice": "₡10.000"
   },
   {
     "image": "/classic-shop/images/products/24-1.png",
