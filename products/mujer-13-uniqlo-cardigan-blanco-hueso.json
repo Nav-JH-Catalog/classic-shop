@@ -1,8 +1,8 @@
 {
   "id": "mujer-13-uniqlo-cardigan-blanco-hueso",
-  "name": "Uniqlo — Cardigan blanco hueso",
+  "name": "Cardigan blanco hueso",
   "category": "mujer",
-  "price": "₡25.000",
+  "price": "₡29.000",
   "description": "",
   "sizes": "M",
   "image": "/classic-shop/images/products/mujer-13.webp",
@@ -10,5 +10,14 @@
   "color": "#eee9df",
   "_order": 65,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T20:54:33.432Z",
+  "brand": "Uniqlo",
+  "discountActive": false,
+  "discountPrice": "",
+  "sizeOptions": [
+    {
+      "label": "M",
+      "available": true
+    }
+  ]
 }
