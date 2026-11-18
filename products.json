@@ -179,7 +179,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:31:00-06:00",
+    "discountActive": true,
+    "discountPrice": "₡21.500"
   },
   {
     "id": "nino-15-calvin-klein-conjunto-2-piezas-camisa-manga-larga-azul",
