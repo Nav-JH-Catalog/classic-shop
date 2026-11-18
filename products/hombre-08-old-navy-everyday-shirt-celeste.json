@@ -3,12 +3,14 @@
   "name": "Old Navy — Everyday Shirt celeste",
   "category": "hombre",
   "price": "₡18.000",
-  "description": "Disponible. Tallas: M, L, XL.",
-  "sizes": "M, L, XL",
+  "description": "Disponible. Tallas: L.",
+  "sizes": "L",
   "image": "/classic-shop/images/products/hombre-08.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 41,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-18T17:11:28.373Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
