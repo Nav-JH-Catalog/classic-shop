@@ -822,13 +822,15 @@
     "name": "Uniqlo — T-Shirt cuello redondo café",
     "category": "mujer",
     "price": "₡16.000",
-    "description": "Disponible. Tallas: M, L, XL.",
-    "sizes": "M, L, XL",
+    "description": "Disponible. Tallas: M, L.",
+    "sizes": "M, L",
     "image": "/classic-shop/images/products/mujer-10.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:13:59-06:00",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "mujer-11-uniqlo-t-shirt-cuello-redondo-ciruela",
