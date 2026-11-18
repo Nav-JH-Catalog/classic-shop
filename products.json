@@ -529,23 +529,25 @@
     "description": "Disponible. Tallas: M, L, XL.",
     "sizes": "M, L, XL",
     "image": "/classic-shop/images/products/hombre-07.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:11:37-06:00"
   },
   {
     "id": "hombre-08-old-navy-everyday-shirt-celeste",
     "name": "Old Navy — Everyday Shirt celeste",
     "category": "hombre",
     "price": "₡18.000",
-    "description": "Disponible. Tallas: M, L, XL.",
-    "sizes": "M, L, XL",
+    "description": "Disponible. Tallas: L.",
+    "sizes": "L",
     "image": "/classic-shop/images/products/hombre-08.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T17:11:28.373Z",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "hombre-09-calvin-klein-liquid-touch-crewneck-t-shirt-blanco",
