@@ -163,7 +163,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:39:00-06:00",
+    "discountActive": true,
+    "discountPrice": "₡17.500"
   },
   {
     "id": "nino-13-primark-conjunto-overalls-2-piezas-comegalletas",
