@@ -3,14 +3,14 @@
   "name": "Calvin Klein - Liquid Touch Crewneck T-Shirt negro",
   "category": "hombre",
   "price": "₡24.000",
-  "description": "Disponible. Tallas: XL, XXL.",
-  "sizes": "XL, XXL",
+  "description": "Disponible. Tallas: XXL.",
+  "sizes": "XXL",
   "image": "/classic-shop/images/products/hombre-12.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 45,
   "visible": true,
-  "updatedAt": "2026-11-10T11:37:17-06:00",
+  "updatedAt": "2026-11-18T17:09:02.856Z",
   "discountActive": false,
   "discountPrice": ""
 }
