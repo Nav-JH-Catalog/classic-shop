@@ -2,7 +2,7 @@
   "id": "nina-11-modern-moments-pijama-2-piezas-lazos",
   "name": "Modern Moments — Pijama 2 piezas lazos",
   "category": "nina",
-  "price": "₡9.500",
+  "price": "₡12.500",
   "description": "Disponible. Tallas: 6-9M.",
   "sizes": "6-9M",
   "image": "/classic-shop/images/products/nina-11.webp",
@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 28,
   "visible": true,
-  "updatedAt": "2026-11-10T17:35:41.536Z"
+  "updatedAt": "2026-11-18T18:52:42.443Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
