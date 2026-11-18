@@ -550,16 +550,20 @@
   },
   {
     "id": "hombre-04-gorra-cafe-logo-h-bordado-tommy-hilfiger",
-    "name": "Gorra café logo “H” bordado Tommy Hilfiger",
+    "name": "Gorra café logo “H” bordado",
     "category": "hombre",
     "price": "₡19.000",
     "description": "",
-    "sizes": "No aplica",
+    "sizes": "",
     "image": "/classic-shop/images/products/hombre-04.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T14:58:11-06:00",
+    "brand": "Tommy Hilfiger",
+    "discountActive": true,
+    "discountPrice": "₡15.000",
+    "sizeOptions": []
   },
   {
     "id": "hombre-05-gorra-verde-logo-bordado-tommy-hilfiger",
