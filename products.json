@@ -1212,9 +1212,9 @@
     "description": "OshKosh – Blusa estampado de flores rosa",
     "visible": true,
     "image": "/classic-shop/images/products/18.png",
-    "updatedAt": "2026-11-18T12:59:00-06:00",
-    "discountActive": false,
-    "discountPrice": ""
+    "updatedAt": "2026-11-18T12:59:29-06:00",
+    "discountActive": true,
+    "discountPrice": "₡8.000"
   },
   {
     "id": "osh-kosh-blusa-estampado-de-flores-verde",
