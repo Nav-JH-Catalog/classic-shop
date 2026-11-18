@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 10,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-18T17:35:33.100Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
