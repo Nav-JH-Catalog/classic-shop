@@ -351,7 +351,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:41:39-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 16.500"
   },
   {
     "id": "nina-07-tommy-hilfiger-shirt-jacket-corduroy-rosa",
