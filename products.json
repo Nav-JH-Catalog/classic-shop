@@ -877,14 +877,14 @@
     "id": "hombre-18-tommy-hilfiger-t-shirt-rugby-blanco-y-azul-marino",
     "name": "T-Shirt Rugby blanco y azul marino",
     "category": "hombre",
-    "price": "₡24.000",
+    "price": "₡25.000",
     "description": "",
     "sizes": "XXL",
     "image": "/classic-shop/images/products/hombre-18.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T15:05:57-06:00",
+    "updatedAt": "2026-11-18T21:06:33.724Z",
     "discountActive": true,
     "discountPrice": "₡20.000",
     "brand": "Tommy Hilfiger",
@@ -897,16 +897,33 @@
   },
   {
     "id": "hombre-19-tommy-hilfiger-pocket-t-shirt-rayas",
-    "name": "Tommy Hilfiger — Pocket T-Shirt rayas",
+    "name": "Pocket T-Shirt rayas",
     "category": "hombre",
-    "price": "₡24.000",
+    "price": "₡25.000",
     "description": "",
     "sizes": "L, XL, XXL",
     "image": "/classic-shop/images/products/hombre-19.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T15:06:48-06:00",
+    "brand": "Tommy Hilfiger",
+    "discountActive": true,
+    "discountPrice": "₡20.000",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      },
+      {
+        "label": "XL",
+        "available": true
+      },
+      {
+        "label": "XXL",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-01-kate-spade-tote-bag",
