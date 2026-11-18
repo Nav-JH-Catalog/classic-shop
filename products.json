@@ -144,7 +144,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:35:35-06:00",
+    "discountActive": true,
+    "discountPrice": "₡13.500"
   },
   {
     "id": "nino-12-pijama-bluey-2-piezas",
