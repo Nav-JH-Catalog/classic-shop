@@ -278,7 +278,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:15:33-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 11.500"
   },
   {
     "id": "nina-02-modern-moments-pijama-onsie-morado",
