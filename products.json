@@ -456,14 +456,16 @@
     "id": "nina-14-modern-moments-pijama-2-piezas-ciruela",
     "name": "Modern Moments — Pijama 2 piezas ciruela",
     "category": "nina",
-    "price": "₡9.500",
+    "price": "₡12.500",
     "description": "Disponible. Tallas: 6-9M, 18M.",
     "sizes": "6-9M, 18M",
     "image": "/classic-shop/images/products/nina-14.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:46:29-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 9.500"
   },
   {
     "id": "nina-15-tommy-hilfiger-vestido-manga-larga-blanco",
