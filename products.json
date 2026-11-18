@@ -887,14 +887,14 @@
     "description": "",
     "sizes": "M",
     "image": "/classic-shop/images/products/mujer-06.webp",
-    "status": "Disponible",
+    "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T20:52:06.330Z"
   },
   {
     "id": "mujer-07-uniqlo-t-shirt-cuello-redondo-beige",
-    "name": "Uniqlo — T-Shirt cuello redondo beige",
+    "name": "T-Shirt cuello redondo beige",
     "category": "mujer",
     "price": "₡16.000",
     "description": "",
@@ -903,11 +903,20 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T20:51:58.965Z",
+    "brand": "Uniqlo",
+    "discountActive": true,
+    "discountPrice": "₡ 14.000",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-08-uniqlo-t-shirt-cuello-redondo-blanco",
-    "name": "Uniqlo — T-Shirt cuello redondo blanco",
+    "name": "T-Shirt cuello redondo blanco",
     "category": "mujer",
     "price": "₡16.000",
     "description": "",
@@ -916,9 +925,24 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00",
-    "discountActive": false,
-    "discountPrice": ""
+    "updatedAt": "2026-11-18T14:52:14-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 14.000",
+    "brand": "Uniqlo",
+    "sizeOptions": [
+      {
+        "label": "S",
+        "available": true
+      },
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-09-uniqlo-t-shirt-cuello-redondo-negro",
