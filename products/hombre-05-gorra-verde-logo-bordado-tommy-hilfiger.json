@@ -1,14 +1,18 @@
 {
   "id": "hombre-05-gorra-verde-logo-bordado-tommy-hilfiger",
-  "name": "Gorra verde logo bordado Tommy Hilfiger",
+  "name": "Gorra verde logo bordado",
   "category": "hombre",
-  "price": "₡17.000",
+  "price": "₡19.000",
   "description": "",
-  "sizes": "No aplica",
+  "sizes": "",
   "image": "/classic-shop/images/products/hombre-05.webp",
   "status": "Disponible",
   "color": "#eee9df",
   "_order": 38,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T20:59:18.378Z",
+  "brand": "Tommy Hilfiger",
+  "discountActive": false,
+  "discountPrice": "",
+  "sizeOptions": []
 }
