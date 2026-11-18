@@ -588,7 +588,7 @@
   },
   {
     "id": "hombre-06-old-navy-everyday-shirt-blanco",
-    "name": "Old Navy — Everyday Shirt blanco",
+    "name": "Everyday Shirt blanco",
     "category": "hombre",
     "price": "₡18.000",
     "description": "",
@@ -597,9 +597,16 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00",
-    "discountActive": false,
-    "discountPrice": ""
+    "updatedAt": "2026-11-18T21:01:08.164Z",
+    "discountActive": true,
+    "discountPrice": "₡15.000",
+    "brand": "Old Navy",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-07-old-navy-everyday-shirt-gris",
@@ -616,7 +623,7 @@
   },
   {
     "id": "hombre-08-old-navy-everyday-shirt-celeste",
-    "name": "Old Navy — Everyday Shirt celeste",
+    "name": "Everyday Shirt celeste",
     "category": "hombre",
     "price": "₡18.000",
     "description": "",
@@ -625,9 +632,16 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00",
-    "discountActive": false,
-    "discountPrice": ""
+    "updatedAt": "2026-11-18T15:01:20-06:00",
+    "discountActive": true,
+    "discountPrice": "₡15.000",
+    "brand": "Old Navy",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-09-calvin-klein-liquid-touch-crewneck-t-shirt-blanco",
