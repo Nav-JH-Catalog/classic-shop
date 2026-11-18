@@ -368,7 +368,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T13:43:33-06:00",
+    "discountActive": true,
+    "discountPrice": "₡ 24.000"
   },
   {
     "id": "nina-08-chickpea-conjunto-mariposa-3-piezas",
