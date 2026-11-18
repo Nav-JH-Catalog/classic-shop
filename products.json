@@ -120,7 +120,9 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:37:50-06:00",
+    "discountActive": true,
+    "discountPrice": "₡18.500"
   },
   {
     "id": "nino-10-primark-conjunto-overalls-2-piezas-cafe",
