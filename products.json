@@ -1328,6 +1328,22 @@
     "updatedAt": "2026-11-10T17:34:35.009Z"
   },
   {
+    "image": "/classic-shop/images/products/15.png",
+    "name": "Mochila grande mauve",
+    "category": "mujer",
+    "price": "₡ 26.000",
+    "status": "Disponible",
+    "visible": true,
+    "description": "",
+    "updatedAt": "2026-11-18T14:55:14-06:00",
+    "id": "victorias-secret-pink-mochila-grande-mauve",
+    "brand": "Victoria’s Secret Pink",
+    "discountActive": false,
+    "discountPrice": "",
+    "sizes": "",
+    "sizeOptions": []
+  },
+  {
     "image": "/classic-shop/images/products/24.png",
     "name": "Old Navy – Medias colores 6 pares",
     "category": "nina",
@@ -1536,17 +1552,6 @@
     "id": "tommy-hilfiger-camisa-polo-vino",
     "discountActive": true,
     "discountPrice": "₡14.500"
-  },
-  {
-    "image": "/classic-shop/images/products/15.png",
-    "name": "Victoria’s Secret Pink – Mochila grande mauve",
-    "category": "mujer",
-    "price": "₡ 25.000",
-    "status": "Disponible",
-    "visible": true,
-    "description": "",
-    "updatedAt": "2026-11-18T14:14:42-06:00",
-    "id": "victorias-secret-pink-mochila-grande-mauve"
   },
   {
     "image": "/classic-shop/images/products/14.png",
