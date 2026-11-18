@@ -2,7 +2,7 @@
   "id": "nino-07-modern-moments-pijama-2-piezas-cafe",
   "name": "Modern Moments — Pijama 2 piezas café",
   "category": "nino",
-  "price": "₡9.500",
+  "price": "₡12.500",
   "description": "Disponible. Tallas: 6-9M.",
   "sizes": "6-9M",
   "image": "/classic-shop/images/products/nino-07.webp",
@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 6,
   "visible": true,
-  "updatedAt": "2026-11-10T17:35:09.091Z"
+  "updatedAt": "2026-11-18T18:50:35.214Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
