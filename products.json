@@ -946,7 +946,7 @@
   },
   {
     "id": "mujer-09-uniqlo-t-shirt-cuello-redondo-negro",
-    "name": "Uniqlo — T-Shirt cuello redondo negro",
+    "name": "T-Shirt cuello redondo negro",
     "category": "mujer",
     "price": "₡16.000",
     "description": "",
@@ -955,7 +955,28 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T14:52:26-06:00",
+    "brand": "Uniqlo",
+    "discountActive": true,
+    "discountPrice": "₡ 14.000",
+    "sizeOptions": [
+      {
+        "label": "S",
+        "available": true
+      },
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      },
+      {
+        "label": "XL",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-10-uniqlo-t-shirt-cuello-redondo-cafe",
