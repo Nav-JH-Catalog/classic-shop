@@ -401,14 +401,16 @@
     "id": "nina-11-modern-moments-pijama-2-piezas-lazos",
     "name": "Modern Moments — Pijama 2 piezas lazos",
     "category": "nina",
-    "price": "₡9.500",
+    "price": "₡12.500",
     "description": "Disponible. Tallas: 6-9M.",
     "sizes": "6-9M",
     "image": "/classic-shop/images/products/nina-11.webp",
     "status": "Agotado",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-10T17:35:41.536Z"
+    "updatedAt": "2026-11-18T12:52:42-06:00",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "nina-12-tommy-hilfiger-conjunto-corazon-2-piezas",
