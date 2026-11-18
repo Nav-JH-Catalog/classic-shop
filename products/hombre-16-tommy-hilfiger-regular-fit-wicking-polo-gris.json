@@ -1,6 +1,6 @@
 {
   "id": "hombre-16-tommy-hilfiger-regular-fit-wicking-polo-gris",
-  "name": "Tommy Hilfiger - Regular Fit Wicking Polo gris",
+  "name": "Regular Fit Wicking Polo gris",
   "category": "hombre",
   "price": "₡36.000",
   "description": "",
@@ -10,5 +10,22 @@
   "color": "#eee9df",
   "_order": 49,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T21:05:01.492Z",
+  "brand": "Tommy Hilfiger",
+  "discountActive": true,
+  "discountPrice": "₡28.500",
+  "sizeOptions": [
+    {
+      "label": "M",
+      "available": true
+    },
+    {
+      "label": "L",
+      "available": true
+    },
+    {
+      "label": "XL",
+      "available": true
+    }
+  ]
 }
