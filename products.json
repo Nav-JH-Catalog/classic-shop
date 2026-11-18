@@ -829,7 +829,7 @@
   },
   {
     "id": "mujer-04-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-rojo-rayas",
-    "name": "Tommy Hilfiger — T-Shirt Core Slim, cuello redondo rojo rayas",
+    "name": "T-Shirt Core Slim, cuello redondo rojo rayas",
     "category": "mujer",
     "price": "₡24.000",
     "description": "",
@@ -838,11 +838,24 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T20:51:01.198Z",
+    "brand": "Tommy Hilfiger",
+    "discountActive": true,
+    "discountPrice": "₡ 19.000",
+    "sizeOptions": [
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-05-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-blanco-rayas",
-    "name": "Tommy Hilfiger — T-Shirt Core Slim, cuello redondo blanco rayas",
+    "name": "T-Shirt Core Slim, cuello redondo blanco rayas",
     "category": "mujer",
     "price": "₡24.000",
     "description": "",
@@ -851,7 +864,20 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T14:51:22-06:00",
+    "brand": "Tommy Hilfiger",
+    "discountActive": true,
+    "discountPrice": "₡ 19.000",
+    "sizeOptions": [
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-06-tommy-hilfiger-cardigan-con-tejido-de-cable-vino",
