@@ -1269,6 +1269,20 @@
     "id": "primark-medias-colores-7-pares"
   },
   {
+    "id": "primark-paquete-de-7-media-de-colores",
+    "name": "Primark – Paquete de 7 Medias de colores",
+    "category": "nino",
+    "price": "₡ 9.000",
+    "discountActive": true,
+    "discountPrice": "₡7.500",
+    "status": "Disponible",
+    "sizes": "12 – 24M",
+    "description": "Primark – Paquete de 7 Medias de colores",
+    "visible": true,
+    "image": "/classic-shop/images/products/25-1.png",
+    "updatedAt": "2026-11-18T11:57:44-06:00"
+  },
+  {
     "id": "primark-paquete-de-7-medias-de-colores",
     "name": "Primark – Paquete de 7 Medias de colores",
     "category": "nino",
