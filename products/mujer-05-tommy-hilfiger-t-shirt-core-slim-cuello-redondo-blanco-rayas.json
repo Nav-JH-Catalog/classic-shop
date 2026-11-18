@@ -1,6 +1,6 @@
 {
   "id": "mujer-05-tommy-hilfiger-t-shirt-core-slim-cuello-redondo-blanco-rayas",
-  "name": "Tommy Hilfiger — T-Shirt Core Slim, cuello redondo blanco rayas",
+  "name": "T-Shirt Core Slim, cuello redondo blanco rayas",
   "category": "mujer",
   "price": "₡24.000",
   "description": "",
@@ -10,5 +10,18 @@
   "color": "#eee9df",
   "_order": 57,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T20:51:21.528Z",
+  "brand": "Tommy Hilfiger",
+  "discountActive": true,
+  "discountPrice": "₡ 19.000",
+  "sizeOptions": [
+    {
+      "label": "M",
+      "available": true
+    },
+    {
+      "label": "L",
+      "available": true
+    }
+  ]
 }
