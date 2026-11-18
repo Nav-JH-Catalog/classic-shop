@@ -1287,8 +1287,10 @@
     "visible": true,
     "sizes": "12-24M",
     "description": "Primark – Medias colores 7 pares",
-    "updatedAt": "2026-10-26T10:52",
-    "id": "primark-medias-colores-7-pares"
+    "updatedAt": "2026-11-18T12:56:09-06:00",
+    "id": "primark-medias-colores-7-pares",
+    "discountActive": true,
+    "discountPrice": "₡7.500"
   },
   {
     "id": "primark-paquete-de-7-media-de-colores",
