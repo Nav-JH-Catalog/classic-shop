@@ -2,7 +2,7 @@
   "id": "nina-02-modern-moments-pijama-onsie-morado",
   "name": "Modern Moments — Pijama Onsie morado",
   "category": "nina",
-  "price": "₡9.500",
+  "price": "₡12.500",
   "description": "Disponible. Tallas: 3-6M.",
   "sizes": "3-6M",
   "image": "/classic-shop/images/products/nina-02.webp",
@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 19,
   "visible": true,
-  "updatedAt": "2026-11-10T17:35:21.795Z"
+  "updatedAt": "2026-11-18T18:52:57.864Z",
+  "discountActive": false,
+  "discountPrice": ""
 }
