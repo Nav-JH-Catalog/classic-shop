@@ -2,7 +2,7 @@
   "id": "nino-06-modern-moments-pijama-2-piezas-gris",
   "name": "Modern Moments — Pijama 2 piezas gris",
   "category": "nino",
-  "price": "₡9.500",
+  "price": "₡12.500",
   "description": "Disponible. Tallas: 3-6M.",
   "sizes": "3-6M",
   "image": "/classic-shop/images/products/nino-06.webp",
@@ -10,5 +10,7 @@
   "color": "#eee9df",
   "_order": 5,
   "visible": true,
-  "updatedAt": "2026-10-21T09:47"
+  "updatedAt": "2026-11-18T18:51:59.353Z",
+  "discountActive": true,
+  "discountPrice": "₡9.500"
 }
