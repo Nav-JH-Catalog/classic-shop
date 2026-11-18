@@ -1032,7 +1032,7 @@
   },
   {
     "id": "mujer-12-uniqlo-t-shirt-cuello-redondo-azul-marino",
-    "name": "Uniqlo — T-Shirt cuello redondo azul marino",
+    "name": "T-Shirt cuello redondo azul marino",
     "category": "mujer",
     "price": "₡16.000",
     "description": "",
@@ -1041,7 +1041,20 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00"
+    "updatedAt": "2026-11-18T14:53:41-06:00",
+    "brand": "Uniqlo",
+    "discountActive": true,
+    "discountPrice": "₡ 14.000",
+    "sizeOptions": [
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      }
+    ]
   },
   {
     "id": "mujer-13-uniqlo-cardigan-blanco-hueso",
