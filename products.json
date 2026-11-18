@@ -794,13 +794,15 @@
     "name": "Uniqlo — T-Shirt cuello redondo blanco",
     "category": "mujer",
     "price": "₡16.000",
-    "description": "Disponible. Tallas: S, M, L, XL.",
-    "sizes": "S, M, L, XL",
+    "description": "Disponible. Tallas: S, M, L.",
+    "sizes": "S, M, L",
     "image": "/classic-shop/images/products/mujer-08.webp",
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-10-21T09:47"
+    "updatedAt": "2026-11-18T11:12:45-06:00",
+    "discountActive": false,
+    "discountPrice": ""
   },
   {
     "id": "mujer-09-uniqlo-t-shirt-cuello-redondo-negro",
