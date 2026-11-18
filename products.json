@@ -645,7 +645,7 @@
   },
   {
     "id": "hombre-09-calvin-klein-liquid-touch-crewneck-t-shirt-blanco",
-    "name": "Calvin Klein - Liquid Touch Crewneck T-Shirt blanco",
+    "name": "Liquid Touch Crewneck T-Shirt blanco",
     "category": "hombre",
     "price": "₡24.000",
     "description": "",
@@ -654,9 +654,20 @@
     "status": "Disponible",
     "color": "#eee9df",
     "visible": true,
-    "updatedAt": "2026-11-18T14:14:42-06:00",
-    "discountActive": false,
-    "discountPrice": ""
+    "updatedAt": "2026-11-18T15:02:37-06:00",
+    "discountActive": true,
+    "discountPrice": "₡20.000",
+    "brand": "Calvin Klein",
+    "sizeOptions": [
+      {
+        "label": "L",
+        "available": true
+      },
+      {
+        "label": "XL",
+        "available": true
+      }
+    ]
   },
   {
     "id": "hombre-10-calvin-klein-liquid-touch-crewneck-t-shirt-celeste",
