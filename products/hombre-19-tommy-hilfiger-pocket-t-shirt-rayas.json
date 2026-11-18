@@ -1,8 +1,8 @@
 {
   "id": "hombre-19-tommy-hilfiger-pocket-t-shirt-rayas",
-  "name": "Tommy Hilfiger — Pocket T-Shirt rayas",
+  "name": "Pocket T-Shirt rayas",
   "category": "hombre",
-  "price": "₡24.000",
+  "price": "₡25.000",
   "description": "",
   "sizes": "L, XL, XXL",
   "image": "/classic-shop/images/products/hombre-19.webp",
@@ -10,5 +10,22 @@
   "color": "#eee9df",
   "_order": 52,
   "visible": true,
-  "updatedAt": "2026-11-18T14:14:42-06:00"
+  "updatedAt": "2026-11-18T21:06:20.712Z",
+  "brand": "Tommy Hilfiger",
+  "discountActive": false,
+  "discountPrice": "",
+  "sizeOptions": [
+    {
+      "label": "L",
+      "available": true
+    },
+    {
+      "label": "XL",
+      "available": true
+    },
+    {
+      "label": "XXL",
+      "available": true
+    }
+  ]
 }
