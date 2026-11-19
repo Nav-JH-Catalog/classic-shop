@@ -79,7 +79,7 @@ function normalizeText(value = "") {
 
 function productBrand(product) {
   if (String(product.brand || "").trim()) return String(product.brand).trim();
-  const parts = String(product.name || "").split(/\s+[—–-]\s+/);
+  const parts = String(product.name || "").split(/\s*[—–]\s*|\s*-\s+/);
   return parts.length > 1 ? parts[0].trim() : "";
 }
 
@@ -135,7 +135,7 @@ function renderProducts() {
       </div>
       <div class="product-info">
         <div>
-          ${productBrand(product) ? `<span class="product-brand">${productBrand(product)}</span>` : ""}
+          <span class="product-brand">${productBrand(product) || "&nbsp;"}</span>
           <h3>${productDisplayName(product)}</h3>
           <p>${categoryLabels[product.category] || product.category}</p>
           <div class="product-price-line">${productPriceMarkup(product)}</div>
